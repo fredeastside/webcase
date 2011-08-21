@@ -26,7 +26,7 @@ class M_Articles extends M_SQL
 
     public function ViewAllArticles()
     {
-        $query = 6;
+        $query = 7;
     }
 }
  
