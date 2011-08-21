@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9c8c92b1-ab3b-4744-b507-4e1284419abd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/M_Articles.php" afterPath="$PROJECT_DIR$/Models/M_Articles.php" />
     </list>
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +38,7 @@
       <file leaf-file-name="M_SQL.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/M_SQL.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="34" selection-start="2533" selection-end="2533" vertical-scroll-proportion="0.0">
+            <state line="13" column="14" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -473,11 +474,6 @@
         <state line="49" column="27" selection-start="1577" selection-end="1577" vertical-scroll-proportion="0.64285713" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/M_SQL.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="34" selection-start="2533" selection-end="2533" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/M_News.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" />
@@ -506,6 +502,13 @@
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="49" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/M_SQL.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="14" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
