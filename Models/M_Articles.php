@@ -8,7 +8,7 @@
  */
 class M_Articles extends M_SQL
 {
-    public static $instance;
+    private static $instance;
     private $msql;
 
     public static function Instance()
@@ -26,7 +26,25 @@ class M_Articles extends M_SQL
 
     public function ViewAllArticles()
     {
-        $query = "SELECT "
+        $query = "SELECT id_article, title_article, content_article FROM tbl_articles ORDER BY id_article DESC";
+		
+		return $this->msql->Select($query);
     }
+	
+   /*
+	*@public функция для просмотра отдельной статьи
+	*
+	*@param $article_id - идентификатор требуемой статьи
+	*
+	*@return array - ассоциативный массив (столбец - значение)
+	*/
+	public function ViewArticle($article_id)
+	{
+		$str = "SELECT * FROM tbl_articles WHERE id_article = '%d'";
+		
+		$query = sprintf($str, $article_id);
+		
+		return $this->msql->Select($query);
+	}
 }
  
