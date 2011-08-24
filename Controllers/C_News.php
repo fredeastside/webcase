@@ -21,6 +21,11 @@ class C_News extends C_Page
         $this->title .= 'Новости';
 
         $this->news = $mNews->ViewAllNews();
+
+        for($i = 0, $cnt = count($this->news); $i < $cnt; $i++)
+        {
+            $this->news[$i]['content_new'] = $this->doIntroDescription($i, $this->news[$i]['content_new'], 'new');
+        }
     }
 
     protected function OnOutput()

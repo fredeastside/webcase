@@ -23,5 +23,26 @@
 
             echo $page;
         }
+
+       /*
+        * @abstract функция краткого описания контента
+        *
+        * @param int $id - номер контента из бд, для формирования ссылки "Читать далее=>"
+        * @param string $content - строка, представляющая контент
+        * @param string $method - название метода для просмотра полного содержания контента
+        *
+        * @throws Exception если такого id нет
+        *
+        * @return string
+        */
+        protected function doIntroDescription($id, $content, $method)
+        {
+            if(strlen($content) > 450)
+            {
+                $content = substr($content, 0, 450) . ' ...';
+            }
+
+            return $content;
+        }
 	}
 ?>
