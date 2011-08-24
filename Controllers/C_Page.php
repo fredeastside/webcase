@@ -1,18 +1,29 @@
 <?php
+	// абстрактный класс контроллера страницы сайта
 	abstract class C_Page extends Controller
 	{
-		protected $title;
-		protected $content;
-		protected $generateTime;
-		protected $menu;
+		protected $title; // title страницы
+		protected $content; // контент страницы
+		protected $generateTime; // время работы скрипта
+		protected $menu; // меню сайта
 		
+	   /**
+		*@protected функция генерация запроса на вход
+		*
+		*@return bool
+		*/
 		protected function OnInput()
         {
             $this->title = 'Web-футляр | ';
             $this->content = '';
             $this->generateTime = microtime(true);
         }
-
+		
+	   /**
+		*@protected функция генерация html на выход
+		*
+		*@return bool
+		*/
         protected function OnOutput()
         {
             $vars = array('title' => $this->title, 'content' => $this->content);
