@@ -6,6 +6,7 @@
  * Time: 20:10
  * To change this template use File | Settings | File Templates.
  */
+require_once '/Models/M_SQL.php';
 class M_Articles extends M_SQL
 {
     private static $instance;
@@ -32,11 +33,11 @@ class M_Articles extends M_SQL
     }
 	
    /*
-	*@public функция для просмотра отдельной статьи
+	*@public пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	*
-	*@param $article_id - идентификатор требуемой статьи
+	*@param $article_id - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	*
-	*@return array - ассоциативный массив (столбец - значение)
+	*@return array - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
 	*/
 	public function ViewArticle($article_id)
 	{

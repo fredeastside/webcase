@@ -11,16 +11,17 @@ require_once '/Models/M_News.php';
 class C_News extends C_Page
 {
     private $news;
+    private $mNews;
 
     protected function OnInput()
     {
         parent::OnInput();
 
-        $mNews = M_News::Instance();
+        $this->mNews = M_News::Instance();
 
         $this->title .= 'Новости';
 
-        $this->news = $mNews->ViewAllNews();
+        $this->news = $this->mNews->ViewAllNews();
 
         for($i = 0, $cnt = count($this->news); $i < $cnt; $i++)
         {
