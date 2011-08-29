@@ -6,8 +6,6 @@
  * Time: 22:47
  * To change this template use File | Settings | File Templates.
  */
-require_once '/Models/M_News.php';
-
 class C_New extends C_Page
 {
     private $id_new;

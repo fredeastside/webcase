@@ -6,7 +6,6 @@
  * Time: 17:39
  * To change this template use File | Settings | File Templates.
  */
-require_once '/Models/M_Articles.php';
 class C_Articles extends C_Page
 {
     private $mArticles;

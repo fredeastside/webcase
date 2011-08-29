@@ -41,7 +41,7 @@ abstract class Controller
 		}
 
        /*
-        * abstract функция проверки метода POST
+        * @abstract функция проверки метода POST
         *
         * @return bool
         */
@@ -51,12 +51,12 @@ abstract class Controller
 		}
 
        /*
-        * abstract функция генерации HTML шаблона в строку
+        *@ abstract функция генерации HTML шаблона в строку
         *
-        * param string $fileName - путь к файлу шаблона
-        * param array $vars - переменные шаблона
+        * @param string $fileName - путь к файлу шаблона
+        * @param array $vars - переменные шаблона
         *
-        * return string
+        * @return string
         */
 		protected function View($fileName, $vars = array())
 		{

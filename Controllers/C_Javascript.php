@@ -6,8 +6,6 @@
  * Time: 17:54
  * To change this template use File | Settings | File Templates.
  */
-require_once('/Models/M_SQL.php');
-
   class C_Javascript extends C_Page
 {
 

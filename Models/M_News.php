@@ -6,9 +6,6 @@
  * Time: 22:51
  * To change this template use File | Settings | File Templates.
  */
-
-require_once '/Models/M_SQL.php';
-
  class M_News extends M_SQL
 {
      private static $instance;

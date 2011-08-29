@@ -6,7 +6,6 @@
  * Time: 20:10
  * To change this template use File | Settings | File Templates.
  */
-require_once '/Models/M_SQL.php';
 class M_Articles extends M_SQL
 {
     private static $instance;
