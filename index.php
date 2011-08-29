@@ -3,7 +3,7 @@
     error_reporting(E_ALL);
 
    	require_once 'autoload.php';
-	Autoload::regicter();
+	Autoload::register();
 
 	if(isset($_GET['c']))
 	{

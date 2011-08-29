@@ -8,8 +8,6 @@
 
 class Autoload
 {
-	const ROOT = $_SERVER['DOCUMENT_ROOT'] . '/';
-	
 	static private function load(/*string*/$class_name)
 	{
 		$class_name = strtolower($class_name);
@@ -18,22 +16,24 @@ class Autoload
 		
 		switch($char)
 		{
-			case 'c' : $this->classExists('Controllers', $class_name);
+			case 'c' : self::classExists('Controllers', $class_name);
 				break;
-			case 'm' : $this->classExists('Models', $class_name);
+			case 'm' : self::classExists('Models', $class_name);
 				break;
-			case 'v' : $this->classExists('Views', $class_name);
+			case 'v' : self::classExists('Views', $class_name);
 				break;
 		}
 	}
 	
 	private function classExists($classPath, $class_name)
 	{
-		if(file_exists(self::ROOT . '/' . $classPath . '/' . $class_name . '.php'))
+        $root = $_SERVER['DOCUMENT_ROOT'] . '/';
+
+		if(file_exists($root . '/' . $classPath . '/' . $class_name . '.php'))
 		{
-			require_once(self::ROOT . '/' . $classPath . '/' . $class_name . '.php');
+			require_once($root . '/' . $classPath . '/' . $class_name . '.php');
 		}
-		else throw new Exception('Файл ' . self::ROOT . $classPath . $class_name . '.php,  класса '.$class_name.' - не найден!');
+		else throw new Exception('Файл ' . $root . $classPath . $class_name . '.php,  класса '.$class_name.' - не найден!');
 	}
 	
 	static public function register()
