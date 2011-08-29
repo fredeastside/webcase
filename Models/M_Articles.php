@@ -31,6 +31,15 @@ class M_Articles extends M_SQL
 		return $this->msql->Select($query);
     }
 	
+	public function ViewAllTypedArticles($type)
+	{
+		$str = "SELECT id_article, title_article, content_article FROM tbl_articles WHERE type = '%s'";
+		
+		$query = sprintf($str, $type);
+		
+		return $this->msql->Select($query);
+	}
+	
    /*
 	*@public ������� ��� ��������� ��������� ������
 	*
