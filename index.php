@@ -2,7 +2,7 @@
     header('Content-Type: text/html; charset=utf-8');
     error_reporting(E_ALL);
 
-   	require_once 'autoload.php';
+   	require_once '/Controllers/autoload.php';
 	Autoload::register();
 
 	if(isset($_GET['c']))

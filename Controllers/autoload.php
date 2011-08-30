@@ -27,7 +27,7 @@ class Autoload
 	
 	private function classExists($classPath, $class_name)
 	{
-        $root = $_SERVER['DOCUMENT_ROOT'] . '/';
+        $root = $_SERVER['DOCUMENT_ROOT'] . '/Controllers/';
 
 		if(file_exists($root . '/' . $classPath . '/' . $class_name . '.php'))
 		{
