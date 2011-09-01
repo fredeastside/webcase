@@ -50,7 +50,7 @@
         {
             if(strlen($content) > 450)
             {
-                $content = substr($content, 0, 450) . ' ...';
+                $content = mb_substr($content, 0, 450) . ' ...';
             }
 
             return $content;
