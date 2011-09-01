@@ -19,7 +19,7 @@ class C_Articles extends C_Page
 
         $this->title .= 'Статьи';
 
-        $this->articles = $this->mArticles->ViewAllArticles();
+        $this->articles = $this->mArticles->ViewAllTypedArticles('all');
 
         for($i = 0, $cnt = count($this->articles); $i < $cnt; $i++)
         {

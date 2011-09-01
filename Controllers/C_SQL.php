@@ -1,24 +1,29 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: FredRSF
- * Date: 07.08.11
- * Time: 17:55
- * To change this template use File | Settings | File Templates.
- */
-  class C_SQL extends C_Page
-{
-
-    protected function OnInput()
-    {
-        parent::OnInput();
-
-        $this->title .= 'SQL';
-        $this->content = '';
-    }
-
-    protected function OnOutput()
-    {
-        parent::OnOutput();
-    }
+<?Sql
+class C_Sql extends C_Page{
+	private $articlesSql;
+	private $mArticlesSql;
+	
+	protected function OnInput()
+	{
+		$this->mArticlesSql = M_Articles::Instance();
+		
+		$this->title .= 'Статьи | SQL';
+		
+		$this->articlesSql = $this->mArticlesSql->ViewAllTypedArticles('sql');
+		
+		for($i = 0, $cnt = count($this->articlesSql); $i < $cnt; $i++)
+		{
+			$this->articlesSql[$i]['content_article'] = $this->doIntroDescription($i, $this->articles[$i]['content_article'], 'article');
+		}
+	}
+	
+	protected function OnOutput()
+	{
+		$vars = array('articles' => $this->articlesSql);
+		
+		$this->content = $this->View('/Views/ViewAllArticles.Sql', $vars);
+		
+		parent::OnOutput();
+	}
 }
+?>

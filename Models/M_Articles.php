@@ -23,13 +23,15 @@ class M_Articles extends M_SQL
     {
         $this->msql = M_SQL::Instance();
     }
-
+	
+	/*
     public function ViewAllArticles()
     {
         $query = "SELECT id_article, title_article, content_article FROM tbl_articles ORDER BY id_article DESC";
 		
 		return $this->msql->Select($query);
     }
+	*/
 	
 	public function ViewAllTypedArticles($type)
 	{

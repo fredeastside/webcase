@@ -1,24 +1,29 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: FredRSF
- * Date: 07.08.11
- * Time: 17:54
- * To change this template use File | Settings | File Templates.
- */
- class C_PHP extends C_Page
-{
-
-    protected function OnInput()
-    {
-        parent::OnInput();
-
-        $this->title .= 'PHP';
-        $this->content = '';
-    }
-
-    protected function OnOutput()
-    {
-        parent::OnOutput();
-    }
+class C_Php extends C_Page{
+	private $articlesPhp;
+	private $mArticlesPhp;
+	
+	protected function OnInput()
+	{
+		$this->mArticlesPhp = M_Articles::Instance();
+		
+		$this->title .= 'Статьи | PHP';
+		
+		$this->articlesPhp = $this->mArticlesPhp->ViewAllTypedArticles('php');
+		
+		for($i = 0, $cnt = count($this->articlesPhp); $i < $cnt; $i++)
+		{
+			$this->articlesPhp[$i]['content_article'] = $this->doIntroDescription($i, $this->articles[$i]['content_article'], 'article');
+		}
+	}
+	
+	protected function OnOutput()
+	{
+		$vars = array('articles' => $this->articlesPhp);
+		
+		$this->content = $this->View('/Views/ViewAllArticles.php', $vars);
+		
+		parent::OnOutput();
+	}
 }
+?>
