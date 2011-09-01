@@ -1,4 +1,4 @@
-<?Sql
+<?php
 class C_Sql extends C_Page{
 	private $articlesSql;
 	private $mArticlesSql;
@@ -13,7 +13,7 @@ class C_Sql extends C_Page{
 		
 		for($i = 0, $cnt = count($this->articlesSql); $i < $cnt; $i++)
 		{
-			$this->articlesSql[$i]['content_article'] = $this->doIntroDescription($i, $this->articles[$i]['content_article'], 'article');
+			$this->articlesSql[$i]['content_article'] = $this->doIntroDescription($i, $this->articlesSql[$i]['content_article'], 'article');
 		}
 	}
 	
@@ -21,7 +21,7 @@ class C_Sql extends C_Page{
 	{
 		$vars = array('articles' => $this->articlesSql);
 		
-		$this->content = $this->View('/Views/ViewAllArticles.Sql', $vars);
+		$this->content = $this->View('/Views/ViewAllArticles.php', $vars);
 		
 		parent::OnOutput();
 	}

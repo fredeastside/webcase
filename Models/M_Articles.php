@@ -35,7 +35,7 @@ class M_Articles extends M_SQL
 	
 	public function ViewAllTypedArticles($type)
 	{
-		$str = "SELECT id_article, title_article, content_article FROM tbl_articles WHERE type = '%s'";
+		$str = "SELECT id_article, title_article, content_article FROM tbl_articles WHERE type_article = '%s'";
 		
 		$query = sprintf($str, $type);
 		

@@ -13,7 +13,7 @@ class C_Php extends C_Page{
 		
 		for($i = 0, $cnt = count($this->articlesPhp); $i < $cnt; $i++)
 		{
-			$this->articlesPhp[$i]['content_article'] = $this->doIntroDescription($i, $this->articles[$i]['content_article'], 'article');
+			$this->articlesPhp[$i]['content_article'] = $this->doIntroDescription($i, $this->articlesPhp[$i]['content_article'], 'article');
 		}
 	}
 	

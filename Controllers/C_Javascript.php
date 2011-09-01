@@ -13,7 +13,7 @@ class C_Javascript extends C_Page{
 		
 		for($i = 0, $cnt = count($this->articlesJs); $i < $cnt; $i++)
 		{
-			$this->articlesJs[$i]['content_article'] = $this->doIntroDescription($i, $this->articles[$i]['content_article'], 'article');
+			$this->articlesJs[$i]['content_article'] = $this->doIntroDescription($i, $this->articlesJs[$i]['content_article'], 'article');
 		}
 	}
 	
