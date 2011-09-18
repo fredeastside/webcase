@@ -19,18 +19,25 @@
 		<img src="/Views/images/logo049.png" class="logo">
 		<div id="registration">
 		<table border="0">
-		<tr>
+        <tr>
+			<td><a href="index.php?c=login">Вход</a></td><td>&nbsp;|&nbsp;</td><td><a href="index.php?c=registration">Регистрация</a></td>
+		</tr>
+		<!--tr>
 			<td>E-mail:</td><td>&nbsp;</td><td>Пароль:</td>
 		</tr>
 		<tr>
 			<td><input type="text" name="" value="" size="10" /></td><td>|</td><td><input type="text" name="" value="" size="10" /></td>
+		</tr>
+        <tr>
+            <td colspan="2" align="center"><input type="checkbox" name="remember" /> запомнить меня</td>
+			<td align="center"><input type="submit" value="Вход" /></td>
 		</tr>
 		<tr>
 			<td colspan="3" align="center"><a href="#">Регистрация</a></td>
 		</tr>
 		<tr>
 			<td colspan="3" align="center"><a href="#">Забыли пароль?</a></td>
-		</tr>
+		</tr-->
 		</table>
 		</div>
 		<div id="search"><input type="text" name="" value="Search..." size="30" /></div>
