@@ -152,7 +152,7 @@
          if($this->session_id != null)
              return $this->session_id;
 
-         $sid = $_SESSION['sid'];
+         $sid = isset($_SESSION['sid']) ? $_SESSION['sid'] : null;
 
          if($sid != null)
          {

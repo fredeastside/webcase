@@ -2,6 +2,8 @@
     header('Content-Type: text/html; charset=utf-8');
     error_reporting(E_ALL);
 
+    session_start();
+
    	require_once '/Controllers/autoload.php';
 	Autoload::register();
 

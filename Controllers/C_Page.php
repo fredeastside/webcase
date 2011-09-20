@@ -6,7 +6,15 @@
 		protected $content; // контент страницы
 		protected $generateTime; // время работы скрипта
 		protected $menu; // меню сайта
-		
+        protected $needLogin; //
+        protected $user; //
+
+        function __construct()
+        {
+            $this->needLogin = false;
+            $this->user = null;
+        }
+
 	   /**
 		*@protected функция генерация запроса на вход
 		*
@@ -14,9 +22,18 @@
 		*/
 		protected function OnInput()
         {
+            $mUsers = M_Users::Instance();
+            $mUsers->ClearSessions();
+            $this->user = $mUsers->Get();
             $this->title = 'Web-футляр | ';
             $this->content = '';
             $this->generateTime = microtime(true);
+
+            if($this->user == null && $this->needLogin)
+            {
+                header('Location: index.php?c=login');
+                die();
+            }
         }
 		
 	   /**
