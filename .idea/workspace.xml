@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9c8c92b1-ab3b-4744-b507-4e1284419abd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/C_Page.php" afterPath="$PROJECT_DIR$/Controllers/C_Page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/M_Users.php" afterPath="$PROJECT_DIR$/Models/M_Users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,7 +46,7 @@
       <file leaf-file-name="M_Users.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/M_Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="187" column="0" selection-start="4839" selection-end="4839" vertical-scroll-proportion="0.294849">
+            <state line="187" column="0" selection-start="4839" selection-end="4839" vertical-scroll-proportion="-0.339254">
               <folding />
             </state>
           </provider>
@@ -530,7 +527,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/M_Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="0" selection-start="4839" selection-end="4839" vertical-scroll-proportion="0.294849">
+        <state line="187" column="0" selection-start="4839" selection-end="4839" vertical-scroll-proportion="-0.339254">
           <folding />
         </state>
       </provider>
