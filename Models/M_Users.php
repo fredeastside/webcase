@@ -237,4 +237,71 @@
 
 		return ($this->onlineMap[$id_user] != null);
 	 }
+	 
+	 /**
+	    *@public фукнция выхода пользователя
+	    *
+	    *@return bool
+	    */
+	 public function Logout()
+	 {
+		setcookie('login', '', time() - 1);
+		setcookie('password', '', time() - 1);
+		$this->session_id = null;
+		$this->user_id = null;
+		unset($_SESSION['sid']);
+		unset($_COOKIE['login']);
+		unset($_COOKIE['password']);
+		
+		return true;
+	 }
+	 
+	 /**
+	    *@public функция получения пользователя
+	    *
+	    *@param int $id_user  - идентификатор пользователя, default = null
+	    *
+	    *@return array
+	    */
+	 public function Get($id_user = null)
+	 {
+		if($id_user == null)
+			$id_user = $this->GetUid();
+			
+		if($id_user == null)
+			return null;
+			
+		$str = "SELECT * FROM tbl_users WHERE id_user = '%d'";
+		$query = sprintf($str, $id_user);
+		$result = $this->msql->Select($query);
+		
+		return $result[0];
+	 }
+	 
+	 /**
+	    *@public функция проверки привелегии пользователя
+	    *
+	    *@param string $priv - название привелегии
+	    *@param int $id_user - идентификатор пользователя, если не указан, значит для текущего, default = null
+	    *
+	    *@return bool
+	    */
+	 public function Can($priv, $id_user = null)
+	 {
+		if($id_user == null)
+			$id_user = $this->GetUid();
+			
+		if($id_user == null)
+			return false;
+			
+		$str = "SELECT count(*) as cnt FROM tbl_privs2roles p2r
+			    LEFT JOIN tbl_users u ON u.id_role = p2r.id_role
+			    LEFT JOIN tbl_privs p ON p.id_priv = p2r.id_priv 
+			    WHERE u.id_user = '%d' AND p.name = '%s'";
+				
+		$query = sprintf($str, $id_user, $priv);
+		$result = $this->msql->Select($query);
+		
+		return ($result[0]['cnt'] > 0);
+	 }
  }
