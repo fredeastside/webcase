@@ -108,12 +108,13 @@
      public function Select($query)
      {
          $stmt = $this->db->prepare($query);
-         $stmt->execute();
+
+         $res = $stmt->execute();
 
          $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-         if(!$result)
-             die('Ошибка выполнения запроса' . print_r($stmt->errorInfo()));
+         //if(!$result)
+             //die('Ошибка выполнения запроса ' . print_r($stmt->errorInfo()));
 
          return $result;
      }

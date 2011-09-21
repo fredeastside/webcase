@@ -57,6 +57,9 @@
       */
      public function Login($login, $password, $remember = true)
      {
+         if(empty($login))
+             return false;
+         
          $user = $this->GetByLogin($login);
 
          if($user == null)
@@ -91,9 +94,12 @@
          $str = "SELECT * FROM tbl_users WHERE login = '%s'";
          $query = sprintf($str, $login);
 
-         $result = $this->msql->Select();
+         $result = $this->msql->Select($query);
 
-         return $result[0];
+         if(count($result) != 0)
+            return $result[0];
+         else
+             return null;
      }
 
      /**
