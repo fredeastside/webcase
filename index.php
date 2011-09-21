@@ -25,6 +25,8 @@
 	            break;
 	        case 'sql' : $controller = new C_SQL();
 	            break;
+			case 'login' : $controller = new C_Login();
+				break;
 	        default : $controller = new C_News();
 	    }
 	}
