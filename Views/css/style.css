@@ -43,7 +43,7 @@ input {
 /* Header
 -----------------------------------------------------------------------------*/
 #header {
-	height: 150px;
+	height: 120px;
 	background: #FFE680;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -76,7 +76,6 @@ position:relative;
 #menu {
 	position:absolute;
 	z-index:999;
-	top:-15px;
 	left:310px;
 }
 
@@ -99,7 +98,7 @@ ul#topnav a, ul#topnav span { /*--The <a> and <span> share the same properties s
 	float: left;
 	text-decoration: none;
 	color: #708090;
-	background: #eeeeee;
+	/*background: #eeeeee;*/
 	text-transform: uppercase;
 	clear: both;
 	width: 100%;
@@ -175,8 +174,8 @@ ul#topnav span{ /*--Default state of navigation--*/
 -----------------------------------------------------------------------------*/
 #footer {
 	width: 1200px;
-	margin: -70px auto 0;
-	height: 70px;
+	margin: -50px auto 0;
+	height: 50px;
 	background: #BFF08E;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -192,16 +191,21 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
 }
 
 #header .logo {
-	margin:7px 0 0 330px;
+	margin:0 0 0 330px;
 }
 
 #footer .footerText {
 	margin:0;
 	color:#dcdcdc;
-	padding-top:25px;
+	padding-top:15px;
 	font-size:10px;
 }
 
 #content div.authorization table{
 	margin: 10px auto 0;
+}
+
+.msg_log {
+    color: #FF0000;
+    margin: 0 10px;
 }

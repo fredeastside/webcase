@@ -11,13 +11,13 @@
 	{
 		if($("#login").val() == '')
 		{
-			$("#msg_login").html("Error");
+			$("#msg_login").html("Введите логин.");
 			return false;
 		}
 		
 		if($("#password").val() == '')
 		{
-			$("#msg_password").html("ErrorP");
+			$("#msg_password").html("Введите пароль.");
 			return false;
 		}
 	}
@@ -28,11 +28,11 @@
 	<table border="0" cellpadding="" cellspacing="10">
     <tr>
 		<td><b>Логин:</b></td>
-		<td><input type="text" id="login" name="login" value="<?php echo $login; ?>" /><span id="msg_login"></span></td>
+		<td width="260"><input type="text" id="login" name="login" value="<?php echo $login; ?>" /><span id="msg_login" class="msg_log"></span></td>
 	</tr>
     <tr>
 		<td><b>Пароль:</b></td>
-		<td><input type="password" id="password" name="password" /><span id="msg_password"></span></td>
+		<td width="260"><input type="password" id="password" name="password" /><span id="msg_password" class="msg_log"></span></td>
 	</tr>
     <tr>
 		<td colspan="2"><input type="checkbox" name="remember" /> запомнить меня</td>
