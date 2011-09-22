@@ -40,7 +40,6 @@
 		</tr-->
 		</table>
 		</div>
-		<div id="search"><input type="text" name="" value="Search..." size="30" /></div>
 	</header><!-- #header-->
 	<section id="middle">
 		<div id="menu">
@@ -63,6 +62,7 @@
 		</aside><!-- #sideLeft -->
 
 		<aside id="sideRight">
+			<div id="search"><input type="text" name="" size="25" /><input type="submit" name="" value="Поиск" /></div>
 			<p><strong>Right Sidebar:</strong> Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
 		</aside><!-- #sideRight -->
 

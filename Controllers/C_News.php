@@ -29,7 +29,9 @@ class C_News extends C_Page
 
     protected function OnOutput()
     {
-        $vars = array('news' => $this->news);
+		$mUsers = M_Users::Instance();
+		
+        $vars = array('news' => $this->news, 'edit' => $mUsers->Can('EDITING_NEWS'));
 
         $this->content = $this->View('/Views/ViewAllNews.php', $vars);
 

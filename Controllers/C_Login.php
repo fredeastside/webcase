@@ -20,7 +20,9 @@
          $mUsers = M_Users::Instance();
          $mUsers->Logout();
          parent::OnInput();
-
+		 
+		 $this->title .= 'Авторизация';
+		 
          if($this->IsPost())
          {
              if($mUsers->Login($_POST['login'], $_POST['password'], isset($_POST['remember'])))
