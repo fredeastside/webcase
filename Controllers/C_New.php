@@ -34,7 +34,9 @@ class C_New extends C_Page
 
     protected function OnOutput()
     {
-        $vars = array('new' => $this->new);
+        $mUsers = M_Users::Instance();
+
+        $vars = array('new' => $this->new, 'edit' => $mUsers->Can('EDITING_NEWS'));
         $this->content = $this->View('/Views/ViewNew.php', $vars);
 
         parent::OnOutput();

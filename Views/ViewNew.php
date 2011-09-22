@@ -11,3 +11,6 @@
     <p><?php echo $new['author_new'] ;?></p>
     <p><?php echo $new['date_new'] ;?></p>
     <p><?php echo $new['content_new'] ;?></p>
+<?php if($edit):?>
+<input type="submit" value="Редактировать" />
+<?endif;?>
