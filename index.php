@@ -27,6 +27,8 @@
 	            break;
 			case 'login' : $controller = new C_Login();
 				break;
+			case 'logout' : $controller = new C_Logout();
+				break;
 	        default : $controller = new C_News();
 	    }
 	}

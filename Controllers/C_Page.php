@@ -43,7 +43,7 @@
 		*/
         protected function OnOutput()
         {
-            $vars = array('title' => $this->title, 'content' => $this->content);
+            $vars = array('title' => $this->title, 'content' => $this->content, 'user' => $this->user);
 
             $page = $this->View('Views/main.php', $vars);
 

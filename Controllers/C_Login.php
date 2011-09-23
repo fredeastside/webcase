@@ -5,7 +5,7 @@
  * Date: 21.09.11
  * Time: 21:24
  */
- class C_login extends C_page{
+ class C_Login extends C_page{
 
       private $login;
 

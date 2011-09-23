@@ -19,11 +19,25 @@ class C_New extends C_Page
         {
             $mNew = M_News::Instance();
 
-            $this->id_new = $_GET['id'];
+            $this->id_new = !empty($_GET['id']) ? $_GET['id'] : null;
+			
+			if(!$this->id_new)
+			{
+				header('Location: index.php');
+				die();
+			}
+			
             $this->new = $mNew->ViewNew($this->id_new);
-            $this->new = $this->new[0];
+			
+			if(count($this->new) == 0)
+			{
+				header('Location: index.php');
+				die();
+			}
+			
+			$this->new = $this->new[0];
 
-            $this->title .= 'Новости | ' . $this->new['title_new'];
+			$this->title .= 'Новости | ' . $this->new['title_new'];
         }
         else
         {
