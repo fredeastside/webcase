@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9c8c92b1-ab3b-4744-b507-4e1284419abd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/ViewLogin.php" afterPath="$PROJECT_DIR$/Views/ViewLogin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/css/style.css" afterPath="$PROJECT_DIR$/Views/css/style.css" />
     </list>
     <ignored path="www.iws" />
@@ -63,19 +62,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewLogin.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ViewLogin.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/ViewLogin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="21" selection-start="780" selection-end="780" vertical-scroll-proportion="0.36">
+            <state line="34" column="21" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Views/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="204" column="24" selection-start="5166" selection-end="5166" vertical-scroll-proportion="0.0">
+            <state line="137" column="14" selection-start="3108" selection-end="3108" vertical-scroll-proportion="0.6">
               <folding />
             </state>
           </provider>
@@ -145,8 +144,8 @@
         <option value="$PROJECT_DIR$/Controllers/C_News.php" />
         <option value="$PROJECT_DIR$/Controllers/C_New.php" />
         <option value="$PROJECT_DIR$/Views/ViewNew.php" />
-        <option value="$PROJECT_DIR$/Views/css/style.css" />
         <option value="$PROJECT_DIR$/Views/ViewLogin.php" />
+        <option value="$PROJECT_DIR$/Views/css/style.css" />
       </list>
     </option>
   </component>
@@ -558,16 +557,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/css/style.css">
+    <entry file="file://$PROJECT_DIR$/Views/ViewLogin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="24" selection-start="5166" selection-end="5166" vertical-scroll-proportion="0.0">
+        <state line="34" column="21" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/ViewLogin.php">
+    <entry file="file://$PROJECT_DIR$/Views/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="21" selection-start="780" selection-end="780" vertical-scroll-proportion="0.36">
+        <state line="137" column="14" selection-start="3108" selection-end="3108" vertical-scroll-proportion="0.6">
           <folding />
         </state>
       </provider>
