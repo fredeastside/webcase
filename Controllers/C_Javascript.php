@@ -5,6 +5,9 @@ class C_Javascript extends C_Page{
 	
 	protected function OnInput()
 	{
+	
+		parent::OnInput();
+	
 		$this->mArticlesJs = M_Articles::Instance();
 		
 		$this->title .= 'Статьи | Javascript';

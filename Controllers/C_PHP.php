@@ -5,6 +5,8 @@ class C_Php extends C_Page{
 	
 	protected function OnInput()
 	{
+		parent::OnInput();
+		
 		$this->mArticlesPhp = M_Articles::Instance();
 		
 		$this->title .= 'Статьи | PHP';

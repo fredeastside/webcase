@@ -9,6 +9,13 @@
 	<link rel="stylesheet" href="/Views/css/style.css" type="text/css" media="screen, projection" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js" type="text/javascript"></script>
 	<script src="/Views/js/menu.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/Views/js/tiny_mce/tiny_mce.js" ></script >
+	<script type="text/javascript" >
+	tinyMCE.init({
+	        mode : "textareas",
+	        theme : "simple"   //(n.b. no trailing comma, this will be critical as you experiment later)
+	});
+	</script >
 </head>
 
 <body>
@@ -20,24 +27,14 @@
 		<div id="registration">
 		<table border="0">
         <tr>
-			<td><a href="index.php?c=login">Вход</a></td><td>&nbsp;|&nbsp;</td><td><a href="index.php?c=registration">Регистрация</a></td>
+		<?php if($user):?>
+			<td colspan="3"><a href="index.php?c=logout">Выход</a></td>
+		<?php else:?>
+			<td><a href="index.php?c=login">Вход</a></td>
+			<td>&nbsp;|&nbsp;</td>
+			<td><a href="index.php?c=registration">Регистрация</a></td>
+		<?php endif;?>
 		</tr>
-		<!--tr>
-			<td>E-mail:</td><td>&nbsp;</td><td>Пароль:</td>
-		</tr>
-		<tr>
-			<td><input type="text" name="" value="" size="10" /></td><td>|</td><td><input type="text" name="" value="" size="10" /></td>
-		</tr>
-        <tr>
-            <td colspan="2" align="center"><input type="checkbox" name="remember" /> запомнить меня</td>
-			<td align="center"><input type="submit" value="Вход" /></td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center"><a href="#">Регистрация</a></td>
-		</tr>
-		<tr>
-			<td colspan="3" align="center"><a href="#">Забыли пароль?</a></td>
-		</tr-->
 		</table>
 		</div>
 	</header><!-- #header-->

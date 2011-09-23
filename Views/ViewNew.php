@@ -12,5 +12,5 @@
     <p><?php echo $new['date_new'] ;?></p>
     <p><?php echo $new['content_new'] ;?></p>
 <?php if($edit):?>
-<input type="submit" value="Редактировать" />
+<a href="index.php?c=editnew&id=<?php echo $new['id_new'];?>">Редактировать</a>
 <?endif;?>

@@ -5,6 +5,9 @@ class C_Sql extends C_Page{
 	
 	protected function OnInput()
 	{
+	
+		parent::OnInput();
+	
 		$this->mArticlesSql = M_Articles::Instance();
 		
 		$this->title .= 'Статьи | SQL';
