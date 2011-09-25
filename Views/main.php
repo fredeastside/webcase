@@ -23,7 +23,8 @@
 <div id="wrapper">
 
 	<header id="header">
-		<img src="/Views/images/logo049.png" class="logo">
+		<img src="/Views/images/logo.png" class="logo">
+        <span class="header_title">Sunny Web</span>
 		<div id="registration">
 		<table border="0">
         <tr>

@@ -14,7 +14,7 @@ body {
 	height: 100%;
 }
 a {
-	color: #dcdcdc;
+	color: #c0c0c0;
 	outline: none;
 	text-decoration: underline;
 }
@@ -72,11 +72,16 @@ position:relative;
 	color:#dcdcdc;
 }
 
+#registration a {
+    color:#dcdcdc;
+}
+
 
 #menu {
 	position:absolute;
 	z-index:999;
 	left:310px;
+    top:-40px;
 }
 
 ul#topnav {
@@ -97,7 +102,7 @@ ul#topnav a, ul#topnav span { /*--The <a> and <span> share the same properties s
 	padding: 10px 20px;
 	float: left;
 	text-decoration: none;
-	color: #708090;
+	color: #dcdcdc;
 	/*background: #eeeeee;*/
 	text-transform: uppercase;
 	clear: both;
@@ -135,7 +140,7 @@ ul#topnav span{ /*--Default state of navigation--*/
 	margin-top:30px;
 }
 #content {
-	padding: 20px 270px 0 270px;
+	padding: 0 270px 0 270px;
 }
 
 
@@ -191,7 +196,15 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
 }
 
 #header .logo {
-	margin:0 0 0 330px;
+	margin:5px 0 0 70px;
+}
+
+#header .header_title {
+	bottom:50px;
+    position: relative;
+    font-size: 60px;
+    left:235px;
+    color:#c0c0c0;
 }
 
 #footer .footerText {
