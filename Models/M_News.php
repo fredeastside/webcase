@@ -38,4 +38,15 @@
 
          return $this->msql->Select($query);
      }
+	 
+	 public function UpdateNew($id, $title, $author, $date, $content)
+	 {
+		$new = array('title_new' => $title, 'author_new' => $author, 'date_new' => $date, 'content_new' => $content,);
+		
+		$str = "id_new = '%d'";
+		
+		$where = sprintf($str, $id);
+		
+		return $this->msql->Update('tbl_news', $new, $where);
+	 }
 }

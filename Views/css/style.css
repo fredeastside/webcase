@@ -205,6 +205,7 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
     font-size: 60px;
     left:235px;
     color:#c0c0c0;
+	text-decoration: none;
 }
 
 #footer .footerText {

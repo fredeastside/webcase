@@ -25,7 +25,7 @@
             $mUsers = M_Users::Instance();
             $mUsers->ClearSessions();
             $this->user = $mUsers->Get();
-            $this->title = 'Web-футляр | ';
+            $this->title = 'Sunny Web | ';
             $this->content = '';
             $this->generateTime = microtime(true);
 

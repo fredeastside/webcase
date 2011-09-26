@@ -23,8 +23,8 @@
 <div id="wrapper">
 
 	<header id="header">
-		<img src="/Views/images/logo.png" class="logo">
-        <span class="header_title">Sunny Web</span>
+		<a href="/" alt="На главную"><img src="/Views/images/logo.png" border="0" class="logo"></a>
+        <a href="/" title="На главную" class="header_title">Sunny Web</a>
 		<div id="registration">
 		<table border="0">
         <tr>
