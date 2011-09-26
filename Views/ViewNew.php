@@ -12,5 +12,16 @@
     <p><?php echo $new['date_new'] ;?></p>
     <p><?php echo $new['content_new'] ;?></p>
 <?php if($edit):?>
-<a href="index.php?c=editnew&id=<?php echo $new['id_new'];?>">Редактировать</a>
+<table border="0">
+    <tr>
+        <td>
+            <a href="index.php?c=editnew&id=<?php echo $new['id_new'];?>"><input type="button" value="Редактировать"/></a>
+        </td>
+        <td>
+            <form method="post">
+                <input type="submit" value="Удалить" />
+            </form>
+        </td>
+    </tr>
+</table>
 <?endif;?>
