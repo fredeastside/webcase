@@ -9,7 +9,7 @@ header, nav, section, article, aside, footer {
 	display: block;
 }
 body {
-	font: 12px/18px Verdana,Tahoma,Helvetica,sans-serif;
+	font: small Verdana,Tahoma,Helvetica,sans-serif;
 	width: 100%;
 	height: 100%;
 }
@@ -32,18 +32,33 @@ input {
 	vertical-align: middle;
 }
 #wrapper {
-	width: 1200px;
+	width: 1000px;
 	margin: 0 auto;
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
 }
 
+h2 {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 160%;
+    font-weight: normal;
+    margin: 0 0 0.4em;
+    padding-bottom: 4px;
+}
+
+h3 {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 130%;
+    font-weight: normal;
+    margin: 1.5em 0 0.5em;
+    padding-bottom: 4px;
+}
 
 /* Header
 -----------------------------------------------------------------------------*/
 #header {
-	height: 120px;
+	height: 80px;
 	background: #FFE680;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -66,21 +81,21 @@ position:relative;
 }
 #registration {
 	position:absolute;
-	top:10px;
-	right:80px;
+	top:5px;
+	right:20px;
 	font-size:10px;
-	color:#dcdcdc;
+	color:#fff;
 }
 
 #registration a {
-    color:#dcdcdc;
+    color:#fff;
 }
 
 
 #menu {
 	position:absolute;
 	z-index:999;
-	left:310px;
+	right:10px;
     top:-40px;
 }
 
@@ -89,7 +104,7 @@ ul#topnav {
 	padding: 0;
 	list-style: none;
 	float: left;
-	font-size: 20px;
+	font-size: 18px;
 }
 ul#topnav li{
 	margin: 0;
@@ -102,7 +117,7 @@ ul#topnav a, ul#topnav span { /*--The <a> and <span> share the same properties s
 	padding: 10px 20px;
 	float: left;
 	text-decoration: none;
-	color: #dcdcdc;
+	color: #fff;
 	/*background: #eeeeee;*/
 	text-transform: uppercase;
 	clear: both;
@@ -140,7 +155,7 @@ ul#topnav span{ /*--Default state of navigation--*/
 	margin-top:15px;
 }
 #content {
-	padding: 0 270px 0 270px;
+	padding: 0 220px 0 220px;
 }
 
 
@@ -148,14 +163,15 @@ ul#topnav span{ /*--Default state of navigation--*/
 -----------------------------------------------------------------------------*/
 #sideLeft {
 	float: left;
-	width: 250px;
+	width: 200px;
 	margin-left: -100%;
-	margin-top:5px;
+	margin-top:10px;
 	position: relative;
-	-webkit-border-radius: 10px;
+	font-size: 87%;
+	/*-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	border: 1px solid #1e90ff;
+	border: 1px solid #1e90ff;*/
 }
 
 
@@ -164,23 +180,24 @@ ul#topnav span{ /*--Default state of navigation--*/
 #sideRight {
 	float: left;
 	margin-right: -3px;
-	width: 250px;
-	margin-left: -250px;
-	margin-top:5px;
+	width: 200px;
+	margin-left: -200px;
+	margin-top:10px;
 	position: relative;
-	-webkit-border-radius: 10px;
+	font-size: 87%;
+	/*-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	border: 1px solid #1e90ff;
+	border: 1px solid #1e90ff;*/
 }
 
 
 /* Footer
 -----------------------------------------------------------------------------*/
 #footer {
-	width: 1200px;
-	margin: -50px auto 0;
-	height: 50px;
+	width: 1000px;
+	margin: -35px auto 0;
+	height: 30px;
 	background: #BFF08E;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -196,22 +213,21 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
 }
 
 #header .logo {
-	margin:5px 0 0 70px;
+	margin:5px 0 0 30px;
 }
 
 #header .header_title {
-	bottom:50px;
+	bottom:20px;
     position: relative;
-    font-size: 60px;
-    left:235px;
-    color:#c0c0c0;
+    font-size: 40px;
+    left:5px;
+    color:#dcdcdc;
 	text-decoration: none;
 }
 
 #footer .footerText {
-	margin:0;
 	color:#dcdcdc;
-	padding-top:15px;
+	padding-top:9px;
 	font-size:10px;
 }
 

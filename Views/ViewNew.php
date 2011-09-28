@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
- <h1><?php echo $new['title_new'] ;?></h1>
+ <h2><?php echo $new['title_new'] ;?></h2>
     <p><?php echo $new['author_new'] ;?></p>
     <p><?php echo $new['date_new'] ;?></p>
     <p><?php echo $new['content_new'] ;?></p>

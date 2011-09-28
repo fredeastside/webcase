@@ -23,7 +23,7 @@
 <div id="wrapper">
 
 	<header id="header">
-		<a href="/" alt="На главную"><img src="/Views/images/logo.png" border="0" class="logo"></a>
+		<a href="/" alt="На главную"><img src="/Views/images/logo-mini.png" border="0" class="logo"></a>
         <a href="/" title="На главную" class="header_title">Sunny Web</a>
 		<div id="registration">
 		<table border="0">
@@ -69,7 +69,7 @@
 </div><!-- #wrapper -->
 
 <footer id="footer">
-	<p class="footerText" align="center">Copyright © 2011 Web-футляр, All Rights Reserved.</p>
+	<p class="footerText" align="center">Copyright © 2011 SunnyWeb, All Rights Reserved.</p>
 </footer><!-- #footer -->
 </body>
 </html>

@@ -6,10 +6,9 @@
  * Time: 21:44
  * To change this template use File | Settings | File Templates.
  */
- foreach($news as $new):
-?>
- <h3><a href="index.php?c=new&id=<?php echo $new['id_new']; ?>"><?php echo $new['title_new']; ?></a></h3>
-     <p><?php echo $new['content_new']; ?></p>
-<?php
- endforeach;
-?>
+ foreach($news as $new): ?>
+<h3>
+	<a href="index.php?c=new&id=<?php echo $new['id_new']; ?>"><?php echo $new['title_new']; ?></a>
+</h3>
+<p><?php echo $new['content_new']; ?></p>
+<?php endforeach; ?>

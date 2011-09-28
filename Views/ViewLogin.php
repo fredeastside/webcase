@@ -24,15 +24,21 @@
 </script>
 <form method="post">
 <div class="authorization">
-	<h4 align="center">Введите логин и пароль для входа на сайт.</h4>
+	<h2 align="center">Введите логин и пароль для входа на сайт.</h2>
 	<table border="0" cellpadding="" cellspacing="10">
     <tr>
 		<td><b>Логин:</b></td>
-		<td width="260"><input type="text" id="login" name="login" value="<?php echo $login; ?>" /><span id="msg_login" class="msg_log"></span></td>
+		<td><input type="text" id="login" name="login" value="<?php echo $login; ?>" /></td>
+	</tr>
+	<tr>
+		<td colspan="2"><span id="msg_login" class="msg_log"></span></td>
 	</tr>
     <tr>
 		<td><b>Пароль:</b></td>
-		<td width="260"><input type="password" id="password" name="password" /><span id="msg_password" class="msg_log"></span></td>
+		<td><input type="password" id="password" name="password" /></td>
+	</tr>
+	<tr>
+		<td colspan="2"><span id="msg_password" class="msg_log"></span></td>
 	</tr>
     <tr>
 		<td colspan="2"><input type="checkbox" name="remember" /> запомнить меня</td>
