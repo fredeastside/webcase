@@ -14,11 +14,11 @@ class C_New extends C_Page
     protected function OnInput()
     {
         parent::OnInput();
+		
+		$mNew = M_News::Instance();
 
         if($this->IsGet())
         {
-            $mNew = M_News::Instance();
-
             $this->id_new = !empty($_GET['id']) ? $_GET['id'] : null;
 			
 			if(!$this->id_new)
@@ -39,18 +39,27 @@ class C_New extends C_Page
 
 			$this->title .= 'Новости | ' . $this->new['title_new'];
         }
-        else
-        {
-            header('Location index.php');
-            die();
-        }
+		
+		if($this->IsPost())
+		{
+			$this->id_new = !empty($_GET['id']) ? $_GET['id'] : null;
+			
+			$result = $mNew->DeleteNew($this->id_new);
+			
+			//print_r($result);
+			
+			if(!$result)
+				header('Location: index.php');
+			else
+				header('Location: index.php?c=news');
+		}
     }
 
     protected function OnOutput()
     {
         $mUsers = M_Users::Instance();
 
-        $vars = array('new' => $this->new, 'edit' => $mUsers->Can('EDITING_NEWS'));
+        $vars = array('new' => $this->new, 'edit' => $mUsers->Can('EDITING_NEWS'), 'delete' => $mUsers->Can('DELETE_NEWS'));
         $this->content = $this->View('/Views/ViewNew.php', $vars);
 
         parent::OnOutput();

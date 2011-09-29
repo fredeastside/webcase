@@ -49,4 +49,19 @@
 		
 		return $this->msql->Update('tbl_news', $new, $where);
 	 }
+	 
+	 public function DeleteNew($id_new)
+	 {
+		$str = "id_new = '%d'";
+		$where = sprintf($str, $id_new);
+		
+		return $this->msql->Delete('tbl_news', $where);
+	 }
+	 
+	 public function AddNew($title, $date, $author, $content)
+	 {
+		$data = array('title_new' => $title, 'date_new' => $date, 'author_new' => $author, 'content_new' => $content);
+		
+		return $this->msql->Insert('tbl_news', $data);
+	 }
 }

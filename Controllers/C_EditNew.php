@@ -45,7 +45,7 @@ class C_EditNew extends C_Page {
 			
 			$mNews->UpdateNew($id, $title, $author, $date, $content);
 			
-			header('Location: index.php');
+			header('Location: index.php?c=new&id=' . $id);
 		}
 	}
 	

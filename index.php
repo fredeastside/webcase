@@ -17,6 +17,8 @@
 	            break;
 			case 'editnew' : $controller = new C_EditNew();
 	            break;
+			case 'addnew' : $controller = new C_AddNew();
+	            break;
 	        case 'articles' : $controller = new C_Articles();
 	            break;
 			case 'article' : $controller = new C_Article();

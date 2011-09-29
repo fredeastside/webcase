@@ -12,3 +12,8 @@
 </h3>
 <p><?php echo $new['content_new']; ?></p>
 <?php endforeach; ?>
+<?php if($add) : ?>
+<form method="post">
+    <a href="index.php?c=addnew"><input type="button" class="adm_button" value="Добавить" /></a>
+</form>
+<?php endif;?>

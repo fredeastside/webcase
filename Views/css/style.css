@@ -239,3 +239,10 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
     color: #FF0000;
     margin: 0 10px;
 }
+
+.adm_button {
+	background-image: url('../images/108_1.png');
+	background-repeat: repeat-x;
+	color: #fff;
+	font-size: 100%;
+}

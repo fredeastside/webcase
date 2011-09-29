@@ -15,13 +15,15 @@
 <table border="0">
     <tr>
         <td>
-            <a href="index.php?c=editnew&id=<?php echo $new['id_new'];?>"><input type="button" value="Редактировать"/></a>
+            <a href="index.php?c=editnew&id=<?php echo $new['id_new'];?>"><input type="button" class="adm_button" value="Редактировать"/></a>
         </td>
+		<?php if($delete):?>
         <td>
             <form method="post">
-                <input type="submit" value="Удалить" />
+                <input type="submit" class="adm_button" value="Удалить" />
             </form>
         </td>
+		<?php endif;?>
     </tr>
 </table>
 <?endif;?>
