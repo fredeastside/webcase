@@ -31,7 +31,7 @@
 
             if($this->user == null && $this->needLogin)
             {
-                header('Location: index.php?c=login');
+                header('Location: /login');
                 die();
             }
         }

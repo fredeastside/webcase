@@ -1,5 +1,5 @@
 <?php
-class C_AddNew extends C_Page {
+class C_AddArticle extends C_Page {
 	
 	private $id;
 	private $date;
@@ -13,7 +13,7 @@ class C_AddNew extends C_Page {
 	{
 		parent::OnInput();
 		
-		$this->title .= 'Новости | Добавление новости.';
+		$this->title .= 'Статьи | Добавление статьи.';
 		$this->date = date('Y-m-d H:i:s');
 		
 		if($this->IsPost())
@@ -22,15 +22,16 @@ class C_AddNew extends C_Page {
 			$author = !empty($_POST['author']) ? trim(htmlspecialchars($_POST['author'])) : null;
 			$date = !empty($_POST['date']) ? trim(htmlspecialchars($_POST['date'])) : null;
 			$content = !empty($_POST['content']) ? trim($_POST['content']) : null;
+			$section = !empty($_POST['section']) ? trim(htmlspecialchars($_POST['section'])) : null;
 			
-			$mNew = M_News::Instance();
+			$mArticle = M_Articles::Instance();
 			
-			$this->id = $mNew->AddNew($title, $date, $author, $content);
+			$this->id = $mArticle->AddArticle($title, $date, $author, $content, $section);
 			
 			if(!$this->id)
 				header('Location: /index.php');
 			else
-				header('Location: /new/' . $this->id);
+				header('Location: /article/' . $this->id);
 		}
 	}
 	
@@ -38,9 +39,9 @@ class C_AddNew extends C_Page {
 	{
 		$mUsers = M_Users::Instance();
 		
-		$vars = array('add' => $mUsers->Can('ADD_NEWS'), 'date' => $this->date);
+		$vars = array('add' => $mUsers->Can('ADD_ARTICLES'), 'date' => $this->date);
 		
-		$this->content = $this->View('/Views/ViewAddNew.php', $vars);
+		$this->content = $this->View('/Views/ViewAddArticle.php', $vars);
 		parent::OnOutput();
 	}
 }

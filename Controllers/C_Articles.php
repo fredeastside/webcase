@@ -29,7 +29,9 @@ class C_Articles extends C_Page
 
     protected function OnOutput()
     {
-        $vars = array('articles' => $this->articles);
+		$mUsers = M_Users::Instance();
+		
+        $vars = array('articles' => $this->articles, 'add' => $mUsers->Can('ADD_ARTICLES'));
 
         $this->content = $this->View('/Views/ViewAllArticles.php', $vars);
 

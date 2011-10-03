@@ -25,6 +25,11 @@ a:hover {
 p {
 	margin: 5px;
 }
+
+li {
+	list-style-position: inside;
+}
+
 img {
 	border: none;
 }

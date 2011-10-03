@@ -23,7 +23,7 @@ class C_New extends C_Page
 			
 			if(!$this->id_new)
 			{
-				header('Location: index.php');
+				header('Location: /index.php');
 				die();
 			}
 			
@@ -31,7 +31,7 @@ class C_New extends C_Page
 			
 			if(count($this->new) == 0)
 			{
-				header('Location: index.php');
+				header('Location: /index.php');
 				die();
 			}
 			
@@ -49,9 +49,9 @@ class C_New extends C_Page
 			//print_r($result);
 			
 			if(!$result)
-				header('Location: index.php');
+				header('Location: /index.php');
 			else
-				header('Location: index.php?c=news');
+				header('Location: /news');
 		}
     }
 

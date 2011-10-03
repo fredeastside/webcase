@@ -8,9 +8,14 @@
  */
  foreach($articles as $article):
 ?>
- <h3><a href="index.php?c=article&id=<?php echo $article['id_article']; ?>"><?php echo $article['title_article']; ?></a></h3>
+<div style="margin-bottom: 15px;">
+ <h3><a href="/article/<?php echo $article['id_article']; ?>"><?php echo $article['title_article']; ?></a></h3>
      <p><?php echo $article['content_article']; ?></p>
-<?php
- endforeach;
-?>
+</div>
+<?php endforeach; ?>
+<?php if($add) : ?>
+<form method="post">
+    <p align="center"><a href="/addarticle"><input type="button" class="adm_button" value="Добавить" /></a></p>
+</form>
+<?php endif;?>
  

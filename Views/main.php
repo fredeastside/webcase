@@ -25,15 +25,16 @@
 	<header id="header">
 		<a href="/" alt="На главную"><img src="/Views/images/logo-mini.png" border="0" class="logo"></a>
         <a href="/" title="На главную" class="header_title">Sunny Web</a>
+		<!--img src="/Views/images/Sunny Web_01.png" border="0" /-->
 		<div id="registration">
 		<table border="0">
         <tr>
 		<?php if($user):?>
-			<td colspan="3"><a href="index.php?c=logout">Выход</a></td>
+			<td colspan="3"><a href="/logout/">Выход</a></td>
 		<?php else:?>
-			<td><a href="index.php?c=login">Вход</a></td>
+			<td><a href="/login">Вход</a></td>
 			<td>&nbsp;|&nbsp;</td>
-			<td><a href="index.php?c=registration">Регистрация</a></td>
+			<td><a href="/registration">Регистрация</a></td>
 		<?php endif;?>
 		</tr>
 		</table>
@@ -42,11 +43,11 @@
 	<section id="middle">
 		<div id="menu">
 			<ul id="topnav">
-				<li><a href="index.php?c=news">Новости</a></li>
-				<li><a href="index.php?c=articles">Статьи</a></li>
-				<li><a href="index.php?c=php">PHP</a></li>
-				<li><a href="index.php?c=javascript">Javascript</a></li>
-				<li><a href="index.php?c=sql">SQL</a></li>
+				<li><a href="/news">Новости</a></li>
+				<li><a href="/articles">Статьи</a></li>
+				<li><a href="/php">PHP</a></li>
+				<li><a href="/javascript">Javascript</a></li>
+				<li><a href="/sql">SQL</a></li>
 			</ul>
 		</div>
 		<div id="container">
@@ -56,7 +57,7 @@
 		</div><!-- #container-->
 
 		<aside id="sideLeft">
-			<p><strong>Left Sidebar:</strong> Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
+			<h2>Последине новости:</h2><p>Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
 		</aside><!-- #sideLeft -->
 
 		<aside id="sideRight">
@@ -68,7 +69,7 @@
 					</tr>
 				</table>
 			</div>
-			<p><strong>Right Sidebar:</strong> Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
+			<h2>Популярное:</h2><p>Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
 		</aside><!-- #sideRight -->
 
 	</section><!-- #middle-->

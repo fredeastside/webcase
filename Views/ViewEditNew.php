@@ -9,6 +9,6 @@
 <input type="submit" class="adm_button" value="Сохранить" />
 </form>
 <?php else:
-	header('Location: index.php');
+	header('Location: /index.php');
 	die();
 	endif;?>

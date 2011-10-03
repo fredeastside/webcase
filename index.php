@@ -23,6 +23,10 @@
 	            break;
 			case 'article' : $controller = new C_Article();
 	            break;
+			case 'editarticle' : $controller = new C_EditArticle();
+	            break;
+			case 'addarticle' : $controller = new C_AddArticle();
+	            break;
 	        case 'php' : $controller = new C_PHP();
 	            break;
 	        case 'javascript' : $controller = new C_Javascript();

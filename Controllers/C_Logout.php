@@ -17,6 +17,6 @@
          $mUsers = M_Users::Instance();
          $mUsers->Logout();
 		 
-		 header('Location: index.php');
+		 header('Location: /index.php');
      }
  }
