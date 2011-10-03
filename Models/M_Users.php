@@ -176,7 +176,10 @@
                  $result = $this->msql->Select($query);
 
                  if($result[0]['count(*)'] == 0)
+                 {
+                     delay(1000);
                      $sid = null;
+                 }
              }
          }
 
