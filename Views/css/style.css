@@ -48,10 +48,10 @@ h2 {
 }
 
 h3 {
-    border-bottom: 1px solid #CCCCCC;
+    /*border-bottom: 1px solid #CCCCCC;*/
     font-size: 130%;
     font-weight: normal;
-    margin: 1.5em 0 0.5em;
+    margin: 0 0 0.5em;
     padding-bottom: 4px;
 }
 
@@ -245,4 +245,20 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
 	background-repeat: repeat-x;
 	color: #fff;
 	font-size: 100%;
+	padding: 1px 2px;
+}
+
+#content input.edit_content {
+	border: 1px solid #1e90ff;
+}
+
+#content p.small_text {
+	font-size: 85%;
+	color: #c0c0c0;
+}
+
+#search input.search_inpt {
+	font-size:150%; 
+	vertical-align:25%;
+	border: 1px solid #1e90ff;
 }

@@ -60,7 +60,14 @@
 		</aside><!-- #sideLeft -->
 
 		<aside id="sideRight">
-			<div id="search"><input type="text" name="" size="20" /><input type="submit" class="adm_button" name="" value="Поиск" /></div>
+			<div id="search">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><input type="text" class="search_inpt" name="" size="18" /></td>
+						<td valign="top"><img src="/Views/images/search_button.png"><!--input type="submit" class="adm_button" name="" value="Поиск" /--></td>
+					</tr>
+				</table>
+			</div>
 			<p><strong>Right Sidebar:</strong> Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
 		</aside><!-- #sideRight -->
 

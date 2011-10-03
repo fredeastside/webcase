@@ -8,8 +8,8 @@
  */
 ?>
  <h2><?php echo $new['title_new'] ;?></h2>
-    <p><?php echo $new['author_new'] ;?></p>
-    <p><?php echo $new['date_new'] ;?></p>
+    <p class="small_text"><b>Автор: </b><?php echo $new['author_new'] ;?></p>
+    <p class="small_text"><b>Дата: </b><?php echo $new['date_new'] ;?></p>
     <p><?php echo $new['content_new'] ;?></p>
 <?php if($edit):?>
 <table border="0">
