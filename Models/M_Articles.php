@@ -57,5 +57,31 @@ class M_Articles extends M_SQL
 		
 		return $this->msql->Select($query);
 	}
+	
+		 public function UpdateArticle($id, $title, $author, $date, $content)
+	 {
+		$article = array('title_article' => $title, 'author_article' => $author, 'date_article' => $date, 'content_article' => $content,);
+		
+		$str = "id_article = '%d'";
+		
+		$where = sprintf($str, $id);
+		
+		return $this->msql->Update('tbl_articles', $article, $where);
+	 }
+	 
+	 public function DeleteArticle($id_article)
+	 {
+		$str = "id_article = '%d'";
+		$where = sprintf($str, $id_article);
+		
+		return $this->msql->Delete('tbl_articles', $where);
+	 }
+	 
+	 public function AddArticle($title, $date, $author, $content, $section)
+	 {
+		$data = array('title_article' => $title, 'date_article' => $date, 'author_article' => $author, 'content_article' => $content, 'type_article' => $section);
+		
+		return $this->msql->Insert('tbl_articles', $data);
+	 }
 }
  

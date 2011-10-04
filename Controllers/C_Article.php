@@ -7,16 +7,15 @@ class C_Article extends C_Page{
 	protected function OnInput()
 	{
 		parent::OnInput();
+		$mArticle = M_Articles::Instance();
 		
 		if($this->IsGet())
 		{
-			$mArticle = M_Articles::Instance();
-			
 			$this->id_article = !empty($_GET['id']) ? $_GET['id'] : null;
 			
 			if(!$this->id_article)
 			{
-				header('Location: index.php');
+				header('Location: /index.php');
 				die();
 			}
 			
@@ -24,7 +23,7 @@ class C_Article extends C_Page{
 			
 			if(count($this->article) == 0)
 			{
-				header('Location: index.php');
+				header('Location: /index.php');
 				die();
 			}
 			
@@ -32,16 +31,27 @@ class C_Article extends C_Page{
 			
 			$this->title .= 'Статьи | ' . $this->article['title_article'];
 		}
-		else
+		
+		if($this->IsPost())
 		{
-			header('Location index.php');
-			die();
+			$this->id_article = !empty($_GET['id']) ? $_GET['id'] : null;
+			
+			$result = $mArticle->DeleteArticle($this->id_article);
+			
+			//print_r($result);
+			
+			if(!$result)
+				header('Location: /index.php');
+			else
+				header('Location: /articles');
 		}
 	}
 	
 	protected function OnOutput()
 	{
-		$vars = array('article' => $this->article);
+		$mUsers = M_Users::Instance();
+		
+		$vars = array('article' => $this->article, 'edit' => $mUsers->Can('EDITING_ARTICLES'), 'delete' => $mUsers->Can('DELETE_ARTICLES'));
 		$this->content = $this->View('/Views/ViewArticle.php', $vars);
 		
 		parent::OnOutput();

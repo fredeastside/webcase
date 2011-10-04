@@ -1,8 +1,8 @@
 <?php
-class C_EditNew extends C_Page {
+class C_EditArticle extends C_Page {
 
-	private $new;
-	private $id_new;
+	private $article;
+	private $id_article;
 	
 	function __construct()
 	{}
@@ -10,29 +10,29 @@ class C_EditNew extends C_Page {
 	protected function OnInput()
 	{
 		parent::OnInput();
-		$mNews = M_News::Instance();
+		$mArticles = M_Articles::Instance();
 		
 		if($this->IsGet())
 		{
-			$this->id_new = !empty($_GET['id']) ? (int)$_GET['id'] : null;
+			$this->id_article = !empty($_GET['id']) ? (int)$_GET['id'] : null;
 			
-			if(!$this->id_new)
+			if(!$this->id_article)
 			{
 				header('Location: /index.php');
 				die();
 			}
 			
-			$this->new = $mNews->ViewNew($this->id_new);
+			$this->article = $mArticles->ViewArticle($this->id_article);
 			
-			if(count($this->new) == 0)
+			if(count($this->article) == 0)
 			{
 				header('Location: /index.php');
 				die();
 			}
 			
-			$this->new = $this->new[0];
+			$this->article = $this->article[0];
 
-			$this->title .= 'Новости | Редактирование новости : ' . $this->new['title_new'];
+			$this->title .= 'Статьи | Редактирование статьи : ' . $this->article['title_article'];
 		}
 		
 		if($this->IsPost())
@@ -43,9 +43,9 @@ class C_EditNew extends C_Page {
 			$date = !empty($_POST['date']) ? trim($_POST['date']) : null;
 			$content = !empty($_POST['content']) ? trim($_POST['content']) : null;
 			
-			$mNews->UpdateNew($id, $title, $author, $date, $content);
+			$mArticles->UpdateArticle($id, $title, $author, $date, $content);
 			
-			header('Location: /new/' . $id);
+			header('Location: /article/' . $id);
 		}
 	}
 	
@@ -53,8 +53,8 @@ class C_EditNew extends C_Page {
 	{
 		$mUsers = M_Users::Instance();
 		
-        $vars = array('new' => $this->new, 'edit' => $mUsers->Can('EDITING_NEWS'));
-        $this->content = $this->View('/Views/ViewEditNew.php', $vars);
+        $vars = array('article' => $this->article, 'edit' => $mUsers->Can('EDITING_NEWS'));
+        $this->content = $this->View('/Views/ViewEditArticle.php', $vars);
 		
 		parent::OnOutput();
 	}

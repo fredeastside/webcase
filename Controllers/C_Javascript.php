@@ -22,7 +22,9 @@ class C_Javascript extends C_Page{
 	
 	protected function OnOutput()
 	{
-		$vars = array('articles' => $this->articlesJs);
+		$mUsers = M_Users::Instance();
+		
+		$vars = array('articles' => $this->articlesJs, 'add' => $mUsers->Can('ADD_ARTICLES'));
 		
 		$this->content = $this->View('/Views/ViewAllArticles.php', $vars);
 		

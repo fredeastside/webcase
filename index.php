@@ -17,9 +17,15 @@
 	            break;
 			case 'editnew' : $controller = new C_EditNew();
 	            break;
+			case 'addnew' : $controller = new C_AddNew();
+	            break;
 	        case 'articles' : $controller = new C_Articles();
 	            break;
 			case 'article' : $controller = new C_Article();
+	            break;
+			case 'editarticle' : $controller = new C_EditArticle();
+	            break;
+			case 'addarticle' : $controller = new C_AddArticle();
 	            break;
 	        case 'php' : $controller = new C_PHP();
 	            break;

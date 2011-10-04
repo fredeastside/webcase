@@ -31,7 +31,7 @@ class C_News extends C_Page
     {
 		$mUsers = M_Users::Instance();
 		
-        $vars = array('news' => $this->news);
+        $vars = array('news' => $this->news, 'add' => $mUsers->Can('ADD_NEWS'));
 
         $this->content = $this->View('/Views/ViewAllNews.php', $vars);
 
