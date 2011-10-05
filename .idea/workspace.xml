@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c8c92b1-ab3b-4744-b507-4e1284419abd" name="Default" comment="">
-      <change type="DELETED" beforePath="Z:\home\webcase\www\401.html" afterPath="" />
-      <change type="DELETED" beforePath="Z:\home\webcase\www\403.html" afterPath="" />
-      <change type="DELETED" beforePath="Z:\home\webcase\www\404.html" afterPath="" />
-      <change type="DELETED" beforePath="Z:\home\webcase\www\sql.sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Controllers/C_Registration.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/M_Users.php" afterPath="$PROJECT_DIR$/Models/M_Users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/C_Logout.php" afterPath="$PROJECT_DIR$/Controllers/C_Logout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,10 +28,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="M_Users.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Models/M_Users.php">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="29" selection-start="4631" selection-end="4631" vertical-scroll-proportion="0.76870745">
+            <state line="39" column="66" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_Registration.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Controllers/C_Registration.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="19" selection-start="478" selection-end="478" vertical-scroll-proportion="0.54931974">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_New.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/C_New.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="61" column="120" selection-start="1218" selection-end="1229" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_EditNew.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/C_EditNew.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_Page.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/C_Page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="0" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C_PHP.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/C_PHP.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="38" selection-start="709" selection-end="735" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -54,8 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Models/M_Articles.php" />
-        <option value="$PROJECT_DIR$/Controllers/C_PHP.php" />
         <option value="$PROJECT_DIR$/Controllers/C_Javascript.php" />
         <option value="$PROJECT_DIR$/Controllers/C_SQL.php" />
         <option value="$PROJECT_DIR$/Controllers/C_Page.php" />
@@ -66,10 +106,12 @@
         <option value="$PROJECT_DIR$/Controllers/C_New.php" />
         <option value="$PROJECT_DIR$/Views/ViewLogin.php" />
         <option value="$PROJECT_DIR$/Views/main.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Views/css/style.css" />
         <option value="$PROJECT_DIR$/Views/ViewNew.php" />
         <option value="$PROJECT_DIR$/Models/M_Users.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Controllers/C_Logout.php" />
+        <option value="$PROJECT_DIR$/Controllers/C_Registration.php" />
       </list>
     </option>
   </component>
@@ -134,7 +176,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Models" />
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -353,41 +395,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Controllers/C_SQL.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/M_News.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="894" selection-end="894" vertical-scroll-proportion="0.7763158" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/ViewAllNews.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="12" selection-start="362" selection-end="362" vertical-scroll-proportion="0.28883496" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/M_SQL.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/C_Page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="651" selection-end="651" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/C_Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/ViewLogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="21" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Views/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="36" selection-start="936" selection-end="940" vertical-scroll-proportion="-7.8461537" />
@@ -401,13 +408,6 @@
     <entry file="file://$PROJECT_DIR$/Views/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="139" column="17" selection-start="3135" selection-end="3135" vertical-scroll-proportion="0.029565217">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/C_New.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="120" selection-start="1218" selection-end="1229" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -433,16 +433,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/Models/M_Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="358" selection-end="358" vertical-scroll-proportion="0.20238096">
+        <state line="179" column="29" selection-start="4631" selection-end="4631" vertical-scroll-proportion="0.76870745">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/M_Users.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="29" selection-start="4631" selection-end="4631" vertical-scroll-proportion="0.76870745">
+        <state line="39" column="66" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/M_News.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/C_PHP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="38" selection-start="709" selection-end="735" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/C_EditNew.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/C_Page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/C_New.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="120" selection-start="1218" selection-end="1229" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/C_Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/C_Logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="10" selection-start="108" selection-end="108" vertical-scroll-proportion="0.05782313">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/C_Registration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="19" selection-start="478" selection-end="478" vertical-scroll-proportion="0.54931974">
           <folding />
         </state>
       </provider>

@@ -37,6 +37,8 @@
 				break;
 			case 'logout' : $controller = new C_Logout();
 				break;
+            case 'registration' : $controller = new C_Registration();
+				break;
 	        default : $controller = new C_News();
 	    }
 	}

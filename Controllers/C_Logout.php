@@ -5,7 +5,7 @@
  * Date: 23.09.11
  * Time: 12:02
  */
- class C_logout extends C_page{
+ class C_Logout extends C_page{
 
      function __construct()
      {
