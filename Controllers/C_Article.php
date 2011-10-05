@@ -15,7 +15,7 @@ class C_Article extends C_Page{
 			
 			if(!$this->id_article)
 			{
-				header('Location: /index.php');
+				header('Location: /');
 				die();
 			}
 			
@@ -23,7 +23,7 @@ class C_Article extends C_Page{
 			
 			if(count($this->article) == 0)
 			{
-				header('Location: /index.php');
+				header('Location: /');
 				die();
 			}
 			
@@ -41,9 +41,9 @@ class C_Article extends C_Page{
 			//print_r($result);
 			
 			if(!$result)
-				header('Location: /index.php');
+				header('Location: /');
 			else
-				header('Location: /articles');
+				header('Location: /articles.html');
 		}
 	}
 	

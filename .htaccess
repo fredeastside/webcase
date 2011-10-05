@@ -1,4 +1,7 @@
 RewriteEngine on
-	  RewriteRule ^([a-zA-Z]+)$ index.php?c=$1
-      RewriteRule ^([a-zA-Z]+)/([0-9]+)$ index.php?c=$1&id=$2
-	  RewriteRule ^index\.php$ http://web/ [R=301,L]
+Options +FollowSymlinks
+RewriteBase /
+RewriteRule ^.htaccess$ - [F]
+
+RewriteRule ^([^/]*)/([^/]*)\.html$ /index.php?c=$1&id=$2
+RewriteRule ^([^/]*)\.html$ /index.php?c=$1

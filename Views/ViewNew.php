@@ -15,7 +15,7 @@
 <table border="0">
     <tr>
         <td>
-            <a href="/editnew/<?php echo $new['id_new'];?>"><input type="button" class="adm_button" value="Редактировать"/></a>
+            <a href="/editnew/<?php echo $new['id_new'];?>.html"><input type="button" class="adm_button" value="Редактировать"/></a>
         </td>
 		<?php if($delete):?>
         <td>

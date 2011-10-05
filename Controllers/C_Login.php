@@ -27,7 +27,7 @@
          {
              if($mUsers->Login($_POST['login'], $_POST['password'], isset($_POST['remember'])))
              {
-                 header('Location: /index.php');
+                 header('Location: /');
                  die();
              }
              $this->login = $_POST['login'];

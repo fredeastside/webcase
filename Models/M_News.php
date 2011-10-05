@@ -30,6 +30,13 @@
 
          return $this->msql->Select($query);
      }
+	 
+	 public function lastNews()
+     {
+         $query = "SELECT id_new, title_new FROM tbl_news ORDER BY id_new DESC LIMIT 0, 7";
+
+         return $this->msql->Select($query);
+     }
 
      public function ViewNew($new_id)
      {

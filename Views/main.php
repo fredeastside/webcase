@@ -23,18 +23,18 @@
 <div id="wrapper">
 
 	<header id="header">
-		<a href="/" alt="На главную"><img src="/Views/images/logo-mini.png" border="0" class="logo"></a>
+		<a href="/" alt="На главную"><img title="На главную" src="/Views/images/logo-mini.png" border="0" class="logo"></a>
         <a href="/" title="На главную" class="header_title">Sunny Web</a>
 		<!--img src="/Views/images/Sunny Web_01.png" border="0" /-->
 		<div id="registration">
 		<table border="0">
         <tr>
 		<?php if($user):?>
-			<td colspan="3"><a href="/logout/">Выход</a></td>
+			<td colspan="3"><a href="/logout.html">Выход</a></td>
 		<?php else:?>
-			<td><a href="/login">Вход</a></td>
+			<td><a href="/login.html">Вход</a></td>
 			<td>&nbsp;|&nbsp;</td>
-			<td><a href="/registration">Регистрация</a></td>
+			<td><a href="/registration.html">Регистрация</a></td>
 		<?php endif;?>
 		</tr>
 		</table>
@@ -43,11 +43,11 @@
 	<section id="middle">
 		<div id="menu">
 			<ul id="topnav">
-				<li><a href="/news">Новости</a></li>
-				<li><a href="/articles">Статьи</a></li>
-				<li><a href="/php">PHP</a></li>
-				<li><a href="/javascript">Javascript</a></li>
-				<li><a href="/sql">SQL</a></li>
+				<li><a href="/news.html">Новости</a></li>
+				<li><a href="/articles.html">Статьи</a></li>
+				<li><a href="/php.html">PHP</a></li>
+				<li><a href="/javascript.html">Javascript</a></li>
+				<li><a href="/sql.html">SQL</a></li>
 			</ul>
 		</div>
 		<div id="container">
@@ -57,7 +57,12 @@
 		</div><!-- #container-->
 
 		<aside id="sideLeft">
-			<h2>Последине новости:</h2><p>Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
+			<h2>Последине новости:</h2>
+			<?php foreach($lastNews as $titleNew):?>
+			<p class="last_news">
+			<a href="/new/<?php echo $titleNew['id_new'];?>.html"><?php echo (strlen($titleNew['title_new']) > 200) ? (mb_substr($titleNew['title_new'], 0, 100)) . '...' : $titleNew['title_new'];?></a>
+			</p>
+			<?php endforeach;?>
 		</aside><!-- #sideLeft -->
 
 		<aside id="sideRight">
