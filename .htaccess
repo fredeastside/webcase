@@ -1,7 +1,16 @@
+AddDefaultCharset UTF-8 
+php_flag magic_quotes_gpc Off 
+php_flag magic_quotes_runtime Off 
+php_flag register_globals Off 
+ErrorDocument 401 /401.htm
+ErrorDocument 403 /403.htm 
+ErrorDocument 404 /404.htm 
+Options -Indexes
+
 RewriteEngine on
 Options +FollowSymlinks
 RewriteBase /
+#RewriteCond %{REQUEST_FILENAME} !-f #если нет файла с таким же именем
 RewriteRule ^.htaccess$ - [F]
-
 RewriteRule ^([^/]*)/([^/]*)\.html$ /index.php?c=$1&id=$2
 RewriteRule ^([^/]*)\.html$ /index.php?c=$1

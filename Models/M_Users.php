@@ -177,7 +177,7 @@
 
                  if($result[0]['count(*)'] == 0)
                  {
-                     delay(1000);
+                     sleep(10);
                      $sid = null;
                  }
              }
