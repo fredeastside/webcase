@@ -29,9 +29,9 @@ class C_AddArticle extends C_Page {
 			$this->id = $mArticle->AddArticle($title, $date, $author, $content, $section);
 			
 			if(!$this->id)
-				header('Location: /index.php');
+				header('Location: /');
 			else
-				header('Location: /article/' . $this->id);
+				header('Location: /article/' . $this->id . '.html');
 		}
 	}
 	

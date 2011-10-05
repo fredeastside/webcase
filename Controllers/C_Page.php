@@ -8,6 +8,8 @@
 		protected $menu; // меню сайта
         protected $needLogin; //
         protected $user; //
+		
+		private $lastNews;
 
         function __construct()
         {
@@ -25,13 +27,18 @@
             $mUsers = M_Users::Instance();
             $mUsers->ClearSessions();
             $this->user = $mUsers->Get();
+			
+			$mNews = M_News::Instance();
+			
+			$this->lastNews = $mNews->lastNews();
+			
             $this->title = 'Sunny Web | ';
             $this->content = '';
             $this->generateTime = microtime(true);
 
             if($this->user == null && $this->needLogin)
             {
-                header('Location: /login');
+                header('Location: /login.html');
                 die();
             }
         }
@@ -43,7 +50,7 @@
 		*/
         protected function OnOutput()
         {
-            $vars = array('title' => $this->title, 'content' => $this->content, 'user' => $this->user);
+            $vars = array('title' => $this->title, 'content' => $this->content, 'user' => $this->user, 'lastNews' => $this->lastNews);
 
             $page = $this->View('Views/main.php', $vars);
 

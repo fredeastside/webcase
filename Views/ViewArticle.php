@@ -6,7 +6,7 @@
 <table border="0">
     <tr>
         <td>
-            <a href="/editarticle/<?php echo $article['id_article'];?>"><input type="button" class="adm_button" value="Редактировать"/></a>
+            <a href="/editarticle/<?php echo $article['id_article'];?>.html"><input type="button" class="adm_button" value="Редактировать"/></a>
         </td>
 		<?php if($delete):?>
         <td>

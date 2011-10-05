@@ -18,7 +18,7 @@ class C_EditArticle extends C_Page {
 			
 			if(!$this->id_article)
 			{
-				header('Location: /index.php');
+				header('Location: /');
 				die();
 			}
 			
@@ -26,7 +26,7 @@ class C_EditArticle extends C_Page {
 			
 			if(count($this->article) == 0)
 			{
-				header('Location: /index.php');
+				header('Location: /');
 				die();
 			}
 			
@@ -45,7 +45,7 @@ class C_EditArticle extends C_Page {
 			
 			$mArticles->UpdateArticle($id, $title, $author, $date, $content);
 			
-			header('Location: /article/' . $id);
+			header('Location: /article/' . $id . '.html');
 		}
 	}
 	

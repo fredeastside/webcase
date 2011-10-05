@@ -18,7 +18,7 @@ class C_EditNew extends C_Page {
 			
 			if(!$this->id_new)
 			{
-				header('Location: /index.php');
+				header('Location: /');
 				die();
 			}
 			
@@ -26,7 +26,7 @@ class C_EditNew extends C_Page {
 			
 			if(count($this->new) == 0)
 			{
-				header('Location: /index.php');
+				header('Location: /');
 				die();
 			}
 			
@@ -45,7 +45,7 @@ class C_EditNew extends C_Page {
 			
 			$mNews->UpdateNew($id, $title, $author, $date, $content);
 			
-			header('Location: /new/' . $id);
+			header('Location: /new/' . $id . '.html');
 		}
 	}
 	

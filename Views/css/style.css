@@ -267,3 +267,11 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
 	vertical-align:25%;
 	border: 1px solid #1e90ff;
 }
+
+#sideLeft p.last_news {
+	margin: 4px 4px;
+}
+
+#sideLeft a {
+	color: #1E90FF;
+}

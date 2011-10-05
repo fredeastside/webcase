@@ -28,9 +28,9 @@ class C_AddNew extends C_Page {
 			$this->id = $mNew->AddNew($title, $date, $author, $content);
 			
 			if(!$this->id)
-				header('Location: /index.php');
+				header('Location: /');
 			else
-				header('Location: /new/' . $this->id);
+				header('Location: /new/' . $this->id . '.html');
 		}
 	}
 	

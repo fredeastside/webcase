@@ -9,13 +9,13 @@
  foreach($news as $new): ?>
 <div style="margin-bottom: 15px;">
 <h3>
-	<a href="/new/<?php echo $new['id_new']; ?>"><?php echo $new['title_new']; ?></a>
+	<a href="/new/<?php echo $new['id_new']; ?>.html"><?php echo $new['title_new']; ?></a>
 </h3>
 <p><?php echo $new['content_new']; ?></p>
 </div>
 <?php endforeach; ?>
 <?php if($add) : ?>
 <form method="post">
-    <p align="center"><a href="/addnew"><input type="button" class="adm_button" value="Добавить" /></a></p>
+    <p align="center"><a href="/addnew.html"><input type="button" class="adm_button" value="Добавить" /></a></p>
 </form>
 <?php endif;?>
