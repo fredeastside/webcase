@@ -10,7 +10,6 @@
      private $login;
      private $email;
      private $password;
-     private $user;
 
      function __construct()
      {
