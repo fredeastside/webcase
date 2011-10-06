@@ -4,12 +4,12 @@
  * User: FredRSF
  * Date: 07.08.11
  * Time: 21:10
- * To change this template use File | Settings | File Templates.
+ *@class M_SQL - менеджер базы данных. Служит для установки соединения с бд и проведения операций с данными.
  */
  class M_SQL
  {
-     private static $instance;
-     private $db;
+     private static $instance; // экземпляр класса
+     private $db; // коннекция к бд
 
      function __construct()
      {

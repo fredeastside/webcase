@@ -1,11 +1,5 @@
 <?php
-
 // Файл класса "Автозагрузчик".
-// Класс "Автозагрузчик" - преобразует поступившие имена классов, вида: core_classes_dbconnect
-// в путь и имя файла core/classes/dbconnect.php 
-// и автоматич. подключает файл с определением класса, для возможности создания его
-// экземпляра
-
 class Autoload
 {
 	static private function load(/*string*/$class_name)
