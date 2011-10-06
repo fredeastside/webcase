@@ -22,10 +22,16 @@
          $this->user = $mUsers->Get();
 
          parent::OnInput();
+		 
+		 $this->title .= 'Регистрация на сайте.';
 
          if($this->IsPost())
          {
-             die();
+			$this->login = !empty($_POST['login']) ? trim(htmlspecialchars($_POST['login'])) : null;
+			$this->email = !empty($_POST['email']) ? trim(htmlspecialchars($_POST['email'])) : null;
+			$this->password = !empty($_POST['password']) ? trim(htmlspecialchars($_POST['password'])) : null;
+			$repeat_password = !empty($_POST['repeat_password']) ? trim(htmlspecialchars($_POST['repeat_password'])) : null;
+			$check_code = !empty($_POST['check_code']) ? trim(htmlspecialchars($_POST['check_code'])) : null;
          }
 
 

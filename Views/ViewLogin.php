@@ -24,7 +24,11 @@
 </script>
 <form method="post">
 <div class="authorization">
+<?php if(!$errors):?>
 	<h2 align="center">Введите логин и пароль для входа на сайт.</h2>
+<?php else:?>
+	<h2 align="center" style="color:#ff0000;">Неправильное имя пользователя или пароль!</h2>
+<?php endif;?>
 	<table border="0" cellpadding="" cellspacing="8">
     <tr>
 		<td><b>Логин:</b></td>
@@ -43,3 +47,4 @@
 	</table>
 </div>
 </form>
+<p align="center"><a href="/">Забыли пароль?</a> | <a href="/registration.html">Регистрация</a></p>

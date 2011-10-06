@@ -8,6 +8,7 @@
  class C_Login extends C_page{
 
       private $login;
+	  private $errors;
 
      function __construct()
      {
@@ -25,18 +26,25 @@
 		 
          if($this->IsPost())
          {
-             if($mUsers->Login($_POST['login'], $_POST['password'], isset($_POST['remember'])))
+			 $this->login = !empty($_POST['login']) ? trim(htmlspecialchars($_POST['login'])) : null;
+			 $password = !empty($_POST['password']) ? trim(htmlspecialchars($_POST['password'])) : null;
+			 $remember = !empty($_POST['remember']) ? trim(htmlspecialchars($_POST['remember'])) : null;
+			 
+             if($mUsers->Login($this->login, $password, isset($remember)))
              {
                  header('Location: /');
                  die();
              }
+			 else
+				$this->errors = true;
+			 
              $this->login = $_POST['login'];
          }
      }
 
      protected function OnOutput()
      {
-         $vars = array('login' => $this->login);
+         $vars = array('login' => $this->login, 'errors' => $this->errors);
          $this->content = $this->View('Views/ViewLogin.php', $vars);
          parent::OnOutput();
      }
