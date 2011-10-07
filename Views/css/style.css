@@ -293,3 +293,7 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
 #content div.registration table{
 	margin: 10px auto 15px;
 }
+
+div.registration .redstar {
+	color: #ff0000;
+}

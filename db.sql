@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 06, 2011 at 06:21 PM
+-- Generation Time: Oct 07, 2011 at 06:24 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -159,8 +159,6 @@ CREATE TABLE IF NOT EXISTS `tbl_sessions` (
 -- Dumping data for table `tbl_sessions`
 --
 
-INSERT INTO `tbl_sessions` (`id_session`, `id_user`, `sid`, `time_start`, `time_last`) VALUES
-(56, 1, '41pMcGnJUULii4D', '2011-10-06 16:49:06', '2011-10-06 16:49:07');
 
 -- --------------------------------------------------------
 
@@ -176,13 +174,14 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `email` varchar(256) DEFAULT NULL,
   `is_active` int(1) NOT NULL,
   `date_registration` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `code` varchar(20) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `tbl_users`
 --
 
-INSERT INTO `tbl_users` (`id_user`, `login`, `password`, `id_role`, `email`, `is_active`, `date_registration`) VALUES
-(1, 'fredrsf', '4bb7d8fad340da8514b88980dafd956c', 1, 'fredrsf@yandex.ru', 1, '2011-10-01 00:00:00');
+INSERT INTO `tbl_users` (`id_user`, `login`, `password`, `id_role`, `email`, `is_active`, `date_registration`, `code`) VALUES
+(1, 'fredrsf', '4bb7d8fad340da8514b88980dafd956c', 1, 'fredrsf@yandex.ru', 1, '2011-10-01 00:00:00', '0');

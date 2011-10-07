@@ -313,4 +313,83 @@
 		
 		return ($result[0]['cnt'] > 0);
 	 }
+	 
+	 /**
+	  *@public функция регистрации нового пользователя
+	  *
+	  *@param string $login
+	  *@param string $email
+	  *@param string $password
+	  *
+	  *@return int
+	  */
+	 public function Registration($login, $email, $password, $captcha)
+	 {	
+		if(!isset($_SESSION['captcha']))
+			return 'Неправильный код подтверждения!';
+			
+		if($_SESSION['captcha'] !== $captcha)
+			return 'Неправильный код подтверждения!';
+
+		unset($_SESSION["captcha"]);
+
+		if(!$login)
+			return 'Введите ваш логин!';
+			
+		if((strlen((string)$login) < 4) && !preg_match("[^a-zа-я0-9_]", strtolower($login))) 
+			return 'Логин не должен быть менее 4 символов и может содержать только цифры и буквы!';
+		
+		if(!$email)
+			return 'Введите ваш e-mail!';
+			
+		if (!preg_match("|^([a-z0-9_\.\-]{1,20})@([a-z0-9\.\-]{1,20})\.([a-z]{2,4})|is", strtolower($email)))
+			return 'Указанный вами e-mail некорректный!';
+			
+		if(!$password)
+			return 'Введите ваш пароль!';
+			
+		if((strlen((string)$password) < 6) && preg_match("/\w/", $login))
+			return 'Пароль не должен быть менее 6 символов и может содержать только цифры и буквы!';
+		
+		if($this->GetByLogin($login))
+			return 'Пользователь с таким логином уже существует!';
+			
+		$code = $this->GenerateStr(20);
+		
+		$user = array();
+		
+		$user['login'] = $login;
+		$user['password'] = md5($password);
+		$user['id_role'] = 2;
+		$user['email'] = $email;
+		$user['is_active'] = 0;
+		$user['date_registration'] = date('Y-m-d H:i:s', time());
+		$user['code'] = $code;
+		
+		$result = $this->msql->Insert('tbl_users', $user);
+		
+		if(!$result)
+			return 'Ошибка регистрации! Просьба обратиться к администратору сайта.';
+		
+		$this->RegistrationMail($email);
+		
+		return false;
+	 }
+	 
+	 /**
+	  *@public функция отправки сообщения о регистрации на сайте
+	  *
+	  *@param string $email
+	  *
+	  *@return bool
+	  */	 
+	  private function RegistrationMail($email)
+	  {
+			$mail = new C_Phpmailer();
+			$mail->SetFrom('name@yourdomain.com', 'First Last');
+			$mail->AddAddress($email);
+			$mail->Subject = "PHPMailer Тестовое письмо используя mail()"; 
+			$mail->Body = "Мое первое письмо отправленно с помощью PHPMailer";
+			$mail->Send();
+	  }
  }
