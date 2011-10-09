@@ -47,6 +47,21 @@
      }
 
      /**
+      * @public функция очистки логинов которые не подтвердили регистрацию
+      *
+      * @return bool
+      */
+     public function ClearUsers()
+     {
+         $min_time = date('Y-m-d H:i:s', time() - 3600 * 72);
+         $str = "date_registration < '%s'";
+         $where = sprintf($str, $min_time);
+
+         if($this->msql->Delete('v_not_active', $where))
+             return true;
+     }
+
+     /**
       * @public функция авторизации пользователя
       *
       * @param string $login - логин пользователя
@@ -335,10 +350,10 @@
 
 		if(!$login)
 			return 'Введите ваш логин!';
-			
-		if((strlen((string)$login) < 4) && !preg_match("[^a-zа-я0-9_]", strtolower($login))) 
-			return 'Логин не должен быть менее 4 символов и может содержать только цифры и буквы!';
-		
+
+        if(!preg_match("/^[a-zA-Z0-9_]{4,}$/", $login))
+            return 'Логин не должен быть менее 4 символов и может содержать только цифры и буквы!';
+
 		if(!$email)
 			return 'Введите ваш e-mail!';
 			
@@ -348,8 +363,8 @@
 		if(!$password)
 			return 'Введите ваш пароль!';
 			
-		if((strlen((string)$password) < 6) && preg_match("/\w/", $login))
-			return 'Пароль не должен быть менее 6 символов и может содержать только цифры и буквы!';
+		if(!preg_match("/.{6,}$/", $password))
+			return 'Пароль не должен быть менее 6 символов!';
 		
 		if($this->GetByLogin($login))
 			return 'Пользователь с таким логином уже существует!';
@@ -371,7 +386,7 @@
 		if(!$result)
 			return 'Ошибка регистрации! Просьба обратиться к администратору сайта.';
 		
-		$this->RegistrationMail($email);
+		$this->RegistrationMail($email, $login, $code);
 		
 		return false;
 	 }
@@ -380,16 +395,23 @@
 	  *@public функция отправки сообщения о регистрации на сайте
 	  *
 	  *@param string $email
+      * @param string $login
+      * @param string $code
 	  *
 	  *@return bool
 	  */	 
-	  private function RegistrationMail($email)
+	  private function RegistrationMail($email, $login, $code)
 	  {
 			$mail = new C_Phpmailer();
-			$mail->SetFrom('name@yourdomain.com', 'First Last');
+			$mail->SetFrom('support@sunny-web.ru', 'SUPPORT');
 			$mail->AddAddress($email);
-			$mail->Subject = "PHPMailer Тестовое письмо используя mail()"; 
-			$mail->Body = "Мое первое письмо отправленно с помощью PHPMailer";
+			$mail->Subject = "Подтверждение регистрации на сайте sunny-web.ru";
+			$mail->Body = "Hello, $login!
+На Ваш e-mail была запрошена регистрация на сайте Sunny-Web.ru!
+Для подтверждения своих намерений перейдите по этой ссылке:
+http://webcase/registration.html?code=" . md5($code) . "
+Внимание! Ссылка будет доступна в течение 3-х суток. Если Вы не подтвердите регистрацию за это время, то пользователь будет удален и процесс регистрации придется начинать заново!
+С уважением, Ваш <a href='http://webcase/'>Sunny-web</a>.";
 			$mail->Send();
 	  }
  }

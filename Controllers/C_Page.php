@@ -26,6 +26,7 @@
         {
             $mUsers = M_Users::Instance();
             $mUsers->ClearSessions();
+            $mUsers->ClearUsers();
             $this->user = $mUsers->Get();
 			
 			$mNews = M_News::Instance();

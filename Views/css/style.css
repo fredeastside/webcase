@@ -218,16 +218,7 @@ background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,
 }
 
 #header .logo {
-	margin:5px 0 0 30px;
-}
-
-#header .header_title {
-	bottom:20px;
-    position: relative;
-    font-size: 40px;
-    left:5px;
-    color:#dcdcdc;
-	text-decoration: none;
+	margin:0 0 0 30px;
 }
 
 #footer .footerText {
