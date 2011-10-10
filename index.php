@@ -39,6 +39,8 @@
 				break;
             case 'registration' : $controller = new C_Registration();
 				break;
+			case 'confirm' : $controller = new C_Confirm();
+				break;
 	        default : $controller = new C_News();
 	    }
 	}

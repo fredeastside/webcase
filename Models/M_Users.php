@@ -406,12 +406,50 @@
 			$mail->SetFrom('support@sunny-web.ru', 'SUPPORT');
 			$mail->AddAddress($email);
 			$mail->Subject = "Подтверждение регистрации на сайте sunny-web.ru";
-			$mail->Body = "Hello, $login!
-На Ваш e-mail была запрошена регистрация на сайте Sunny-Web.ru!
-Для подтверждения своих намерений перейдите по этой ссылке:
-http://webcase/registration.html?code=" . md5($code) . "
-Внимание! Ссылка будет доступна в течение 3-х суток. Если Вы не подтвердите регистрацию за это время, то пользователь будет удален и процесс регистрации придется начинать заново!
-С уважением, Ваш <a href='http://webcase/'>Sunny-web</a>.";
+			$mail->Body = "<p>Hello, $login!</p>
+<p>На Ваш e-mail была запрошена регистрация на сайте Sunny-Web.ru!</p>
+<p>Для подтверждения своих намерений перейдите по этой ссылке:
+<a href='http://sunny-web/confirm/" . md5($code) . "'>http://sunny-web/confirm/" . md5($code) . "</a></p>
+<p>Внимание! Ссылка будет доступна в течение 3-х суток. Если Вы не подтвердите регистрацию за это время, то пользователь будет удален и процесс регистрации придется начинать заново!</p>
+<p>С уважением, Ваш <a href='http://sunny-web/'>Sunny-web</a>.</p>";
+			$mail->isHTML(true);
 			$mail->Send();
 	  }
+	  
+	 /**
+	    *@public функция поиска незарегистрированного пользователя.
+	    *
+	    *@param string $code - md5 код подтверждения
+	    *
+	    *@return bool
+	    */
+	 public function SearchUsers($code)
+	 {
+		$str = "SELECT login FROM v_not_active WHERE MD5(code) = '%s'";
+		
+		$query = sprintf($str, $code);
+		
+		return $this->msql->Select($query);
+	 }
+	 
+	 /**
+	    *@public функция изменения статуса пользователя на зарегистрированого
+	    *
+	    *@param string $code - md5 код подтверждения
+	    *
+	    *@return bool
+	    */
+	 public function UpdateNotActiveUser($code)
+	 {
+		$str = "MD5(code) = '%s'";
+		
+		$where = sprintf($str, $code);
+		
+		$data = array();
+		
+		$data['is_active'] = 1;
+		$data['code'] = $this->GenerateStr(20);
+		
+		return $this->msql->Update('v_not_active', $data, $where);
+	 }
  }

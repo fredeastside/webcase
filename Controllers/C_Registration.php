@@ -27,7 +27,7 @@
 		 
 		 $this->title .= 'Регистрация на сайте.';
 
-         if($this->IsPost())
+         if($this->IsPost() && $this->user == null)
          {
 			$this->login = !empty($_POST['login']) ? trim(htmlspecialchars($_POST['login'])) : null;
 			$this->email = !empty($_POST['email']) ? trim(htmlspecialchars($_POST['email'])) : null;

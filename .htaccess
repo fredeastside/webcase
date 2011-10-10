@@ -10,7 +10,8 @@ Options -Indexes
 RewriteEngine on
 Options +FollowSymlinks
 RewriteBase /
-#RewriteCond %{REQUEST_FILENAME} !-f #если нет файла с таким же именем
+#RewriteCond %{REQUEST_FILENAME} !-f #РµСЃР»Рё РЅРµС‚ С„Р°Р№Р»Р° СЃ С‚Р°РєРёРј Р¶Рµ РёРјРµРЅРµРј
 RewriteRule ^.htaccess$ - [F]
+RewriteRule ^([^/]*)/([^/]*)$ /index.php?c=$1&code=$2
 RewriteRule ^([^/]*)/([^/]*)\.html$ /index.php?c=$1&id=$2
 RewriteRule ^([^/]*)\.html$ /index.php?c=$1
