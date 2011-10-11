@@ -41,6 +41,10 @@
 				break;
 			case 'confirm' : $controller = new C_Confirm();
 				break;
+			case 'injustice' : $controller = new C_Injustice();
+				break;
+			case 'recover' : $controller = new C_Recover();
+				break;
 	        default : $controller = new C_News();
 	    }
 	}

@@ -47,4 +47,4 @@
 	</table>
 </div>
 </form>
-<p align="center"><a href="/">Забыли пароль?</a> | <a href="/registration.html">Регистрация</a></p>
+<p align="center"><a href="/registration.html">Регистрация</a> | <a href="/recover.html">Забыли пароль?</a> | <a href="/injustice.html">Не пришло письмо подтверждения регистрации?</a></p>

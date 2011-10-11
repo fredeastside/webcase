@@ -346,7 +346,7 @@
 		if($_SESSION['captcha'] !== $captcha)
 			return 'Неправильный код подтверждения!';
 
-		unset($_SESSION["captcha"]);
+		unset($_SESSION['captcha']);
 
 		if(!$login)
 			return 'Введите ваш логин!';
@@ -395,8 +395,8 @@
 	  *@public функция отправки сообщения о регистрации на сайте
 	  *
 	  *@param string $email
-      * @param string $login
-      * @param string $code
+             * @param string $login
+             * @param string $code
 	  *
 	  *@return bool
 	  */	 

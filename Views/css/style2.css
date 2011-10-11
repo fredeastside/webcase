@@ -1,0 +1,290 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	height: 100%;
+}
+header, nav, section, article, aside, footer {
+	display: block;
+}
+body {
+	font: small Verdana,Tahoma,Helvetica,sans-serif;
+	width: 100%;
+	height: 100%;
+}
+a {
+	color: #c0c0c0;
+	outline: none;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+p {
+	margin: 5px;
+}
+
+li {
+	list-style-position: inside;
+}
+
+img {
+	border: none;
+}
+input {
+	vertical-align: middle;
+}
+#wrapper {
+	width: 1000px;
+	margin: 0 auto;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+h2 {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 160%;
+    font-weight: normal;
+    margin: 0 0 0.4em;
+    padding-bottom: 4px;
+}
+
+h3 {
+    /*border-bottom: 1px solid #CCCCCC;*/
+    font-size: 130%;
+    font-weight: normal;
+    margin: 0 0 0.5em;
+    padding-bottom: 4px;
+}
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+	height: 80px;
+	background: #FFE680;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 
+background: #d0e4f7; /* Old browsers */
+background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0e4f7), color-stop(24%,#73b1e7), color-stop(50%,#0a77d5), color-stop(79%,#539fe1), color-stop(100%,#87bcea)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* W3C */
+position:relative;
+}
+
+#search {
+	font-size:10px;
+	color:#dcdcdc;
+	margin: 10px 0 10px 7px;;
+}
+#registration {
+	position:absolute;
+	top:5px;
+	right:20px;
+	font-size:10px;
+	color:#fff;
+}
+
+#registration a {
+    color:#fff;
+}
+
+
+#menu {
+	position:absolute;
+	z-index:999;
+	right:10px;
+    top:-40px;
+}
+
+ul#topnav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	font-size: 18px;
+}
+ul#topnav li{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;  /*--Important - Masking out the hover state by default--*/
+	float: left;
+	height:40px;
+}
+ul#topnav a, ul#topnav span { /*--The <a> and <span> share the same properties since the <span>  will be a duplicate of the <a> tag--*/
+	padding: 10px 20px;
+	float: left;
+	text-decoration: none;
+	color: #fff;
+	/*background: #eeeeee;*/
+	text-transform: uppercase;
+	clear: both;
+	width: 100%;
+	height: 20px;
+	line-height: 20px; /*--Vertical alignment of text--*/
+}
+ul#topnav a{ /*--This is basically the hover state of navigation--*/
+	color: #555;
+	background-position: left bottom;
+}
+ul#topnav span{ /*--Default state of navigation--*/
+	background-position: left top;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+	width: 100%;
+	padding: 0 0 100px;
+	height: 1%;
+	position: relative;
+}
+#middle:after {
+	content: '.';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+#container {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	margin-top:15px;
+}
+#content {
+	padding: 0 220px 0 220px;
+}
+
+
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+	float: left;
+	width: 200px;
+	margin-left: -100%;
+	margin-top:10px;
+	position: relative;
+	font-size: 87%;
+	/*-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #1e90ff;*/
+}
+
+
+/* Sidebar Right
+-----------------------------------------------------------------------------*/
+#sideRight {
+	float: left;
+	margin-right: -3px;
+	width: 200px;
+	margin-left: -200px;
+	margin-top:10px;
+	position: relative;
+	font-size: 87%;
+	/*-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #1e90ff;*/
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+	width: 1000px;
+	margin: -35px auto 0;
+	height: 30px;
+	background: #BFF08E;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+background: #d0e4f7; /* Old browsers */
+background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0e4f7), color-stop(24%,#73b1e7), color-stop(50%,#0a77d5), color-stop(79%,#539fe1), color-stop(100%,#87bcea)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* W3C */
+}
+
+#header .logo {
+	margin:0 0 0 30px;
+}
+
+#footer .footerText {
+	color:#dcdcdc;
+	padding-top:9px;
+	font-size:10px;
+}
+
+#content div.authorization table{
+	margin: 10px auto 15px;
+}
+
+.msg_log {
+    color: #FF0000;
+    margin: 0 10px;
+}
+
+.adm_button {
+	background-image: url('../images/108_1.png');
+	background-repeat: repeat-x;
+	color: #fff;
+	font-size: 100%;
+	padding: 1px 2px;
+	margin-top:10px;
+}
+
+#content input.edit_content {
+	border: 1px solid #1e90ff;
+}
+
+#content p.small_text {
+	font-size: 85%;
+	color: #c0c0c0;
+}
+
+#search input.search_inpt {
+	font-size:150%; 
+	vertical-align:25%;
+	border: 1px solid #1e90ff;
+}
+
+#sideLeft p.last_news {
+	margin: 4px 4px;
+}
+
+#sideLeft a {
+	color: #1E90FF;
+}
+
+#content .authorization {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#content .authorization input{
+	border: 1px solid #1E90FF;
+}
+
+#content .registration input{
+	border: 1px solid #1E90FF;
+	width: 163px;
+}
+
+#content div.registration table{
+	margin: 10px auto 15px;
+}
+
+.redstar {
+	color: #ff0000;
+}

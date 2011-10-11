@@ -12,6 +12,6 @@ Options +FollowSymlinks
 RewriteBase /
 #RewriteCond %{REQUEST_FILENAME} !-f #если нет файла с таким же именем
 RewriteRule ^.htaccess$ - [F]
-RewriteRule ^([^/]*)/([^/]*)$ /index.php?c=$1&code=$2
 RewriteRule ^([^/]*)/([^/]*)\.html$ /index.php?c=$1&id=$2
+RewriteRule ^([^/]*)/([^/]*)$ /index.php?c=$1&code=$2
 RewriteRule ^([^/]*)\.html$ /index.php?c=$1

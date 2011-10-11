@@ -30,7 +30,7 @@ if(!$is_registered):
 		<td><input type="password" id="repeat_password" name="repeat_password" /><span id="msg_repeat_password" class="msg_log"></span></td>
 	</tr>
 	<tr>
-		<td><img src="/captcha/captcha.php" alt="код подтверждения" border="0"></td>
+		<td><img src="/Views/captcha/captcha.php" alt="код подтверждения" border="0"></td>
 		<td><input type="text" id="check_code" name="captcha" style="width:115px; font-size:310%;" /><span id="msg_check_code" class="msg_log"></span></td>
 	</tr>
     <tr>
@@ -43,5 +43,5 @@ if(!$is_registered):
 <h2 align="center">Регистрация нового пользователя прошла успешно!</h2>
 <p>Но это еще не всё!</p>
 <p>На указанный e-mail была выслана ссылка с подтверждающих кодом. Вам надо перейти по этой ссылке для завершения процесса регистрации.</p>
-<p><a href="">Не пришло письмо подтверждения регистрации?</a></p>
+<p><a href="/injustice.html">Не пришло письмо подтверждения регистрации?</a></p>
 <?php endif;?>
