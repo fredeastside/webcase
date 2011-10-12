@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 07, 2011 at 06:24 PM
+-- Generation Time: Oct 12, 2011 at 05:07 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -153,12 +153,14 @@ CREATE TABLE IF NOT EXISTS `tbl_sessions` (
   `time_last` datetime NOT NULL,
   PRIMARY KEY (`id_session`),
   UNIQUE KEY `sid` (`sid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
 
 --
 -- Dumping data for table `tbl_sessions`
 --
 
+INSERT INTO `tbl_sessions` (`id_session`, `id_user`, `sid`, `time_start`, `time_last`) VALUES
+(60, 25, '7qLEMAdHChr27Gi', '2011-10-12 17:06:52', '2011-10-12 17:06:53');
 
 -- --------------------------------------------------------
 
@@ -177,11 +179,57 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `code` varchar(20) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `tbl_users`
 --
 
 INSERT INTO `tbl_users` (`id_user`, `login`, `password`, `id_role`, `email`, `is_active`, `date_registration`, `code`) VALUES
-(1, 'fredrsf', '4bb7d8fad340da8514b88980dafd956c', 1, 'fredrsf@yandex.ru', 1, '2011-10-01 00:00:00', '0');
+(1, 'fredrsf', '4bb7d8fad340da8514b88980dafd956c', 1, 'fredrsf@yandex.ru', 1, '2011-10-01 00:00:00', '0'),
+(25, 'user_test', 'e10adc3949ba59abbe56e057f20f883e', 2, 'user@user.ru', 1, '2011-10-12 17:06:40', 'akbRUne1hZBJe0ruC3fL');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_forget_password`
+--
+CREATE TABLE IF NOT EXISTS `v_forget_password` (
+`login` varchar(256)
+,`password` varchar(32)
+,`id_role` int(5)
+,`email` varchar(256)
+,`is_active` int(1)
+,`date_registration` timestamp
+,`code` varchar(20)
+);
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_not_active`
+--
+CREATE TABLE IF NOT EXISTS `v_not_active` (
+`login` varchar(256)
+,`id_role` int(5)
+,`email` varchar(256)
+,`is_active` int(1)
+,`date_registration` timestamp
+,`code` varchar(20)
+);
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_forget_password`
+--
+DROP TABLE IF EXISTS `v_forget_password`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_forget_password` AS select `tbl_users`.`login` AS `login`,`tbl_users`.`password` AS `password`,`tbl_users`.`id_role` AS `id_role`,`tbl_users`.`email` AS `email`,`tbl_users`.`is_active` AS `is_active`,`tbl_users`.`date_registration` AS `date_registration`,`tbl_users`.`code` AS `code` from `tbl_users` where (`tbl_users`.`is_active` = 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_not_active`
+--
+DROP TABLE IF EXISTS `v_not_active`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_not_active` AS select `tbl_users`.`login` AS `login`,`tbl_users`.`id_role` AS `id_role`,`tbl_users`.`email` AS `email`,`tbl_users`.`is_active` AS `is_active`,`tbl_users`.`date_registration` AS `date_registration`,`tbl_users`.`code` AS `code` from `tbl_users` where (`tbl_users`.`is_active` = 0);

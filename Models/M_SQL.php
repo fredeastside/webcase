@@ -84,7 +84,7 @@
          $set_s = implode(',', $sets);
 
          $stmt = $this->db->prepare("UPDATE $table SET $set_s WHERE $where");
-
+		
          $stmt->execute();
 
          return $stmt->rowCount();

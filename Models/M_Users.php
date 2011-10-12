@@ -116,6 +116,26 @@
          else
              return null;
      }
+	 
+ /**
+      * @public функция получает пользователя из бд
+      *
+      * @param string $login_or_email - login or email пользователя
+      *
+      * @return array
+      */
+     public function GetByLoginOrEmail($login_or_email)
+     {
+         $str = "SELECT * FROM tbl_users WHERE login = '%s' OR email = '%s'";
+         $query = sprintf($str, $login_or_email, $login_or_email);
+
+         $result = $this->msql->Select($query);
+
+         if(count($result) != 0)
+            return $result[0];
+         else
+             return null;
+     }	 
 
      /**
       * @private функция открытия новой сессии
@@ -409,11 +429,69 @@
 			$mail->Body = "<p>Hello, $login!</p>
 <p>На Ваш e-mail была запрошена регистрация на сайте Sunny-Web.ru!</p>
 <p>Для подтверждения своих намерений перейдите по этой ссылке:
-<a href='http://sunny-web/confirm/" . md5($code) . "'>http://sunny-web/confirm/" . md5($code) . "</a></p>
+<a href='http://web/confirm/" . md5($code) . "'>http://web/confirm/" . md5($code) . "</a></p>
 <p>Внимание! Ссылка будет доступна в течение 3-х суток. Если Вы не подтвердите регистрацию за это время, то пользователь будет удален и процесс регистрации придется начинать заново!</p>
-<p>С уважением, Ваш <a href='http://sunny-web/'>Sunny-web</a>.</p>";
+<p>С уважением, Ваш <a href='http://web/'>Sunny-web</a>.</p>";
 			$mail->isHTML(true);
 			$mail->Send();
+	  }
+	  
+	 /**
+	  *@public функция отправки сообщения о восстановлении пароля
+	  *
+	  *@param string $email
+             * @param string $code
+	  *
+	  *@return bool
+	  */	 
+	  private function RecoverMail($email, $login, $code)
+	  {
+			$mail = new C_Phpmailer();
+			$mail->SetFrom('support@webfactory.su', 'SUPPORT');
+			$mail->AddAddress($email);
+			$mail->Subject = "Восстановление забытого пароля на сайте webfactory.su";
+			$mail->Body = "<p>Hello, $login!</p>
+<p>Это письмо было выслано вам по запросу на восстановление пароля на сайте webfactory.su!</p>
+<p>(если вы не запрашивали восстановление пароля, просто удалите это письмо)</p>
+<p>Для смены пароля пройдите по этой ссылке:
+<a href='http://web/recover/" . md5($code) . "'>http://web/recover/" . md5($code) . "</a></p>
+<p>Внимание! Ссылка будет доступна в течение 3-х суток. Если Вы не подтвердите регистрацию за это время, то пользователь будет удален и процесс регистрации придется начинать заново!</p>
+<p>С уважением, Ваш <a href='http://web/'>webfactory.su</a>.</p>";
+			$mail->isHTML(true);
+			$mail->Send();
+	  }	  
+	  
+	/**
+	  *@public функция восстановления пароля
+	  *
+             * @param string $login_or_email
+             * @param string $captcha
+	  *
+	  *@return bool
+	  */	 
+	  public function RecoverPassword($login_or_email, $captcha)
+	  {
+		if(!isset($_SESSION['captcha']))
+			return 'Неправильный код подтверждения!';
+			
+		if($_SESSION['captcha'] !== $captcha)
+			return 'Неправильный код подтверждения!';
+
+		unset($_SESSION['captcha']);
+
+		if(!$login_or_email)
+			return 'Введите логин или пароль!';
+		
+		$user = $this->GetByLoginOrEmail($login_or_email);
+		
+		if(!$user)
+			return 'Такого пользователя не существует!';
+			
+		$this->SetStatusForgetPassword($user['code']);
+		
+		$this->RecoverMail($user['email'], $user['login'], $user['code']);
+		
+		return false;
 	  }
 	  
 	 /**
@@ -430,6 +508,82 @@
 		$query = sprintf($str, $code);
 		
 		return $this->msql->Select($query);
+	 }
+	 
+	 /**
+	    *@public функция замены старого пароля на новый
+	    *
+	    *@param string $password - md5 код подтверждения
+	    *@param string $captcha - md5 код подтверждения
+	    *@param string $code - md5 код подтверждения
+	    *
+	    *@return bool
+	    */
+	 public function ChangePassword($password, $captcha, $code)
+	 {
+		if(!isset($_SESSION['captcha']))
+			return 'Неправильный код подтверждения!';
+			
+		if($_SESSION['captcha'] !== $captcha)
+			return 'Неправильный код подтверждения!';
+
+		unset($_SESSION['captcha']);
+		
+		if(!$password)
+			return 'Введите ваш пароль!';
+			
+		if(!preg_match("/.{6,}$/", $password))
+			return 'Пароль не должен быть менее 6 символов!';
+		
+		$str = "MD5(code) = '%s'";
+		
+		$where = sprintf($str, $code);
+		
+		$data = array();
+		
+		$data['password'] = md5($password);
+		$data['is_active'] = 1;
+		$data['code'] = $this->GenerateStr(20);
+		
+		$this->msql->Update('v_forget_password', $data, $where);
+		
+		return false;
+	 }
+	 
+	 /**
+	    *@public функция поиска пользователя с забытым паролем
+	    *
+	    *@param string $code - md5 код подтверждения
+	    *
+	    *@return bool
+	    */
+	 public function SearchForgetUsers($code)
+	 {
+		$str = "SELECT login FROM v_forget_password WHERE MD5(code) = '%s'";
+		
+		$query = sprintf($str, $code);
+		
+		return $this->msql->Select($query);
+	 }
+	 
+	 /**
+	    *@private функция установки пользователю статуса забытого пароля
+	    *
+	    *@param string $code - md5 код подтверждения
+	    *
+	    *@return bool
+	    */
+	 private function SetStatusForgetPassword($code)
+	 {
+		$str = "code = '%s'";
+		
+		$where = sprintf($str, $code);
+		
+		$data = array();
+		
+		$data['is_active'] = 3;
+		
+		return $this->msql->Update('tbl_users', $data, $where);
 	 }
 	 
 	 /**
