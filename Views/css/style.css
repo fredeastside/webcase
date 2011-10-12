@@ -201,12 +201,12 @@ ul, ol {
 }
 
 #sideRight .rightSide {
-    padding:0 10px;
+    padding:0 20px;
 }
 
 #sideRight .rightSide input {
     vertical-align: top;
-    width: 185px;
+    width: 170px;
 }
 
 #sideRight .rightSide img {

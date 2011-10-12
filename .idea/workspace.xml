@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9c8c92b1-ab3b-4744-b507-4e1284419abd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/C_Page.php" afterPath="$PROJECT_DIR$/Controllers/C_Page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/C_Recover.php" afterPath="$PROJECT_DIR$/Controllers/C_Recover.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/M_Users.php" afterPath="$PROJECT_DIR$/Models/M_Users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/css/style.css" afterPath="$PROJECT_DIR$/Views/css/style.css" />
     </list>
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,10 +44,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="C_Recover.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="C_Recover.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/C_Recover.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="26" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.5269565">
+            <state line="65" column="26" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="M_News.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/M_News.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="0" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,10 +80,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Views/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="26" selection-start="4090" selection-end="4090" vertical-scroll-proportion="0.0">
+            <state line="197" column="24" selection-start="3451" selection-end="3451" vertical-scroll-proportion="0.053913042">
               <folding />
             </state>
           </provider>
@@ -108,10 +115,10 @@
         <option value="$PROJECT_DIR$/Controllers/C_Registration.php" />
         <option value="$PROJECT_DIR$/Views/main.php" />
         <option value="$PROJECT_DIR$/Views/ViewEditArticle.php" />
-        <option value="$PROJECT_DIR$/Views/css/style.css" />
         <option value="$PROJECT_DIR$/Controllers/C_Page.php" />
         <option value="$PROJECT_DIR$/Models/M_Users.php" />
         <option value="$PROJECT_DIR$/Controllers/C_Recover.php" />
+        <option value="$PROJECT_DIR$/Views/css/style.css" />
       </list>
     </option>
   </component>
@@ -409,13 +416,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Models/M_News.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controllers/C_PHP.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="38" selection-start="709" selection-end="735" vertical-scroll-proportion="0.0">
@@ -486,13 +486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="26" selection-start="4090" selection-end="4090" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/M_SQL.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -516,7 +509,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Controllers/C_Recover.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="26" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.5269565">
+        <state line="65" column="26" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/M_News.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="197" column="24" selection-start="3451" selection-end="3451" vertical-scroll-proportion="0.053913042">
           <folding />
         </state>
       </provider>
