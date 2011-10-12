@@ -36,7 +36,7 @@ h1 a, h1 a:hover {
 }
 
 a {
-    border-bottom: 1px solid #666666;
+    /*border-bottom: 1px solid #666666;*/
     color: #666666;
     outline: medium none;
     padding: 1px 2px;
@@ -52,13 +52,13 @@ a:hover, a:active {
 }
 
 a:hover {
-    background-color: #444444;
+    background-color: #fff;
     border: medium none;
-    color: white;
+    color: #444444;
 }
 
 p {
-	margin: 0 0 18px
+
 }
 img {
 	border: none;
@@ -76,6 +76,22 @@ input {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
+}
+
+h2 {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 150%;
+    font-weight: normal;
+    margin: 0 0 0.4em;
+    padding-bottom: 4px;
+}
+
+h3 {
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 130%;
+    font-weight: normal;
+    margin: 0 0 0.5em;
+    padding-bottom: 4px;
 }
 
 ul, ol {
@@ -108,6 +124,12 @@ ul, ol {
     padding: 8px 10px;
 }
 
+#menu li a:hover {
+    background-color: #444444;
+    border: medium none;
+    color: white;
+}
+
 #wrapper {
 	width: 1000px;
 	margin: 0 auto;
@@ -122,8 +144,25 @@ ul, ol {
 #header {
 	height: 120px;
 	text-align: center;
+    position:relative;
 }
 
+#registration {
+	position:absolute;
+	top:0;
+	right:20px;
+	font-size:11px;
+}
+
+#registration a {
+    border-bottom: none;
+
+}
+
+#registration a:hover {
+    background-color: #fff;
+    color: #444444;
+}
 
 /* Middle
 -----------------------------------------------------------------------------*/
@@ -146,7 +185,7 @@ ul, ol {
 	overflow: hidden;
 }
 #content {
-	padding: 0 270px 0 0;
+	padding: 0 270px 20px 0;
 }
 
 
@@ -161,6 +200,19 @@ ul, ol {
 	border-left: 1px solid #cfcfcf;
 }
 
+#sideRight .rightSide {
+    padding:0 10px;
+}
+
+#sideRight .rightSide input {
+    vertical-align: top;
+    width: 185px;
+}
+
+#sideRight .rightSide img {
+    vertical-align: text-bottom;
+    margin: 0 5px;
+}
 
 /* Footer
 -----------------------------------------------------------------------------*/
@@ -170,4 +222,18 @@ ul, ol {
 	height: 100px;
 	position: relative;
 	border-top: 2px solid #CFCFCF;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.redstar {
+	color: #ff0000;
+}
+
+#content div.registration table{
+	margin: 10px auto 15px;
+}
+
+#content div.authorization table{
+	margin: 10px auto 15px;
 }

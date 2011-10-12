@@ -33,7 +33,7 @@
 			
 			$this->lastNews = $mNews->lastNews();
 			
-            $this->title = 'Sunny Web | ';
+            $this->title = 'Web factory | ';
             $this->content = '';
             $this->generateTime = microtime(true);
 

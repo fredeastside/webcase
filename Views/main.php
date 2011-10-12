@@ -23,7 +23,7 @@
 
 	<div id="header">
 	<h1 class="title">
-		<a href="/">Title web site</a>
+		<a href="/">Web factory 1.0</a>
 	</h1>
 	<ul id="menu">
 		<li><a href="/news.html">Новости</a></li>
@@ -32,6 +32,19 @@
 		<li><a href="/javascript.html">Javascript</a></li>
 		<li><a href="/sql.html">SQL</a></li>
 	</ul>
+        <div id="registration">
+		<table border="0">
+        <tr>
+		<?php if($user):?>
+			<td colspan="3"><a href="/logout.html">Выход</a></td>
+		<?php else:?>
+			<td><a href="/login.html">Вход</a></td>
+			<td>&nbsp;|&nbsp;</td>
+			<td><a href="/registration.html">Регистрация</a></td>
+		<?php endif;?>
+		</tr>
+		</table>
+		</div>
 	</div><!-- #header-->
 
 	<div id="middle">
@@ -43,21 +56,23 @@
 		</div><!-- #container-->
 
 		<div class="sidebar" id="sideRight">
+            <div class="rightSide">
 			<div id="search">
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td><input type="text" class="search_inpt" name="" size="18" /></td>
-						<td valign="top"><img src="/Views/images/search_button.png"><!--input type="submit" class="adm_button" name="" value="Поиск" /--></td>
+						<td><img src="/Views/images/search_button.png"><!--input type="submit" class="adm_button" name="" value="Поиск" /--></td>
 					</tr>
 				</table>
 			</div>
-			<h2>Популярное:</h2><p>Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
-			<h2>Последине новости:</h2>
+			<h3>Популярное:</h3><p>Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
+			<h3>Последине новости:</h3>
 			<?php foreach($lastNews as $titleNew):?>
 			<p class="last_news">
 			<a href="/new/<?php echo $titleNew['id_new'];?>.html"><?php echo (strlen($titleNew['title_new']) > 200) ? (mb_substr($titleNew['title_new'], 0, 100)) . '...' : $titleNew['title_new'];?></a>
 			</p>
 			<?php endforeach;?>
+            </div>
 		</div><!-- .sidebar#sideRight -->
 
 	</div><!-- #middle-->
@@ -65,7 +80,7 @@
 </div><!-- #wrapper -->
 
 <div id="footer">
-	<strong>Footer:</strong>
+	<strong>Web factory &copy; 2011</strong>
 </div><!-- #footer -->
 
 </body>
