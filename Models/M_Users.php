@@ -62,6 +62,24 @@
      }
 
      /**
+      * @public функция очистки ссылок пользователей на смену пароля
+      *
+      * @return bool
+      */
+     public function ClearLinksForChangePassword()
+     {
+         $min_time = date('Y-m-d H:i:s', time() - 3600 * 24);
+         $str = "date_registration < '%s'";
+         $where = sprintf($str, $min_time);
+
+         $data = array();
+         $data['code'] = $this->GenerateStr(20);
+
+         if($this->msql->Update('v_forget_password', $data ,$where))
+             return true;
+     }
+
+     /**
       * @public функция авторизации пользователя
       *
       * @param string $login - логин пользователя

@@ -27,6 +27,7 @@
             $mUsers = M_Users::Instance();
             $mUsers->ClearSessions();
             $mUsers->ClearUsers();
+            $mUsers->ClearLinksForChangePassword();
             $this->user = $mUsers->Get();
 			
 			$mNews = M_News::Instance();

@@ -60,6 +60,11 @@ class C_Recover extends C_Page {
 				{
 					$this->found_user = true;
 				}
+                else
+                {
+                    header('Location: /');
+                    die();
+                }
 			}
 		}
 	}
