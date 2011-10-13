@@ -230,7 +230,7 @@
 
                  if($result[0]['count(*)'] == 0)
                  {
-                     sleep(10);
+                     //sleep(10);
                      $sid = null;
                  }
              }

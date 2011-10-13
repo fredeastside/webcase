@@ -24,12 +24,37 @@
          $this->msql = M_SQL::Instance();
      }
 
-     public function ViewAllNews()
+     public function ViewAllNews($num, $page)
      {
-         $query = "SELECT id_new, title_new, content_new FROM tbl_news ORDER BY id_new DESC";
+         $query = "SELECT id_new, title_new, content_new FROM tbl_news ORDER BY id_new DESC LIMIT " . (($page - 1) * $num) . ', ' . $num;
 
          return $this->msql->Select($query);
      }
+	 
+	 public function CreatePagesMenu($num, $page)
+     {
+         $query = "SELECT COUNT(*) AS 'cnt' FROM tbl_news";
+
+         $result = $this->msql->Select($query);
+		 
+		 if(!$result)
+			return null;
+			
+		 $count = ceil($result[0]['cnt'] / $num);
+		 
+		 $menu = '';
+		 
+		 for($i = 1; $i <= $count; ++$i)
+		 {
+			if($i == $page)
+				$menu .= '<b>' . $i . '</b>';
+			else	
+				$menu .= '<a href="/news/' . $i . '/">' . $i . '</a>';
+		 }
+		 
+		 return $menu;
+		 
+	 }
 	 
 	 public function lastNews()
      {

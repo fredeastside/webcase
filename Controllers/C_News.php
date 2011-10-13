@@ -10,6 +10,8 @@ class C_News extends C_Page
 {
     private $news;
     private $mNews;
+	private $num = 5; // количество  новостей на странице
+	private $pages_menu;
 
     protected function OnInput()
     {
@@ -18,8 +20,12 @@ class C_News extends C_Page
         $this->mNews = M_News::Instance();
 
         $this->title .= 'Новости';
+		
+		$page = !empty($_GET['page']) ? htmlspecialchars(trim((int)$_GET['page'])) : 1;
 
-        $this->news = $this->mNews->ViewAllNews();
+		$this->pages_menu = $this->mNews->CreatePagesMenu($this->num, $page);
+		
+        $this->news = $this->mNews->ViewAllNews($this->num, $page);
 
         for($i = 0, $cnt = count($this->news); $i < $cnt; $i++)
         {
@@ -31,7 +37,7 @@ class C_News extends C_Page
     {
 		$mUsers = M_Users::Instance();
 		
-        $vars = array('news' => $this->news, 'add' => $mUsers->Can('ADD_NEWS'));
+        $vars = array('news' => $this->news, 'add' => $mUsers->Can('ADD_NEWS'), 'pages_menu' => $this->pages_menu);
 
         $this->content = $this->View('/Views/ViewAllNews.php', $vars);
 

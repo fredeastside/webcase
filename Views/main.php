@@ -60,7 +60,7 @@
 			<div id="search">
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td><input type="text" class="search_inpt" name="" size="18" /></td>
+						<td><input type="text" class="search_input" name="" size="18" /></td>
 						<td><img src="/Views/images/search_button.png"><!--input type="submit" class="adm_button" name="" value="Поиск" /--></td>
 					</tr>
 				</table>
