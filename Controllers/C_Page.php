@@ -31,7 +31,7 @@
             $this->user = $mUsers->Get();
 			
 			$mNews = M_News::Instance();
-			
+			//$mNews->NewsInsert();
 			$this->lastNews = $mNews->lastNews();
 			
             $this->title = 'Web factory | ';

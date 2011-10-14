@@ -31,6 +31,24 @@
          return $this->msql->Select($query);
      }
 	 
+	 /*public function NewsInsert()
+	 {
+		    $res = $this->msql->Select('SELECT MAX(id_new) AS cnt FROM tbl_news');
+			
+			$i = $res[0]['cnt'];
+		    
+		    while(++$i <= 10000)
+		    {   
+				$data = array();
+				
+				$data['title_new'] = $i + 30;
+				$data['date_new'] = date("Y-m-d H:i:s");
+				$data['author_new'] = 'fuf';
+				$data['content_new'] = 'fufufufufufufuf';
+		        $this->msql->Insert('tbl_news', $data);
+		    }
+	 }*/
+	 
 	 public function CreatePagesMenu($num, $page)
      {
          $query = "SELECT COUNT(*) AS 'cnt' FROM tbl_news";
@@ -42,18 +60,71 @@
 			
 		 $count = ceil($result[0]['cnt'] / $num);
 		 
-		 $menu = '';
-		 
-		 for($i = 1; $i <= $count; ++$i)
-		 {
-			if($i == $page)
-				$menu .= '<b>' . $i . '</b>';
-			else	
-				$menu .= '<a href="/news/' . $i . '/">' . $i . '</a>';
-		 }
-		 
-		 return $menu;
-		 
+		 $menu = ''; 
+        // Если страниц меньше 13, оставляем все по дефолту.
+        if($count < 13)
+        {          
+            $i = 1;    
+            $cnt = $count;            
+        }
+        else
+        {
+
+       // Стрелочка на 10 влево
+            if($page > 10)
+                $menu .= '<a href="/news/1/">стрелка влево</a> ';
+
+       // Добавляем ссылки на две первые страницы         
+            if($count > 12)
+            {    
+                if($page == 7)
+                    $menu .= '<a href="/news/1/">1</a> '; 
+                elseif($page == 8)        
+                    $menu .= '<a href="/news/1/">1</a> <a href="/news/2/">2</a> ';                                      
+                elseif($page > 7)        
+                    $menu .= '<a href="/news/1/">1</a> <a href="/news/2/">2</a> <b>...</b> ';
+            }    
+
+
+            if($page < 6)
+            {  // Если текущая страница в диапазоне от 1 до 5, выводим первые 10 записей
+                $i = 1;
+                $cnt = 10;                
+            }                
+            elseif($page >= $count - 5)
+            {  // Если текущая страница на границе диапазона, или вышла за неё, показываем 10 последних
+                $i = $count - 10; 
+                $cnt = $count; 
+            }
+            else
+            {  // В ином случае показываем 11 страниц, 5 слева от текущей, 5 справа.  
+                $i = $page - 5;
+                $cnt = $count;                
+            }
+
+            // Обрезаем ссылки
+            if($page < 6) 
+                $cnt = $i + 9;           
+            elseif($count - $i > 10)
+                $cnt = $i + 10;
+           
+        }        
+
+      // Формируем меню       
+        while($i <= $cnt)
+        {
+            if($i == $page)
+                $menu .= '<b><font color="#ff6600">'. $i .'</font></b> ';
+            else
+                $menu .= '<a href="/news/'. $i .'/">'. $i .'</a> ';
+                   
+             $i++;           
+        }             
+	 
+	       // Стрелочка на 10 вправо 
+	                $menu .= ' <a href="/news/'. $count .'/">стрелка вправо</a>'; 
+	                                   
+	        return $menu;  	 
 	 }
 	 
 	 public function lastNews()
