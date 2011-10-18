@@ -33,14 +33,88 @@ class M_Articles extends M_SQL
     }
 	*/
 	
-	public function ViewAllTypedArticles($type)
+	public function ViewAllTypedArticles($type, $num, $page)
 	{
-		$str = "SELECT id_article, title_article, content_article FROM tbl_articles WHERE type_article = '%s'";
+		$str = "SELECT id_article, title_article, content_article FROM tbl_articles WHERE type_article = '%s' ORDER BY id_article DESC LIMIT " . (($page - 1) * $num) . ', ' . $num;
 		
 		$query = sprintf($str, $type);
 		
 		return $this->msql->Select($query);
 	}
+	
+	 public function CreatePagesMenu($num, $page)
+     {
+         $query = "SELECT COUNT(*) AS 'cnt' FROM tbl_articles";
+         $result = $this->msql->Select($query);
+		 
+		 if(!$result)
+			return null;
+		 
+		 $count = ceil($result[0]['cnt'] / $num);
+		 
+		 if($page > $count || $page < 1)
+		 {
+			header('Location: /');
+		 }
+		 
+		 // анализируем меню
+		 $menu = ''; 
+		
+		 if($count < 9)
+		 {
+            $i = 1;    
+            $cnt = $count;            
+		 }
+		 else
+		 {
+			$i = 1;
+			$cnt = 8;
+			
+			if($page == 5)
+			{
+				$i = 1;
+				$cnt = 9;
+			}
+				
+			if($page > 5 && $page < ($count - 4))
+			{
+				$i = $page - 4;
+				$cnt = $page + 4;
+			}
+			
+			if($page > 5 && $page >= ($count - 4))
+			{
+				$i = $count - 8;
+				$cnt = $count;
+			}
+		 }
+		 
+		 $left = ($page == 1) ? 'влево' : '<a href="/news/' . ($page - 1) . '/">влево</a>';
+		 $right = ($page == $count) ? 'вправо' : '<a href="/news/' . ($page + 1) . '/">вправо</a>';
+		 
+		 if($count != 1)
+			$menu .= '<p>' . $left . ' ' . $right . '</p>';
+		 
+         if($page > 5)
+            $menu .= '<a href="/news/1/">&#8592;</a> ';
+
+      // Формируем меню       
+        while($i <= $cnt)
+        {
+            if($i == $page)
+                $menu .= '<b><font color="#ff6600">'. $i .'</font></b> ';
+            else
+                $menu .= '<a href="/news/'. $i .'/">'. $i .'</a> ';
+                   
+             $i++;           
+        }             
+	 
+		if($page < ($count - 4))
+	       // Стрелочка на вправо 
+	                $menu .= ' <a href="/news/'. $count .'/">&#8594;</a>'; 
+	                                   
+	        return $menu;  
+	 }
 	
    /*
 	*@public ������� ��� ��������� ��������� ������

@@ -10,6 +10,7 @@ class C_Articles extends C_Page
 {
     private $mArticles;
     private $articles;
+	private $num = 5; // количество  новостей на странице
 
     protected function OnInput()
     {
@@ -18,8 +19,14 @@ class C_Articles extends C_Page
         $this->mArticles = M_Articles::Instance();
 
         $this->title .= 'Статьи';
+		
+		$page = !empty($_GET['page']) ? htmlspecialchars(trim((int)$_GET['page'])) : 1;
 
-        $this->articles = $this->mArticles->ViewAllTypedArticles('all');
+		$this->pages_menu = $this->mArticles->CreatePagesMenu($this->num, $page);
+		
+        //$this->news = $this->mNews->ViewAllNews($this->num, $page);
+
+        $this->articles = $this->mArticles->ViewAllTypedArticles('all', $this->num, $page);
 
         for($i = 0, $cnt = count($this->articles); $i < $cnt; $i++)
         {
@@ -31,7 +38,7 @@ class C_Articles extends C_Page
     {
 		$mUsers = M_Users::Instance();
 		
-        $vars = array('articles' => $this->articles, 'add' => $mUsers->Can('ADD_ARTICLES'));
+        $vars = array('articles' => $this->articles, 'add' => $mUsers->Can('ADD_ARTICLES'), 'pages_menu' => $this->pages_menu);
 
         $this->content = $this->View('/Views/ViewAllArticles.php', $vars);
 

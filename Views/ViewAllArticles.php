@@ -18,4 +18,5 @@
     <p align="center"><a href="/addarticle.html"><input type="button" class="adm_button" value="Добавить" /></a></p>
 </form>
 <?php endif;?>
+<?php echo $pages_menu; ?>
  

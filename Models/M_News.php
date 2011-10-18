@@ -57,58 +57,53 @@
 		 
 		 if(!$result)
 			return null;
-			
+		 
 		 $count = ceil($result[0]['cnt'] / $num);
 		 
+		 if($page > $count || $page < 1)
+		 {
+			header('Location: /');
+		 }
+		 
 		 $menu = ''; 
-        // Если страниц меньше 13, оставляем все по дефолту.
-        if($count < 13)
-        {          
+		
+		 if($count < 9)
+		 {
             $i = 1;    
             $cnt = $count;            
-        }
-        else
-        {
-
-       // Стрелочка на 10 влево
-            if($page > 10)
-                $menu .= '<a href="/news/1/">стрелка влево</a> ';
-
-       // Добавляем ссылки на две первые страницы         
-            if($count > 12)
-            {    
-                if($page == 7)
-                    $menu .= '<a href="/news/1/">1</a> '; 
-                elseif($page == 8)        
-                    $menu .= '<a href="/news/1/">1</a> <a href="/news/2/">2</a> ';                                      
-                elseif($page > 7)        
-                    $menu .= '<a href="/news/1/">1</a> <a href="/news/2/">2</a> <b>...</b> ';
-            }    
-
-
-            if($page < 6)
-            {  // Если текущая страница в диапазоне от 1 до 5, выводим первые 10 записей
-                $i = 1;
-                $cnt = 10;                
-            }                
-            elseif($page >= $count - 5)
-            {  // Если текущая страница на границе диапазона, или вышла за неё, показываем 10 последних
-                $i = $count - 10; 
-                $cnt = $count; 
-            }
-            else
-            {  // В ином случае показываем 11 страниц, 5 слева от текущей, 5 справа.  
-                $i = $page - 5;
-                $cnt = $count;                
-            }
-
-            // Обрезаем ссылки
-            if($page < 6) 
-                $cnt = $i + 9;           
-            elseif($count - $i > 10)
-                $cnt = $i + 10;
-           
-        }        
+		 }
+		 else
+		 {
+			$i = 1;
+			$cnt = 8;
+			
+			if($page == 5)
+			{
+				$i = 1;
+				$cnt = 9;
+			}
+				
+			if($page > 5 && $page < ($count - 4))
+			{
+				$i = $page - 4;
+				$cnt = $page + 4;
+			}
+			
+			if($page > 5 && $page >= ($count - 4))
+			{
+				$i = $count - 8;
+				$cnt = $count;
+			}
+		 }
+		 
+		 $left = ($page == 1) ? 'влево' : '<a href="/news/' . ($page - 1) . '/">влево</a>';
+		 $right = ($page == $count) ? 'вправо' : '<a href="/news/' . ($page + 1) . '/">вправо</a>';
+		 
+		 if($count != 1)
+			$menu .= '<p>' . $left . ' ' . $right . '</p>';
+		 
+         if($page > 5)
+            $menu .= '<a href="/news/1/">&#8592;</a> ';
 
       // Формируем меню       
         while($i <= $cnt)
@@ -121,8 +116,9 @@
              $i++;           
         }             
 	 
-	       // Стрелочка на 10 вправо 
-	                $menu .= ' <a href="/news/'. $count .'/">стрелка вправо</a>'; 
+		if($page < ($count - 4))
+	       // Стрелочка на вправо 
+	                $menu .= ' <a href="/news/'. $count .'/">&#8594;</a>'; 
 	                                   
 	        return $menu;  	 
 	 }
