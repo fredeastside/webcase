@@ -2,6 +2,7 @@
 class C_Sql extends C_Page{
 	private $articlesSql;
 	private $mArticlesSql;
+	private $num = 5; // количество  новостей на странице	
 	
 	protected function OnInput()
 	{
@@ -12,7 +13,11 @@ class C_Sql extends C_Page{
 		
 		$this->title .= 'Статьи | SQL';
 		
-		$this->articlesSql = $this->mArticlesSql->ViewAllTypedArticles('sql');
+		$page = !empty($_GET['page']) ? htmlspecialchars(trim((int)$_GET['page'])) : 1;
+
+		$this->pages_menu = $this->mArticlesSql->CreatePagesMenu($this->num, $page);		
+		
+		$this->articlesSql = $this->mArticlesSql->ViewAllTypedArticles('sql', $this->num, $page);
 		
 		for($i = 0, $cnt = count($this->articlesSql); $i < $cnt; $i++)
 		{
@@ -24,7 +29,7 @@ class C_Sql extends C_Page{
 	{
 		$mUsers = M_Users::Instance();
 		
-		$vars = array('articles' => $this->articlesSql, 'add' => $mUsers->Can('ADD_ARTICLES'));
+		$vars = array('articles' => $this->articlesSql, 'add' => $mUsers->Can('ADD_ARTICLES'), 'pages_menu' => $this->pages_menu);
 		
 		$this->content = $this->View('/Views/ViewAllArticles.php', $vars);
 		

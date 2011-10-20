@@ -2,6 +2,7 @@
 class C_Php extends C_Page{
 	private $articlesPhp;
 	private $mArticlesPhp;
+	private $num = 5; // количество  новостей на странице	
 	
 	protected function OnInput()
 	{
@@ -11,7 +12,11 @@ class C_Php extends C_Page{
 		
 		$this->title .= 'Статьи | PHP';
 		
-		$this->articlesPhp = $this->mArticlesPhp->ViewAllTypedArticles('php');
+		$page = !empty($_GET['page']) ? htmlspecialchars(trim((int)$_GET['page'])) : 1;
+
+		$this->pages_menu = $this->mArticlesPhp->CreatePagesMenu($this->num, $page);		
+		
+		$this->articlesPhp = $this->mArticlesPhp->ViewAllTypedArticles('php', $this->num, $page);
 		
 		for($i = 0, $cnt = count($this->articlesPhp); $i < $cnt; $i++)
 		{
@@ -23,7 +28,7 @@ class C_Php extends C_Page{
 	{
 		$mUsers = M_Users::Instance();
 		
-		$vars = array('articles' => $this->articlesPhp, 'add' => $mUsers->Can('ADD_ARTICLES'));
+		$vars = array('articles' => $this->articlesPhp, 'add' => $mUsers->Can('ADD_ARTICLES'), 'pages_menu' => $this->pages_menu);
 		
 		$this->content = $this->View('/Views/ViewAllArticles.php', $vars);
 		

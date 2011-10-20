@@ -256,3 +256,13 @@ ul, ol {
 	font-size: 75%;
 	color: #c0c0c0;
 }
+
+.paginator {
+	font: 12pt/1.8em 'Times New Roman',Times
+}
+
+.paginator  a:hover{
+	font: 12pt/1.8em 'Times New Roman',Times;
+	color: #ffffff;
+	background-color: #444444;
+}

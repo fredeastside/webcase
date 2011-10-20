@@ -102,7 +102,7 @@ class M_Articles extends M_SQL
         while($i <= $cnt)
         {
             if($i == $page)
-                $menu .= '<b><font color="#ff6600">'. $i .'</font></b> ';
+                $menu .= '<b>'. $i .'</b> ';
             else
                 $menu .= '<a href="/news/'. $i .'/">'. $i .'</a> ';
                    

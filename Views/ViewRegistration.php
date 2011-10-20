@@ -31,7 +31,7 @@ if(!$is_registered):
 	</tr>
 	<tr>
 		<td><img src="/Views/captcha/captcha.php" alt="код подтверждения" border="0"></td>
-		<td><input type="text" id="check_code" name="captcha" style="width:115px; font-size:310%;" /><span id="msg_check_code" class="msg_log"></span></td>
+		<td><input type="text" id="check_code" name="captcha" style="width:125px; font-size:310%;" /><span id="msg_check_code" class="msg_log"></span></td>
 	</tr>
     <tr>
 		<td colspan="2" align="center"><input type="submit" class="adm_button" value="Зарегистрироваться!" onclick="return Validation();" /></td>

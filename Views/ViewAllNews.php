@@ -19,4 +19,6 @@
     <p align="center"><a href="/addnew.html"><input type="button" class="adm_button" value="Добавить" /></a></p>
 </form>
 <?php endif;?>
+<div class="paginator">
 <?php echo $pages_menu; ?>
+</div>
