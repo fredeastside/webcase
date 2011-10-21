@@ -6,7 +6,7 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="/Views/css/style.css" type="text/css" media="screen, projection" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js" type="text/javascript"></script>
+	<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js" type="text/javascript"></script-->
 	<script src="/Views/js/menu.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/Views/js/tiny_mce/tiny_mce.js" ></script >
 	<script type="text/javascript" >
@@ -58,12 +58,14 @@
 		<div class="sidebar" id="sideRight">
             <div class="rightSide">
 			<div id="search">
+				<form method="post" action="/search.html">
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td><input type="text" class="search_input" name="" size="18" /></td>
-						<td><img src="/Views/images/search_button.png"><!--input type="submit" class="adm_button" name="" value="Поиск" /--></td>
+						<td><input type="text" class="search_input" name="search" size="18" /></td>
+						<td valign="top"><input type="image" class="search_button" src="/Views/images/search_button.png"></td>
 					</tr>
 				</table>
+				</form>
 			</div>
 			<h3>Популярное:</h3><p>Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.</p>
 			<h3>Последине новости:</h3>
@@ -80,7 +82,9 @@
 </div><!-- #wrapper -->
 
 <div id="footer">
+	<div style="border-top: 2px solid #cfcfcf; padding-top: 10px;">
 	<strong>Web factory &copy; 2011</strong>
+	</div>
 </div><!-- #footer -->
 
 </body>

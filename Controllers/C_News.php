@@ -29,7 +29,7 @@ class C_News extends C_Page
 
         for($i = 0, $cnt = count($this->news); $i < $cnt; $i++)
         {
-            $this->news[$i]['content_new'] = $this->doIntroDescription($i, $this->news[$i]['content_new'], 'new');
+            $this->news[$i]['content_new'] = $this->doIntroDescription($this->news[$i]['content_new']);
         }
     }
 

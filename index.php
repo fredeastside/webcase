@@ -45,6 +45,8 @@
 				break;
 			case 'recover' : $controller = new C_Recover();
 				break;
+			case 'search' : $controller = new C_Search();
+				break;
 	        default : $controller = new C_News();
 	    }
 	}

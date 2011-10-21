@@ -30,7 +30,7 @@ class C_Articles extends C_Page
 
         for($i = 0, $cnt = count($this->articles); $i < $cnt; $i++)
         {
-            $this->articles[$i]['content_article'] = $this->doIntroDescription($i, $this->articles[$i]['content_article'], 'article');
+            $this->articles[$i]['content_article'] = $this->doIntroDescription($this->articles[$i]['content_article']);
         }
     }
 

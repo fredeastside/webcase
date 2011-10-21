@@ -72,7 +72,7 @@
         *
         * @return string
         */
-        protected function doIntroDescription($id, $content, $method)
+        protected function doIntroDescription($content)
         {
             if(strlen($content) > 450)
             {

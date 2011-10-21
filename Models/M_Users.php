@@ -441,15 +441,15 @@
 	  private function RegistrationMail($email, $login, $code)
 	  {
 			$mail = new C_Phpmailer();
-			$mail->SetFrom('support@sunny-web.ru', 'SUPPORT');
+			$mail->SetFrom('support@webfactory.su', 'SUPPORT');
 			$mail->AddAddress($email);
-			$mail->Subject = "Подтверждение регистрации на сайте sunny-web.ru";
+			$mail->Subject = "Подтверждение регистрации на сайте webfactory.su";
 			$mail->Body = "<p>Hello, $login!</p>
-<p>На Ваш e-mail была запрошена регистрация на сайте Sunny-Web.ru!</p>
+<p>На Ваш e-mail была запрошена регистрация на сайте webfactory.su!</p>
 <p>Для подтверждения своих намерений перейдите по этой ссылке:
 <a href='http://web/confirm/" . md5($code) . "'>http://web/confirm/" . md5($code) . "</a></p>
 <p>Внимание! Ссылка будет доступна в течение 3-х суток. Если Вы не подтвердите регистрацию за это время, то пользователь будет удален и процесс регистрации придется начинать заново!</p>
-<p>С уважением, Ваш <a href='http://web/'>Sunny-web</a>.</p>";
+<p>С уважением, Ваш <a href='http://web/'>webfactory.su</a>.</p>";
 			$mail->isHTML(true);
 			$mail->Send();
 	  }
