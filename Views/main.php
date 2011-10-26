@@ -6,8 +6,8 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="/Views/css/style.css" type="text/css" media="screen, projection" />
-	<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js" type="text/javascript"></script-->
-	<script src="/Views/js/menu.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js" type="text/javascript"></script>
+	<!--script src="/Views/js/menu.js" type="text/javascript"></script-->
 	<script type="text/javascript" src="/Views/js/tiny_mce/tiny_mce.js" ></script >
 	<script type="text/javascript" >
 	tinyMCE.init({
