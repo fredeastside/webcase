@@ -96,8 +96,8 @@
 			}
 		 }
 		 
-		 $left = ($page == 1) ? 'влево' : '<a href="/news/' . ($page - 1) . '/">влево</a>';
-		 $right = ($page == $count) ? 'вправо' : '<a href="/news/' . ($page + 1) . '/">вправо</a>';
+		 $left = ($page == 1) ? 'назад' : '<a href="/news/' . ($page - 1) . '/">назад</a>';
+		 $right = ($page == $count) ? 'вперед' : '<a href="/news/' . ($page + 1) . '/">вперед</a>';
 		 
 		 if($count != 1)
 			$menu .= '<p>' . $left . ' ' . $right . '</p>';

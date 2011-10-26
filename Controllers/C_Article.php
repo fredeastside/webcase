@@ -3,16 +3,19 @@ class C_Article extends C_Page{
 	
 	private $id_article;
 	private $article;
+	private $comments;
 	
 	protected function OnInput()
 	{
 		parent::OnInput();
 		$mArticle = M_Articles::Instance();
+		$mComments = M_Comments::Instance();
+		
+		$this->id_article = !empty($_GET['id']) ? $_GET['id'] : null;
+		$this->comments = $mComments->SelectAllComments( $this->id_article );
 		
 		if($this->IsGet())
-		{
-			$this->id_article = !empty($_GET['id']) ? $_GET['id'] : null;
-			
+		{	
 			if(!$this->id_article)
 			{
 				header('Location: /');
@@ -33,9 +36,7 @@ class C_Article extends C_Page{
 		}
 		
 		if($this->IsPost())
-		{
-			$this->id_article = !empty($_GET['id']) ? $_GET['id'] : null;
-			
+		{	
 			$result = $mArticle->DeleteArticle($this->id_article);
 			
 			//print_r($result);
@@ -51,7 +52,8 @@ class C_Article extends C_Page{
 	{
 		$mUsers = M_Users::Instance();
 		
-		$vars = array('article' => $this->article, 'edit' => $mUsers->Can('EDITING_ARTICLES'), 'delete' => $mUsers->Can('DELETE_ARTICLES'));
+		$vars = array( 'article' => $this->article, 'edit' => $mUsers->Can('EDITING_ARTICLES'), 'delete' => $mUsers->Can('DELETE_ARTICLES'), 'comments' => $this->comments, 'add_comment' => $mUsers->Can('ADD_COMMENT'), 'delete_comment' => $mUsers->Can('DELETE_COMMENT'), 'login' => $this->user['login'] );
+		
 		$this->content = $this->View('/Views/ViewArticle.php', $vars);
 		
 		parent::OnOutput();
