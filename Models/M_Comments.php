@@ -26,8 +26,8 @@ class M_Comments extends M_SQL{
 		return $result;
 	}
 	
-	public function AddComment( $id_article, $login, $date_comment, $content_comment )
-	{
+	public function AddComment( $id_article, $login, $content_comment )
+	{	
 		$data = array();
 		$data['id_article'] = $id_article;
 		$data['login'] = $login;
@@ -35,6 +35,59 @@ class M_Comments extends M_SQL{
 		$data['content_comment'] = $content_comment;
 		
 		$result = $this->msql->Insert( 'tbl_comments', $data );
+		
+		return $result;
+	}
+	
+	private function Validate(&$arr)
+	{
+		$errors = array();
+		$data = array();
+		
+		if(!isset($_SESSION['captcha']))
+			$errors['captcha'] = 'Неправильный код подтверждения!';
+			
+		if($_SESSION['captcha'] !== $captcha)
+			$errors['captcha'] = 'Неправильный код подтверждения!';
+
+		unset($_SESSION['captcha']);
+		
+		// Using the filter with a custom callback function:
+		
+		if(!($data['body'] = filter_input(INPUT_POST,'body',FILTER_CALLBACK,array('options'=>'$this->ValidateText'))))
+		{
+			$errors['body'] = 'Please enter a comment body.';
+		}
+		
+		if(!empty($errors)){
+			
+			// If there are errors, copy the $errors array to $arr:
+			
+			$arr = $errors;
+			return false;
+		}
+		
+		foreach($data as $k=>$v){
+			$arr[$k] = $v;
+		}
+		
+		return true;
+	}
+	
+	private function ValidateText( $str )
+	{
+		if(mb_strlen($str,'utf8')<1)
+			return false;
+		
+		// Encode all html special characters (<, >, ", & .. etc) and convert
+		// the new line characters to <br> tags:
+		
+		$str = nl2br(htmlspecialchars($str));
+		
+		// Remove the new line characters that are left
+		$str = str_replace(array(chr(10),chr(13)),'',$str);
+		
+		return $str;
 	}
 	
 	/*public function ShowOrHideComment( $id_comment )
@@ -56,6 +109,7 @@ class M_Comments extends M_SQL{
 		
 		$result = $this->msql->Delete( 'tbl_comments', $where );
 		
+		return $result;
 	}
 }
 ?>

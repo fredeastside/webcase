@@ -60,6 +60,9 @@
 		 
 		 $count = ceil($result[0]['cnt'] / $num);
 		 
+		 if( $count < 6 )
+			return null;
+		 
 		 if($page > $count || $page < 1)
 		 {
 			header('Location: /');
