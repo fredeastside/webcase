@@ -42,14 +42,15 @@ class C_Article extends C_Page{
 			//{
 				//$result = $mArticle->DeleteArticle($this->id_article);
 				$arr = array();
+				$captcha = !empty( $_POST['captcha'] ) ? htmlspecialchars( trim( $_POST['captcha'] ) ) : null;
 				
-				$validates = $mComments->Validate($arr);
+				$validates = $mComments->Validate($arr, $captcha);
 				
 				if( $validates )
 				{
 					$mComments->AddComment( $this->id_article, $this->user['login'], $arr['body'] );
 					
-					echo json_encode(array('status'=>1,'html'=>$insertedComment->markup()));
+					echo json_encode( array( 'status'=>1, 'html'=> 'AAAAAAAAAAAAAAAAA') );
 				}
 				else
 				{

@@ -50,6 +50,7 @@ $(document).ready(function(){
 		//$('#body').val(tinyMCE.get('content').getContent());
 		//var var_content  = tinyMCE.get('body').getContent();
 		tinyMCE.get('body').save();
+		//var x = $(this).serialize();
 		/* Sending the form fileds to submit.php: */
 		
 		$.post(document.location.href, $(this).serialize(), function(msg){
@@ -59,26 +60,26 @@ $(document).ready(function(){
 			
 			if(msg.status){
 
-				/* 
-				/	If the insert was successful, add the comment
-				/	below the last one on the page with a slideDown effect
-				/*/
+				//
+				//	If the insert was successful, add the comment
+				//	below the last one on the page with a slideDown effect
+				//
 
 				$(msg.html).hide().insertBefore('#addCommentContainer').slideDown();
 				$('#body').val('');
 			}
 			else {
 
-				/*
-				/	If there were errors, loop through the
-				/	msg.errors object and display them on the page 
-				/*/
+				//
+				//	If there were errors, loop through the
+				//	msg.errors object and display them on the page 
+				//
 				
 				$.each(msg.errors,function(k,v){
 					$('label[for='+k+']').append('<span class="error">'+v+'</span>');
 				});
 			}
-		},'json');
+		}, 'JSON' ); 
 
 	});
 	

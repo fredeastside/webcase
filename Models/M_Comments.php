@@ -39,24 +39,24 @@ class M_Comments extends M_SQL{
 		return $result;
 	}
 	
-	private function Validate(&$arr)
+	public function Validate(&$arr, $captcha)
 	{
 		$errors = array();
 		$data = array();
 		
 		if(!isset($_SESSION['captcha']))
-			$errors['captcha'] = 'Неправильный код подтверждения!';
+			$errors['captcha'] = 'Captcha code is not correct!';
 			
 		if($_SESSION['captcha'] !== $captcha)
-			$errors['captcha'] = 'Неправильный код подтверждения!';
+			$errors['captcha'] = 'Captcha code is not correct!';
 
 		unset($_SESSION['captcha']);
 		
 		// Using the filter with a custom callback function:
 		
-		if(!($data['body'] = filter_input(INPUT_POST,'body',FILTER_CALLBACK,array('options'=>'$this->ValidateText'))))
+		if(!($data['body'] = filter_input(INPUT_POST,'content',FILTER_CALLBACK,array('options'=>'$this->ValidateText'))))
 		{
-			$errors['body'] = 'Please enter a comment body.';
+			$errors['body'] = 'Comment text is empty!';
 		}
 		
 		if(!empty($errors)){
