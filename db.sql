@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2011 at 08:24 PM
+-- Generation Time: Oct 28, 2011 at 05:13 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -55,12 +55,14 @@ CREATE TABLE IF NOT EXISTS `tbl_comments` (
   PRIMARY KEY (`id_comment`),
   KEY `id_article` (`id_article`),
   KEY `login` (`login`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `tbl_comments`
 --
 
+INSERT INTO `tbl_comments` (`id_comment`, `id_article`, `login`, `date_comment`, `content_comment`) VALUES
+(12, 12, 'fredrsf', '2011-10-28 11:25:14', '<p>444444444444444444</p>');
 
 -- --------------------------------------------------------
 
@@ -10191,14 +10193,14 @@ CREATE TABLE IF NOT EXISTS `tbl_sessions` (
   PRIMARY KEY (`id_session`),
   UNIQUE KEY `sid` (`sid`),
   KEY `id_user` (`id_user`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=75 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=77 ;
 
 --
 -- Dumping data for table `tbl_sessions`
 --
 
 INSERT INTO `tbl_sessions` (`id_session`, `id_user`, `sid`, `time_start`, `time_last`) VALUES
-(74, 1, 'XJ4XpOzyj0MUbhp', '2011-10-27 15:42:21', '2011-10-27 16:53:29');
+(76, 1, 'zoS49gWYsITuXXs', '2011-10-28 10:09:23', '2011-10-28 11:28:15');
 
 -- --------------------------------------------------------
 
