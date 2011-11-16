@@ -48,14 +48,14 @@ class C_Article extends C_Page{
 				
 				if( $validates )
 				{
-					$mComments->AddComment( $this->id_article, $this->user['login'], $arr['body'] );
+					$comment = $mComments->AddComment( $this->id_article, $this->user['login'], $arr['body'] );
 					
-					echo json_encode( array( 'status'=>1, 'html'=> 'AAAAAAAAAAAAAAAAA') );
+					die( json_encode( array( 'status'=>1, 'html'=> $comment) ));
 				}
 				else
 				{
 					/* Outputtng the error messages */
-					echo '{"status":0,"errors":'.json_encode($arr).'}';
+					die( '{"status":0,"errors":'.json_encode($arr).'}' );
 				}
 				//print_r($result);
 				

@@ -35,8 +35,28 @@ class M_Comments extends M_SQL{
 		$data['content_comment'] = $content_comment;
 		
 		$result = $this->msql->Insert( 'tbl_comments', $data );
-		
-		return $result;
+
+        if($result)
+        {
+            $comment = <<<EOD
+<div id='comments' class='comments'>
+<p>
+<span style='color:#c0c0c0;'>
+<span style='font-weight: bold;'>{$data['login']}</span>
+&nbsp;{$data['date_comment']}
+</span>
+</p>
+<p></p>
+<p>{$data['content_comment']}</p>
+<p></p>
+<p align='right'>
+<input type='image' src='/Views/images/mail-delete.png' name='delete_comment'>
+</p>
+</div>
+EOD;
+        }
+
+		return $comment;
 	}
 	
 	public function Validate(&$arr, $captcha)
@@ -54,7 +74,7 @@ class M_Comments extends M_SQL{
 		
 		// Using the filter with a custom callback function:
 		
-		if(!($data['body'] = filter_input(INPUT_POST,'content',FILTER_CALLBACK,array('options'=>'$this->ValidateText'))))
+		if(!($data['body'] = filter_input( INPUT_POST, 'content', FILTER_CALLBACK, array('options'=>'M_Comments::ValidateText') )))
 		{
 			$errors['body'] = 'Comment text is empty!';
 		}
@@ -74,7 +94,7 @@ class M_Comments extends M_SQL{
 		return true;
 	}
 	
-	private function ValidateText( $str )
+	private static function ValidateText( $str )
 	{
 		if(mb_strlen($str,'utf8')<1)
 			return false;
@@ -82,10 +102,10 @@ class M_Comments extends M_SQL{
 		// Encode all html special characters (<, >, ", & .. etc) and convert
 		// the new line characters to <br> tags:
 		
-		$str = nl2br(htmlspecialchars($str));
+		//$str = nl2br(htmlspecialchars($str));
 		
 		// Remove the new line characters that are left
-		$str = str_replace(array(chr(10),chr(13)),'',$str);
+		//$str = str_replace(array(chr(10),chr(13)),'',$str);
 		
 		return $str;
 	}

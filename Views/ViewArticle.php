@@ -32,6 +32,13 @@
 <?php if($add_comment) :?>
 <script type="text/javascript">
 $(document).ready(function(){
+
+     function reload()
+     {
+        src=document.code.src; // запоминаем адрес капчи в переменную
+        document.code.src=src+'?rand='+Math.random();
+     }
+
 	/* The following code is executed once the DOM is loaded */
 	
 	/* This flag will prevent multiple comment submits: */
@@ -57,16 +64,19 @@ $(document).ready(function(){
 
 			working = false;
 			$('#submit').val('Отправить');
+
+            var obj = $.parseJSON(msg);
 			
-			if(msg.status){
+			if(obj.status){
 
 				//
 				//	If the insert was successful, add the comment
 				//	below the last one on the page with a slideDown effect
 				//
-
-				$(msg.html).hide().insertBefore('#addCommentContainer').slideDown();
-				$('#body').val('');
+				$(obj.html).hide().insertBefore('#addCommentContainer').slideDown();
+                $('#captcha').val('');
+                tinyMCE.activeEditor.setContent('');
+                reload();
 			}
 			else {
 
@@ -98,7 +108,7 @@ $(document).ready(function(){
 		        <td colspan="2"><textarea id="body" name="content" cols="40" rows="10" ></textarea></td>
 		    </tr>
 			<tr>
-				<td width="100"><img style="vertical-align: middle;" src="/Views/captcha/captcha.php" alt="код подтверждения" border="0"></td>
+				<td width="100"><img style="vertical-align: middle;" src="/Views/captcha/captcha.php" alt="код подтверждения" name="code" border="0"></td>
 				<td><input type="text" id="captcha" name="captcha" style="width:125px; font-size:310%;" /></td>
 			</tr>
 		    <tr>
