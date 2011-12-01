@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c8c92b1-ab3b-4744-b507-4e1284419abd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/C_Article.php" afterPath="$PROJECT_DIR$/Controllers/C_Article.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/M_Comments.php" afterPath="$PROJECT_DIR$/Models/M_Comments.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/ViewArticle.php" afterPath="$PROJECT_DIR$/Views/ViewArticle.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Views/css/style.css" afterPath="$PROJECT_DIR$/Views/css/style.css" />
-    </list>
+    <list default="true" id="9c8c92b1-ab3b-4744-b507-4e1284419abd" name="Default" comment="" />
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
