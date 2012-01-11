@@ -52,6 +52,7 @@
 	}
 	else
 		$controller = new C_News();
+		//Лажа
 
-    $controller->Request();
+    $controller->Request(); 
 ?>

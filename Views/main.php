@@ -7,7 +7,7 @@
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="/Views/css/style.css" type="text/css" media="screen, projection" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js" type="text/javascript"></script>
-	<!--script src="/Views/js/menu.js" type="text/javascript"></script-->
+	<script src="/Views/js/func.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/Views/js/tiny_mce/tiny_mce.js" ></script >
 	<script type="text/javascript" >
 	tinyMCE.init({
@@ -23,7 +23,7 @@
 
 	<div id="header">
 	<h1 class="title">
-		<a href="/">Web factory 1.0</a>
+		<a href="/">Web thrust</a>
 	</h1>
 	<ul id="menu">
 		<li><a href="/news.html">Новости</a></li>
@@ -82,8 +82,8 @@
 </div><!-- #wrapper -->
 
 <div id="footer">
-	<div style="border-top: 2px solid #cfcfcf; padding-top: 10px;">
-	<strong>Web factory &copy; 2011</strong>
+	<div style="border-top: 1px dotted #cfcfcf; padding-top: 10px;">
+	<strong>Web thrust &copy; 2011</strong>
 	</div>
 </div><!-- #footer -->
 

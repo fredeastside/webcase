@@ -24,6 +24,29 @@ class C_News extends C_Page
 		$page = !empty($_GET['page']) ? htmlspecialchars(trim((int)$_GET['page'])) : 1;
 
 		$this->pages_menu = $this->mNews->CreatePagesMenu($this->num, $page);
+
+        /*require_once '/Controllers/simple_html_dom.php';
+
+        $html_content_links = file_get_html('http://soft.mail.ru/pressrl_list.php?cat=15');
+
+        foreach($html_content_links->find('p.news-title a') as $element)
+        {
+            $html_content = file_get_html('http://soft.mail.ru/' . $element->href);
+
+            foreach($html_content->find('h1.article-header') as $e)
+                $title = $e->innertext;
+
+            foreach($html_content->find('p.article-announce') as $e)
+                $content = '<p>' . $e->innertext . '</p>';
+
+            foreach($html_content->find('div.article-body') as $e)
+                $content .= $e->innertext;
+
+            break;
+        }
+        echo iconv('windows-1251', 'utf-8', $title) . '<br/>';
+        echo iconv('windows-1251', 'utf-8', $content);
+        /* ------------------------------------------------------- */
 		
         $this->news = $this->mNews->ViewAllNews($this->num, $page);
 

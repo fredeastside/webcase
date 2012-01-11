@@ -34,7 +34,7 @@
 			//$mNews->NewsInsert();
 			$this->lastNews = $mNews->lastNews();
 			
-            $this->title = 'Web factory | ';
+            $this->title = 'Web thrust | ';
             $this->content = '';
             $this->generateTime = microtime(true);
 

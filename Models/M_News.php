@@ -30,6 +30,22 @@
 
          return $this->msql->Select($query);
      }
+
+     public function SelectTitleLastNew()
+     {
+         $query = "SELECT MAX(id_new) AS maxid FROM tbl_news";
+         $max_id = $this->msql->Select($query);
+         $max_id = $max_id[0]['maxid'];
+
+         if($max_id)
+         {
+             $query = "SELECT title_new FROM tbl_news WHERE id_new = $max_id";
+             $res = $this->msql->Select($query);
+             return $res[0]['title_new'];
+         }
+
+         return false;
+     }
 	 
 	 /*public function NewsInsert()
 	 {

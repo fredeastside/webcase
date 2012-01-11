@@ -27,7 +27,7 @@ class Autoload
 		{
 			require_once($root . '/' . $classPath . '/' . $class_name . '.php');
 		}
-		else throw new Exception('Файл ' . $root . $classPath . $class_name . '.php,  класса '.$class_name.' - не найден!');
+		else throw new Exception('Файл ' . $root  . '/' . $classPath . '/' . $class_name . '.php,  класса '.$class_name.' - не найден!');
 	}
 	
 	static public function register()

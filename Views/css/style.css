@@ -59,7 +59,7 @@ a:hover {
 }
 
 p {
-
+	
 }
 img {
 	border: none;
@@ -203,7 +203,7 @@ ul, ol {
 	width: 250px;
 	margin-left: -250px;
 	position: relative;
-	border-left: 1px solid #cfcfcf;
+	border-left: 1px dotted #cfcfcf;
 }
 
 #sideRight .rightSide {
@@ -240,13 +240,18 @@ ul, ol {
 	/*background-image: url('../images/113.gif');*/
 	/*background-repeat: no-repeat;*/
 	color: #444444;
-	background-color:#cdcdcd;
+	/*background-color:#cdcdcd;*/
 	padding: 1px 2px;
 	cursor: pointer;
 }
 
 #content div.registration table{
 	margin: 10px auto 15px;
+}
+
+#content p {
+	text-indent: 40px;
+	padding: 3px 0;
 }
 
 #content div.authorization table{
@@ -275,4 +280,17 @@ div.comments{
     width: 700px;
 	font-size: 75%;
     min-height: 80px;
+}
+
+.last_news {
+	font-size: 8pt;
+    line-height: 14pt;
+    padding-bottom: 7px;
+}
+
+.msg_log {
+    font-size: 8pt;
+    color: #ff0000;
+    font-style: italic;
+    display: none;
 }

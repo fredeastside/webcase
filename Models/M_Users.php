@@ -441,15 +441,15 @@
 	  private function RegistrationMail($email, $login, $code)
 	  {
 			$mail = new C_Phpmailer();
-			$mail->SetFrom('support@webfactory.su', 'SUPPORT');
+			$mail->SetFrom('support@webthrust.ru', 'SUPPORT');
 			$mail->AddAddress($email);
-			$mail->Subject = "Подтверждение регистрации на сайте webfactory.su";
+			$mail->Subject = "Подтверждение регистрации на сайте webthrust.ru";
 			$mail->Body = "<p>Hello, $login!</p>
-<p>На Ваш e-mail была запрошена регистрация на сайте webfactory.su!</p>
+<p>На Ваш e-mail была запрошена регистрация на сайте webthrust.ru!</p>
 <p>Для подтверждения своих намерений перейдите по этой ссылке:
-<a href='http://web/confirm/" . md5($code) . "'>http://web/confirm/" . md5($code) . "</a></p>
+<a href='http://www.webthrust.ru/confirm/" . md5($code) . "'>http://www.webthrust.ru/confirm/" . md5($code) . "</a></p>
 <p>Внимание! Ссылка будет доступна в течение 3-х суток. Если Вы не подтвердите регистрацию за это время, то пользователь будет удален и процесс регистрации придется начинать заново!</p>
-<p>С уважением, Ваш <a href='http://web/'>webfactory.su</a>.</p>";
+<p>С уважением, Ваш <a href='http://www.webthrust.ru/'>webthrust.ru</a>.</p>";
 			$mail->isHTML(true);
 			$mail->Send();
 	  }
@@ -465,16 +465,16 @@
 	  private function RecoverMail($email, $login, $code)
 	  {
 			$mail = new C_Phpmailer();
-			$mail->SetFrom('support@webfactory.su', 'SUPPORT');
+			$mail->SetFrom('support@webthrust.ru', 'SUPPORT');
 			$mail->AddAddress($email);
-			$mail->Subject = "Восстановление забытого пароля на сайте webfactory.su";
+			$mail->Subject = "Восстановление забытого пароля на сайте webthrust.ru";
 			$mail->Body = "<p>Hello, $login!</p>
-<p>Это письмо было выслано вам по запросу на восстановление пароля на сайте webfactory.su!</p>
+<p>Это письмо было выслано вам по запросу на восстановление пароля на сайте webthrust.ru!</p>
 <p>(если вы не запрашивали восстановление пароля, просто удалите это письмо)</p>
 <p>Для смены пароля пройдите по этой ссылке:
-<a href='http://web/recover/" . md5($code) . "'>http://web/recover/" . md5($code) . "</a></p>
+<a href='http://www.webthrust.ru/recover/" . md5($code) . "'>http://www.webthrust.ru/recover/" . md5($code) . "</a></p>
 <p>Внимание! Ссылка будет доступна в течение 3-х суток. Если Вы не подтвердите регистрацию за это время, то пользователь будет удален и процесс регистрации придется начинать заново!</p>
-<p>С уважением, Ваш <a href='http://web/'>webfactory.su</a>.</p>";
+<p>С уважением, Ваш <a href='http://www.webthrust.ru/'>webthrust.ru</a>.</p>";
 			$mail->isHTML(true);
 			$mail->Send();
 	  }	  
