@@ -33,7 +33,7 @@ class C_Confirm extends C_Page {
 	{	
 		$vars = array('found_user' => $this->found_user);
 		
-		$this->content = $this->View('/Views/ViewConfirm.php', $vars);
+		$this->content = $this->View('ViewConfirm', $vars);
 		parent::OnOutput();
 	}
 }

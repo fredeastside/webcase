@@ -4,17 +4,17 @@ class Autoload
 {
 	static private function load(/*string*/$class_name)
 	{
-		$class_name = strtolower($class_name);
+		//$class_name = strtolower($class_name);
 		
 		$char = substr($class_name, 0, 1);
 		
 		switch($char)
 		{
-			case 'c' : self::classExists('Controllers', $class_name);
+			case 'C' : self::classExists('Controllers', $class_name);
 				break;
-			case 'm' : self::classExists('Models', $class_name);
+			case 'M' : self::classExists('Models', $class_name);
 				break;
-			case 'v' : self::classExists('Views', $class_name);
+			case 'V' : self::classExists('Views', $class_name);
 				break;
 		}
 	}
@@ -23,11 +23,11 @@ class Autoload
 	{
         $root = $_SERVER['DOCUMENT_ROOT'];
 
-		if(file_exists($root . '/' . $classPath . '/' . $class_name . '.php'))
+		if(file_exists($root . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php'))
 		{
-			require_once($root . '/' . $classPath . '/' . $class_name . '.php');
+			require_once($root . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php');
 		}
-		else throw new Exception('Файл ' . $root  . '/' . $classPath . '/' . $class_name . '.php,  класса '.$class_name.' - не найден!');
+		else throw new Exception('Файл ' . $root . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php,  класса '.$class_name.' - не найден!');
 	}
 	
 	static public function register()

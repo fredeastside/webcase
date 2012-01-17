@@ -41,7 +41,7 @@ class C_AddArticle extends C_Page {
 		
 		$vars = array('add' => $mUsers->Can('ADD_ARTICLES'), 'date' => $this->date);
 		
-		$this->content = $this->View('/Views/ViewAddArticle.php', $vars);
+		$this->content = $this->View('ViewAddArticle', $vars);
 		parent::OnOutput();
 	}
 }

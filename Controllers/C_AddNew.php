@@ -40,7 +40,7 @@ class C_AddNew extends C_Page {
 		
 		$vars = array('add' => $mUsers->Can('ADD_NEWS'), 'date' => $this->date);
 		
-		$this->content = $this->View('/Views/ViewAddNew.php', $vars);
+		$this->content = $this->View('ViewAddNew', $vars);
 		parent::OnOutput();
 	}
 }

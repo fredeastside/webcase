@@ -5,7 +5,7 @@
  * Date: 21.09.11
  * Time: 21:24
  */
- class C_Login extends C_page{
+ class C_Login extends C_Page{
 
       private $login;
 	  private $errors;
@@ -45,7 +45,7 @@
      protected function OnOutput()
      {
          $vars = array('login' => $this->login, 'errors' => $this->errors);
-         $this->content = $this->View('Views/ViewLogin.php', $vars);
+         $this->content = $this->View('ViewLogin', $vars);
          parent::OnOutput();
      }
  }

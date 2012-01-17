@@ -35,16 +35,12 @@ $(document).ready(function(){
 
      function reload()
      {
-        src=document.code.src; // запоминаем адрес капчи в переменную
+        src=document.code.src;
         document.code.src=src+'?rand='+Math.random();
      }
 
-	/* The following code is executed once the DOM is loaded */
-	
-	/* This flag will prevent multiple comment submits: */
 	var working = false;
 	
-	/* Listening for the submit event of the form: */
 	$('#addCommentForm').submit(function(e){
 
  		e.preventDefault();
@@ -52,13 +48,8 @@ $(document).ready(function(){
 		
 		working = true;
 		$('#submit').val('Working..');
-		//$('span.error').remove();
-		
-		//$('#body').val(tinyMCE.get('content').getContent());
-		//var var_content  = tinyMCE.get('body').getContent();
+
 		tinyMCE.get('body').save();
-		//var x = $(this).serialize();
-		/* Sending the form fileds to submit.php: */
 		
 		$.post(document.location.href, $(this).serialize(), function(msg){
 
@@ -69,24 +60,21 @@ $(document).ready(function(){
 			
 			if(obj.status){
 
-				//
-				//	If the insert was successful, add the comment
-				//	below the last one on the page with a slideDown effect
-				//
 				$(obj.html).hide().insertBefore('#addCommentContainer').slideDown();
                 $('#captcha').val('');
                 tinyMCE.activeEditor.setContent('');
                 reload();
+                $('span[id^=msg_]').hide();
+                $('span[id^=msg_]').html("");
 			}
 			else {
-
-				//
-				//	If there were errors, loop through the
-				//	msg.errors object and display them on the page 
-				//
+                $('span[id^=msg_]').hide();
+                $('span[id^=msg_]').html("");
 				
-				$.each(msg.errors,function(k,v){
-					$('label[for='+k+']').append('<span class="error">'+v+'</span>');
+				$.each(obj.errors,function(k,v){
+					$('span[id=msg_'+k+']').html(v);
+					$('span[id=msg_'+k+']').show('slow');
+                    reload();
 				});
 			}
 		}, 'JSON' ); 
@@ -105,12 +93,15 @@ $(document).ready(function(){
 				<td colspan="2">Оставить комментарий:</td>
 		    </tr>
 			<tr>
-		        <td colspan="2"><textarea id="body" name="content" cols="40" rows="10" ></textarea></td>
+		        <td colspan="2"><label for="body"><textarea id="body" name="content" cols="40" rows="10" ></textarea><span id="msg_body" class="msg_log"></span></td>
 		    </tr>
 			<tr>
 				<td width="100"><img style="vertical-align: middle;" src="/Views/captcha/captcha.php" alt="код подтверждения" name="code" border="0"></td>
 				<td><input type="text" id="captcha" name="captcha" style="width:125px; font-size:310%;" /></td>
 			</tr>
+                <td colspan="2"><span id="msg_captcha" class="msg_log"></span></td>
+            <tr>
+            </tr>
 		    <tr>
 		        <td colspan="2" align="center"><input type="submit" id="submit" class="adm_button" value="Отправить" /></td>
 		    </tr>

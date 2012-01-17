@@ -53,7 +53,7 @@
      {
          $vars = array('user' => $this->user, 'is_registered' => $this->is_registered, 'errors' => $this->errors, 'login' => $this->login, 'email' => $this->email);
 		
-         $this->content = $this->View('/Views/ViewRegistration.php', $vars);
+         $this->content = $this->View('ViewRegistration', $vars);
 
          parent::OnOutput();
      }

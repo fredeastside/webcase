@@ -36,7 +36,7 @@ class C_Search extends C_Page{
 	{
 		$vars = array('search_result' => $this->search_result);
 		
-		$this->content = $this->View('/Views/ViewSearch.php', $vars);
+		$this->content = $this->View('ViewSearch', $vars);
 		
 		parent::OnOutput();
 	}

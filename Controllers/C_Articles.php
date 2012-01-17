@@ -40,7 +40,7 @@ class C_Articles extends C_Page
 		
         $vars = array('articles' => $this->articles, 'add' => $mUsers->Can('ADD_ARTICLES'), 'pages_menu' => $this->pages_menu);
 
-        $this->content = $this->View('/Views/ViewAllArticles.php', $vars);
+        $this->content = $this->View('ViewAllArticles', $vars);
 
         parent::OnOutput();
     }

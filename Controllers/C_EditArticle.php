@@ -54,7 +54,7 @@ class C_EditArticle extends C_Page {
 		$mUsers = M_Users::Instance();
 		
         $vars = array('article' => $this->article, 'edit' => $mUsers->Can('EDITING_NEWS'));
-        $this->content = $this->View('/Views/ViewEditArticle.php', $vars);
+        $this->content = $this->View('ViewEditArticle', $vars);
 		
 		parent::OnOutput();
 	}

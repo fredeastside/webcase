@@ -12,7 +12,7 @@ class C_Injustice extends C_Page {
 	{	
 		$vars = array('user' => $this->user);
 		
-		$this->content = $this->View('/Views/ViewInjustice.php', $vars);
+		$this->content = $this->View('ViewInjustice', $vars);
 		parent::OnOutput();
 	}	
 }

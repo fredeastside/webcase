@@ -65,10 +65,10 @@ EOD;
 		$data = array();
 		
 		if(!isset($_SESSION['captcha']))
-			$errors['captcha'] = 'Captcha code is not correct!';
+			$errors['captcha'] = 'Проверочный код неверный!';
 			
 		if($_SESSION['captcha'] !== $captcha)
-			$errors['captcha'] = 'Captcha code is not correct!';
+			$errors['captcha'] = 'Проверочный код неверный!';
 
 		unset($_SESSION['captcha']);
 		
@@ -76,7 +76,7 @@ EOD;
 		
 		if(!($data['body'] = filter_input( INPUT_POST, 'content', FILTER_CALLBACK, array('options'=>'M_Comments::ValidateText') )))
 		{
-			$errors['body'] = 'Comment text is empty!';
+			$errors['body'] = 'Введите текст комментария!';
 		}
 		
 		if(!empty($errors)){
@@ -96,7 +96,7 @@ EOD;
 	
 	private static function ValidateText( $str )
 	{
-		if(mb_strlen($str,'utf8')<1)
+		if(mb_strlen($str,'utf-8')<1)
 			return false;
 		
 		// Encode all html special characters (<, >, ", & .. etc) and convert
