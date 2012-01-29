@@ -33,9 +33,12 @@ class M_Articles extends M_SQL
     }
 	*/
 	
-	public function ViewAllTypedArticles($type, $num, $page)
+	public function ViewAllTypedArticles($type, $num=false, $page=false)
 	{
-		$str = "SELECT id_article, title_article, content_article FROM tbl_articles WHERE type_article = '%s' ORDER BY id_article DESC LIMIT " . (($page - 1) * $num) . ', ' . $num;
+        if(!$num || !$page)
+            $str = "SELECT id_article, title_article FROM tbl_articles WHERE type_article = '%s'";
+        else
+		    $str = "SELECT id_article, title_article, content_article FROM tbl_articles WHERE type_article = '%s' ORDER BY id_article DESC LIMIT " . (($page - 1) * $num) . ', ' . $num;
 		
 		$query = sprintf($str, $type);
 		
@@ -150,6 +153,8 @@ class M_Articles extends M_SQL
 	 {
 		$str = "id_article = '%d'";
 		$where = sprintf($str, $id_article);
+
+         $this->msql->Delete('tbl_comments', $where);
 		
 		return $this->msql->Delete('tbl_articles', $where);
 	 }

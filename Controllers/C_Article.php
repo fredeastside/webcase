@@ -12,7 +12,7 @@ class C_Article extends C_Page{
 		$mArticle = M_Articles::Instance();
 		$mComments = M_Comments::Instance();
 		
-		$this->id_article = !empty($_GET['id']) ? $_GET['id'] : null;
+		$this->id_article = !empty($_GET['id']) ? (int)$_GET['id'] : null;
 		$this->comments = $mComments->SelectAllComments( $this->id_article );
 		
 		if($this->IsGet())
@@ -42,7 +42,7 @@ class C_Article extends C_Page{
 			{
 				$result = $mArticle->DeleteArticle($this->id_article);
 				
-				print_r($result);
+				//print_r($result);
 				
 				if(!$result)
 					header('Location: /');
@@ -51,6 +51,7 @@ class C_Article extends C_Page{
 			}
 			elseif( isset( $_POST['delete_comment'] ) )
 			{
+                //$result = $mArticle->DeleteComment( $id_comment );
 			}
 			else
 			{

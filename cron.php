@@ -3,7 +3,7 @@
 	require_once 'Models/M_News.php';
 	require_once 'Models/M_Users.php';
 	require_once 'Controllers/simple_html_dom.php';
-	require_once 'Controllers/C_Phpmailer.php';
+	//require_once 'Controllers/C_Phpmailer.php';
 		
 		$mNews = M_News::Instance();
 		$mUsers = M_Users::Instance();

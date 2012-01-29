@@ -22,9 +22,14 @@
 		<div id="wrapper">
 
 			<div id="header">
-			<h1 class="title" style="position: relative;">
+                <div id="navigation">
+                    <a href="/" title="На главную"><img alt="" src="/Views/images/home.png"/></a>
+                    <a href="mailto:fredrsf@yandex.ru" title="Написать письмо"><img alt="" src="/Views/images/mail.png"/></a>
+                    <a href="/sitemap.html" title="Карта сайта"><img alt="" src="/Views/images/sitemap.png"/></a>
+                </div>
+			<span class="title" style="position: relative;">
 				<a href="/">Web thrust</a>
-			</h1>
+			</span>
 			<ul id="menu">
 				<li><a href="/news.html">Новости</a></li>
 				<li><a href="/articles.html">Статьи</a></li>
@@ -83,7 +88,7 @@
 
 		<div id="footer">
 			<div style="border-top: 1px dotted #cfcfcf; padding-top: 10px;">
-				Web thrust &copy; 2011 - 2012, all rights reserved. <a href="#">support</a>
+				Web thrust &copy; 2011 - 2012, all rights reserved.
 			</div>
 		</div><!-- #footer -->
 

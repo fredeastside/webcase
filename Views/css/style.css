@@ -149,6 +149,15 @@ ul, ol {
     position:relative;
 }
 
+#navigation{
+    position: absolute;
+    top: 7px;
+}
+
+#navigation img{
+    margin: 0 5px;
+}
+
 #registration {
 	position:absolute;
 	top:0;

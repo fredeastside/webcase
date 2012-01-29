@@ -16,21 +16,21 @@ class Autoload
 				break;
 			case 'V' : self::classExists('Views', $class_name);
 				break;
+			case 'R' : self::classExists('Application', $class_name);
+				break;
 		}
 	}
 	
 	private function classExists($classPath, $class_name)
 	{
-        $root = $_SERVER['DOCUMENT_ROOT'];
-
-		if(file_exists($root . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php'))
+		if(file_exists(__SITE_PATH . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php'))
 		{
-			require_once($root . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php');
+			require_once(__SITE_PATH . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php');
 		}
-		else throw new Exception('Файл ' . $root . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php,  класса '.$class_name.' - не найден!');
+		else throw new Exception('Файл ' . __SITE_PATH . DIRECTORY_SEPARATOR . $classPath . DIRECTORY_SEPARATOR . $class_name . '.php,  класса '.$class_name.' - не найден!');
 	}
 	
-	static public function register()
+	static public function loadClasses()
 	{
 		spl_autoload_register(array(__CLASS__, 'load'));
 	}

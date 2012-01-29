@@ -24,9 +24,12 @@
          $this->msql = M_SQL::Instance();
      }
 
-     public function ViewAllNews($num, $page)
+     public function ViewAllNews($num=false, $page=false)
      {
-         $query = "SELECT id_new, title_new, content_new FROM tbl_news ORDER BY id_new DESC LIMIT " . (($page - 1) * $num) . ', ' . $num;
+         if(!$num || !$page)
+             $query = "SELECT id_new, title_new FROM tbl_news";
+         else
+            $query = "SELECT id_new, title_new, content_new FROM tbl_news ORDER BY id_new DESC LIMIT " . (($page - 1) * $num) . ', ' . $num;
 
          return $this->msql->Select($query);
      }
@@ -73,8 +76,10 @@
 		 
 		 if(!$result)
 			return null;
-		 
-		 $count = ceil($result[0]['cnt'] / $num);
+
+         $count = $result[0]['cnt'];
+         
+		 $cnt = ceil($result[0]['cnt'] / $num);
 		 
 		 if( $count < 6 )
 			return null;
@@ -89,7 +94,7 @@
 		 if($count < 9)
 		 {
             $i = 1;    
-            $cnt = $count;            
+            //$cnt = $count;
 		 }
 		 else
 		 {
@@ -115,8 +120,8 @@
 			}
 		 }
 		 
-		 $left = ($page == 1) ? 'назад' : '<a href="/news/' . ($page - 1) . '/">назад</a>';
-		 $right = ($page == $count) ? 'вперед' : '<a href="/news/' . ($page + 1) . '/">вперед</a>';
+		 $left = ($page == 1) ? 'назад' : '<a title="перейти на страницу назад" href="/news/' . ($page - 1) . '/">назад</a>';
+		 $right = ($page == $cnt) ? 'вперед' : '<a title="перейти на страницу вперед" href="/news/' . ($page + 1) . '/">вперед</a>';
 		 
 		 if($count != 1)
 			$menu .= '<p>' . $left . ' ' . $right . '</p>';
@@ -137,7 +142,7 @@
 	 
 		if($page < ($count - 4))
 	       // Стрелочка на вправо 
-	                $menu .= ' <a href="/news/'. $count .'/">&#8594;</a>'; 
+	                $menu .= ' <a title="в конец" href="/news/'. $cnt .'/">&#8594;</a>';
 	                                   
 	        return $menu;  	 
 	 }

@@ -17,7 +17,7 @@
          $host = 'localhost';
          $user = 'root';
          $password = '';
-         $dbName = 'webcase';
+         $dbName = 'fredrsf';
 
          try
          {

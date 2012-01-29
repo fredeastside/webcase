@@ -46,9 +46,7 @@ class M_Comments extends M_SQL{
 &nbsp;{$data['date_comment']}
 </span>
 </p>
-<p></p>
 <p>{$data['content_comment']}</p>
-<p></p>
 <p align='right'>
 <input type='image' src='/Views/images/mail-delete.png' name='delete_comment'>
 </p>
@@ -96,7 +94,7 @@ EOD;
 	
 	private static function ValidateText( $str )
 	{
-		if(mb_strlen($str,'utf-8')<1)
+		if(mb_strlen($str,'utf-8') < 1)
 			return false;
 		
 		// Encode all html special characters (<, >, ", & .. etc) and convert

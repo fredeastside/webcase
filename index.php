@@ -4,8 +4,15 @@
 
     session_start();
 
-   	require_once '/Controllers/autoload.php';
-	Autoload::register();
+    define('__SITE_PATH', realpath(dirname(__FILE__)));
+
+   	require_once __SITE_PATH . DIRECTORY_SEPARATOR . 'Controllers' . DIRECTORY_SEPARATOR . 'autoload.php';
+
+    Autoload::loadClasses();
+
+    $registry = new Registry;
+
+    $registry->router = new Router($registry);
 
 	if(isset($_GET['c']))
 	{
@@ -47,12 +54,13 @@
 				break;
 			case 'search' : $controller = new C_Search();
 				break;
-	        default : $controller = new C_News();
+            case 'sitemap' : $controller = new C_Sitemap();
+				break;
+	        default : header('Location: /404.htm');
 	    }
 	}
 	else
 		$controller = new C_News();
 		//Лажа
-
-    $controller->Request(); 
+        $controller->Request();
 ?>
