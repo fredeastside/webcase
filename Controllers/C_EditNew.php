@@ -4,9 +4,6 @@ class C_EditNew extends C_Page {
 	private $new;
 	private $id_new;
 	
-	function __construct()
-	{}
-	
 	protected function OnInput()
 	{
 		parent::OnInput();
@@ -53,8 +50,9 @@ class C_EditNew extends C_Page {
 	{
 		$mUsers = M_Users::Instance();
 		
-        $vars = array('new' => $this->new, 'edit' => $mUsers->Can('EDITING_NEWS'));
-        $this->content = $this->View('ViewEditNew', $vars);
+        $this->smarty->assign(array('new' => $this->new, 'edit' => $mUsers->Can('EDITING_NEWS')));
+
+        $this->content = $this->smarty->fetch('ViewEditNew.tpl');
 		
 		parent::OnOutput();
 	}

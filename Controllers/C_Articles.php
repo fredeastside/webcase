@@ -37,10 +37,12 @@ class C_Articles extends C_Page
     protected function OnOutput()
     {
 		$mUsers = M_Users::Instance();
-		
-        $vars = array('articles' => $this->articles, 'add' => $mUsers->Can('ADD_ARTICLES'), 'pages_menu' => $this->pages_menu);
 
-        $this->content = $this->View('ViewAllArticles', $vars);
+        $this->smarty->assign(array('articles' => $this->articles,
+                                    'add' => $mUsers->Can('ADD_ARTICLES'),
+                                    'pages_menu' => $this->pages_menu));
+
+        $this->content = $this->smarty->fetch('ViewAllArticles.tpl');
 
         parent::OnOutput();
     }

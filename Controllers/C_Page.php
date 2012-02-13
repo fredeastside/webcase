@@ -8,11 +8,13 @@
 		protected $menu; // меню сайта
         protected $needLogin; //
         protected $user; //
+        protected $smarty;
 		
 		private $lastNews;
 
         function __construct()
         {
+            $this->smarty = new SmartyHeir();
             $this->needLogin = false;
             $this->user = null;
         }
@@ -31,7 +33,7 @@
             $this->user = $mUsers->Get();
 			
 			$mNews = M_News::Instance();
-			//$mNews->NewsInsert();
+
 			$this->lastNews = $mNews->lastNews();
 			
             $this->title = 'Web thrust | ';
@@ -52,13 +54,16 @@
 		*/
         protected function OnOutput()
         {
-            $vars = array('title' => $this->title, 'content' => $this->content, 'user' => $this->user, 'lastNews' => $this->lastNews);
+            $this->smarty->assign(array('title' => $this->title,
+                                        'content' => $this->content,
+                                        'user' => $this->user,
+                                        'lastNews' => $this->lastNews));
+            
+            $this->smarty->display('main.tpl');
 
-            $page = $this->View('main', $vars);
+            //$page .= sprintf("<!-- Время работы скрипта: %.5f c -->", microtime(true) - $this->generateTime);
 
-            $page .= sprintf("<!-- Время работы скрипта: %.5f c -->", microtime(true) - $this->generateTime);
-
-            echo $page;
+            //echo $page;
         }
 
        /*

@@ -3,9 +3,6 @@ class C_Search extends C_Page{
 	
 	private $search_result;
 	
-	function __construct()
-	{}
-	
 	protected function OnInput()
 	{
 		$mSearch = M_Search::Instance();
@@ -29,14 +26,13 @@ class C_Search extends C_Page{
 				}
 			}
 		}
-		
 	}
 	
 	protected function OnOutput()
 	{
-		$vars = array('search_result' => $this->search_result);
+		$this->smarty->assign(array('search_result' => $this->search_result));
 		
-		$this->content = $this->View('ViewSearch', $vars);
+		$this->content = $this->smarty->fetch('ViewSearch.tpl');
 		
 		parent::OnOutput();
 	}

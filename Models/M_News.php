@@ -99,7 +99,7 @@
 		 else
 		 {
 			$i = 1;
-			$cnt = 8;
+			$count = 8;
 			
 			if($page == 5)
 			{
@@ -120,8 +120,8 @@
 			}
 		 }
 		 
-		 $left = ($page == 1) ? 'назад' : '<a title="перейти на страницу назад" href="/news/' . ($page - 1) . '/">назад</a>';
-		 $right = ($page == $cnt) ? 'вперед' : '<a title="перейти на страницу вперед" href="/news/' . ($page + 1) . '/">вперед</a>';
+		 $left = ($page == 1) ? '<span>назад</span>' : '<a title="перейти на страницу назад" href="/news/' . ($page - 1) . '/">назад</a>';
+		 $right = ($page == $cnt) ? '<span>вперед</span>' : '<a title="перейти на страницу вперед" href="/news/' . ($page + 1) . '/">вперед</a>';
 		 
 		 if($count != 1)
 			$menu .= '<p>' . $left . ' ' . $right . '</p>';
@@ -133,7 +133,7 @@
         while($i <= $cnt)
         {
             if($i == $page)
-                $menu .= '<b>'. $i .'</b> ';
+                $menu .= '<span>'. $i .'</span> ';
             else
                 $menu .= '<a href="/news/'. $i .'/">'. $i .'</a> ';
                    
@@ -151,7 +151,14 @@
      {
          $query = "SELECT id_new, title_new FROM tbl_news ORDER BY id_new DESC LIMIT 0, 7";
 
-         return $this->msql->Select($query);
+         $result = $this->msql->Select($query);
+
+         for($i = 0, $cnt = count($result); $i < $cnt; $i++)
+         {
+             $result[$i]['title_new'] = (strlen($result[$i]['title_new']) > 200) ? (mb_substr($result[$i]['title_new'], 0, 100)) . '...' : $result[$i]['title_new'];
+         }
+
+         return $result;
      }
 
      public function ViewNew($new_id)

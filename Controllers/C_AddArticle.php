@@ -3,12 +3,7 @@ class C_AddArticle extends C_Page {
 	
 	private $id;
 	private $date;
-	
-	function __construct()
-	{
-	
-	}
-	
+
 	protected function OnInput()
 	{
 		parent::OnInput();
@@ -38,10 +33,11 @@ class C_AddArticle extends C_Page {
 	protected function OnOutput()
 	{
 		$mUsers = M_Users::Instance();
-		
-		$vars = array('add' => $mUsers->Can('ADD_ARTICLES'), 'date' => $this->date);
-		
-		$this->content = $this->View('ViewAddArticle', $vars);
+
+		$this->smarty->assign(array('add' => $mUsers->Can('ADD_ARTICLES'), 'date' => $this->date));
+
+		$this->content = $this->smarty->fetch('ViewAddArticle.tpl');
+
 		parent::OnOutput();
 	}
 }

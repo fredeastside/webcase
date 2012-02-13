@@ -3,12 +3,7 @@ class C_AddNew extends C_Page {
 	
 	private $id;
 	private $date;
-	
-	function __construct()
-	{
-	
-	}
-	
+
 	protected function OnInput()
 	{
 		parent::OnInput();
@@ -37,10 +32,12 @@ class C_AddNew extends C_Page {
 	protected function OnOutput()
 	{
 		$mUsers = M_Users::Instance();
+
+        $this->smarty->assign(array('add' => $mUsers->Can('ADD_NEWS'),
+                                    'date' => $this->date));
 		
-		$vars = array('add' => $mUsers->Can('ADD_NEWS'), 'date' => $this->date);
-		
-		$this->content = $this->View('ViewAddNew', $vars);
+		$this->content = $this->smarty->fetch('ViewAddNew.tpl');
+        
 		parent::OnOutput();
 	}
 }

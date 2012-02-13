@@ -440,7 +440,7 @@
 	  */	 
 	  private function RegistrationMail($email, $login, $code)
 	  {
-			$mail = new C_Phpmailer();
+			$mail = new PHPMailer();
 			$mail->SetFrom('support@webthrust.ru', 'SUPPORT');
 			$mail->AddAddress($email);
 			$mail->Subject = "Подтверждение регистрации на сайте webthrust.ru";
@@ -464,7 +464,7 @@
 	  */	 
 	  private function RecoverMail($email, $login, $code)
 	  {
-			$mail = new C_Phpmailer();
+			$mail = new PHPMailer();
 			$mail->SetFrom('support@webthrust.ru', 'SUPPORT');
 			$mail->AddAddress($email);
 			$mail->Subject = "Восстановление забытого пароля на сайте webthrust.ru";

@@ -7,16 +7,29 @@
  */
  class Router {
      private $registry;
-     //private $path;
      private $args = array();
 
-     public $file;
+     private $class;
      public $controller;
      public $action;
 
      function __construct($registry)
      {
          $this->registry = $registry;
+     }
+
+     public function loader()
+     {
+         $this->getController();
+
+         $controller = new $this->class($this->registry);
+
+         if(is_callable(array($controller, $this->action)) == false)
+             $action = 'index';
+         else
+             $action = $this->action;
+
+         $controller->$action();
      }
 
      private function getController()
@@ -29,7 +42,19 @@
          }
          else
          {
-             
+             $parts = explode('/', $router);
+             $this->controller = $parts[0];
+
+             if(isset($parts[1]))
+                 $this->action = $parts[1];
          }
+
+         if(!isset($this->controller))
+             $this->controller = 'news';
+
+         if(!isset($this->action))
+             $this->action = 'index';
+
+         $this->class = 'C_' . ucwords($this->controller) ;
      }
  }

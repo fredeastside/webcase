@@ -30,10 +30,11 @@ class C_Confirm extends C_Page {
 	}
 	
 	protected function OnOutput()
-	{	
-		$vars = array('found_user' => $this->found_user);
+	{
+        $this->smarty->assign(array('found_user' => $this->found_user));
 		
-		$this->content = $this->View('ViewConfirm', $vars);
+		$this->content = $this->smarty->fetch('ViewConfirm.tpl');
+        
 		parent::OnOutput();
 	}
 }

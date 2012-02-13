@@ -13,7 +13,7 @@ abstract class Controller
        /**
         *@abstract функция полного HTTP - запроса
         */
-		public function Request()
+		public function index()
 		{
 			$this->OnInput();
 			$this->OnOutput();
@@ -61,9 +61,9 @@ abstract class Controller
         *
         *@return string
         */
-		protected function View($fileName, $vars = array())
+	/*	protected function View($fileName, $vars = array())
 		{
-            $path = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . $fileName . '.php';
+            $path = __SITE_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . $fileName . '.php';
 
 	        if (file_exists($path) == false)
 	        {
@@ -81,6 +81,6 @@ abstract class Controller
 			include $path;
 			
 			return ob_get_clean();
-		}
+		}   */
 	}
 ?>

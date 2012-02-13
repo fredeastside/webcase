@@ -44,8 +44,10 @@
 
      protected function OnOutput()
      {
-         $vars = array('login' => $this->login, 'errors' => $this->errors);
-         $this->content = $this->View('ViewLogin', $vars);
+         $this->smarty->assign(array('login' => $this->login, 'errors' => $this->errors));
+
+         $this->content = $this->smarty->fetch('ViewLogin.tpl');
+         
          parent::OnOutput();
      }
  }

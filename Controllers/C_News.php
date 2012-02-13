@@ -36,10 +36,12 @@ class C_News extends C_Page
     protected function OnOutput()
     {
 		$mUsers = M_Users::Instance();
-		
-        $vars = array('news' => $this->news, 'add' => $mUsers->Can('ADD_NEWS'), 'pages_menu' => $this->pages_menu);
 
-        $this->content = $this->View('ViewAllNews', $vars);
+        $this->smarty->assign(array('news' => $this->news,
+                                    'add' => $mUsers->Can('ADD_NEWS'),
+                                    'pages_menu' => $this->pages_menu));
+        
+        $this->content = $this->smarty->fetch('ViewAllNews.tpl');
 
         parent::OnOutput();
     }

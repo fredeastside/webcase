@@ -10,9 +10,10 @@ class C_Injustice extends C_Page {
 	
 	protected function OnOutput()
 	{	
-		$vars = array('user' => $this->user);
+		$this->smarty->assign(array('user' => $this->user));
 		
-		$this->content = $this->View('ViewInjustice', $vars);
+		$this->content = $this->smarty->fetch('ViewInjustice.tpl');
+
 		parent::OnOutput();
 	}	
 }

@@ -78,10 +78,17 @@ class C_Article extends C_Page{
 	protected function OnOutput()
 	{
 		$mUsers = M_Users::Instance();
-		
-		$vars = array( 'article' => $this->article, 'edit' => $mUsers->Can('EDITING_ARTICLES'), 'delete' => $mUsers->Can('DELETE_ARTICLES'), 'comments' => $this->comments, 'add_comment' => $mUsers->Can('ADD_COMMENT'), 'delete_comment' => $mUsers->Can('DELETE_COMMENT'), 'login' => $this->user['login'], 'errors' => $this->error );
-		
-		$this->content = $this->View('ViewArticle', $vars);
+
+		$this->smarty->assign(array( 'article' => $this->article,
+                                     'edit' => $mUsers->Can('EDITING_ARTICLES'),
+                                     'delete' => $mUsers->Can('DELETE_ARTICLES'),
+                                     'comments' => $this->comments,
+                                     'add_comment' => $mUsers->Can('ADD_COMMENT'),
+                                     'delete_comment' => $mUsers->Can('DELETE_COMMENT'),
+                                     'login' => $this->user['login'],
+                                     'errors' => $this->error ));
+
+		$this->content = $this->smarty->fetch('ViewArticle.tpl');
 		
 		parent::OnOutput();
 	}

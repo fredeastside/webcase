@@ -3,10 +3,7 @@ class C_EditArticle extends C_Page {
 
 	private $article;
 	private $id_article;
-	
-	function __construct()
-	{}
-	
+
 	protected function OnInput()
 	{
 		parent::OnInput();
@@ -53,8 +50,9 @@ class C_EditArticle extends C_Page {
 	{
 		$mUsers = M_Users::Instance();
 		
-        $vars = array('article' => $this->article, 'edit' => $mUsers->Can('EDITING_NEWS'));
-        $this->content = $this->View('ViewEditArticle', $vars);
+        $this->smarty->assign(array('article' => $this->article, 'edit' => $mUsers->Can('EDITING_NEWS')));
+
+        $this->content = $this->smarty->fetch('ViewEditArticle.tpl');
 		
 		parent::OnOutput();
 	}

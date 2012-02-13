@@ -20,7 +20,7 @@ class C_Php extends C_Page{
 		
 		for($i = 0, $cnt = count($this->articlesPhp); $i < $cnt; $i++)
 		{
-			$this->articlesPhp[$i]['content_article'] = $this->doIntroDescription($i, $this->articlesPhp[$i]['content_article'], 'article');
+			$this->articlesPhp[$i]['content_article'] = $this->doIntroDescription($this->articlesPhp[$i]['content_article']);
 		}
 	}
 	
@@ -28,9 +28,11 @@ class C_Php extends C_Page{
 	{
 		$mUsers = M_Users::Instance();
 		
-		$vars = array('articles' => $this->articlesPhp, 'add' => $mUsers->Can('ADD_ARTICLES'), 'pages_menu' => $this->pages_menu);
+		$this->smarty->assign(array('articles' => $this->articlesPhp,
+                      'add' => $mUsers->Can('ADD_ARTICLES'),
+                      'pages_menu' => $this->pages_menu));
 		
-		$this->content = $this->View('ViewAllArticles', $vars);
+		$this->content = $this->smarty->fetch('ViewAllArticles.tpl');
 		
 		parent::OnOutput();
 	}

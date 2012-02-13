@@ -71,9 +71,14 @@ class C_Recover extends C_Page {
 	
 	protected function OnOutput()
 	{	
-		$vars = array('user' => $this->user, 'login_or_email' => $this->login_or_email, 'errors' => $this->errors, 'is_registered' => $this->is_registered, 'found_user' => $this->found_user, 'change_password' => $this->change_password);
+		$this->smarty->assign(array('user' => $this->user,
+                      'login_or_email' => $this->login_or_email,
+                      'errors' => $this->errors,
+                      'is_registered' => $this->is_registered,
+                      'found_user' => $this->found_user,
+                      'change_password' => $this->change_password));
 		
-		$this->content = $this->View('ViewRecover', $vars);
+		$this->content = $this->smarty->fetch('ViewRecover.tpl');
 		
 		parent::OnOutput();
 	}	

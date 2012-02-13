@@ -13,11 +13,6 @@
 	 private $is_registered;
 	 private $errors;
 
-     function __construct()
-     {
-
-     }
-
      protected function OnInput()
      {
          $mUsers = M_Users::Instance();
@@ -51,9 +46,13 @@
 
      protected function OnOutput()
      {
-         $vars = array('user' => $this->user, 'is_registered' => $this->is_registered, 'errors' => $this->errors, 'login' => $this->login, 'email' => $this->email);
+         $this->smarty->assign(array('user' => $this->user,
+                       'is_registered' => $this->is_registered,
+                       'errors' => $this->errors,
+                       'login' => $this->login,
+                       'email' => $this->email));
 		
-         $this->content = $this->View('ViewRegistration', $vars);
+         $this->content = $this->smarty->fetch('ViewRegistration.tpl');
 
          parent::OnOutput();
      }

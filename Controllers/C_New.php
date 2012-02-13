@@ -59,8 +59,11 @@ class C_New extends C_Page
     {
         $mUsers = M_Users::Instance();
 
-        $vars = array('new' => $this->new, 'edit' => $mUsers->Can('EDITING_NEWS'), 'delete' => $mUsers->Can('DELETE_NEWS'));
-        $this->content = $this->View('ViewNew', $vars);
+        $this->smarty->assign(array('new' => $this->new,
+                                    'edit' => $mUsers->Can('EDITING_NEWS'),
+                                    'delete' => $mUsers->Can('DELETE_NEWS')));
+
+        $this->content = $this->smarty->fetch('ViewNew.tpl');
 
         parent::OnOutput();
     }

@@ -15,8 +15,6 @@
      private $js_articles;
      private $sql_articles;
 
-     function __construct(){}
-
      protected function OnInput(){
          parent::OnInput();
          $this->title .= 'Карта сайта';
@@ -29,12 +27,15 @@
          $this->sql_articles = $this->mArticles->ViewAllTypedArticles('sql');
      }
      protected function OnOutput(){
-         $vars = array('articles' => $this->articles,
+
+         $this->smarty->assign(array('articles' => $this->articles,
                        'php_articles' => $this->php_articles,
                        'js_articles' => $this->js_articles,
                        'sql_articles' => $this->sql_articles,
-                       'news' => $this->news);
-         $this->content = $this->View('ViewSiteMap', $vars);
+                       'news' => $this->news));
+
+         $this->content = $this->smarty->fetch('ViewSiteMap.tpl');
+
          parent::OnOutput();
      }
  }

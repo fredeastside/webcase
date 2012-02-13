@@ -21,7 +21,7 @@ class C_Javascript extends C_Page{
 		
 		for($i = 0, $cnt = count($this->articlesJs); $i < $cnt; $i++)
 		{
-			$this->articlesJs[$i]['content_article'] = $this->doIntroDescription($i, $this->articlesJs[$i]['content_article'], 'article');
+			$this->articlesJs[$i]['content_article'] = $this->doIntroDescription($this->articlesJs[$i]['content_article']);
 		}
 	}
 	
@@ -29,9 +29,11 @@ class C_Javascript extends C_Page{
 	{
 		$mUsers = M_Users::Instance();
 		
-		$vars = array('articles' => $this->articlesJs, 'add' => $mUsers->Can('ADD_ARTICLES'), 'pages_menu' => $this->pages_menu);
+		$this->smarty->assign(array('articles' => $this->articlesJs,
+                                    'add' => $mUsers->Can('ADD_ARTICLES'),
+                                    'pages_menu' => $this->pages_menu));
 		
-		$this->content = $this->View('ViewAllArticles', $vars);
+		$this->content = $this->smarty->fetch('ViewAllArticles.tpl');
 		
 		parent::OnOutput();
 	}

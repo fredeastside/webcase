@@ -75,17 +75,19 @@
      public function Update($table, $obj, $where)
      {
          $sets = array();
+         $values = array();
 
          foreach($obj as $column => $value)
          {
-             $sets[] = "$column = '$value'";
+             $sets[] = "$column = ?";
+             $values[] = $value;
          }
 
          $set_s = implode(',', $sets);
 
          $stmt = $this->db->prepare("UPDATE $table SET $set_s WHERE $where");
 		
-         $stmt->execute();
+         $stmt->execute($values);
 
          return $stmt->rowCount();
      }
