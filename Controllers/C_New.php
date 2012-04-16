@@ -19,7 +19,7 @@ class C_New extends C_Page
 
         if($this->IsGet())
         {
-            $this->id_new = !empty($_GET['id']) ? $_GET['id'] : null;
+            $this->id_new = $this->getRequest();
 			
 			if(!$this->id_new)
 			{

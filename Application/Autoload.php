@@ -35,9 +35,17 @@ class Autoload
 		{
 			require_once $classPath . DIRECTORY_SEPARATOR . 'Smarty' . DIRECTORY_SEPARATOR . 'Smarty.class.php';
 		}
-        elseif(file_exists($classPath . DIRECTORY_SEPARATOR . 'PhpMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php'))
+        else throw new Exception('Файл ' . $class_name . '.php,  класса '.$class_name.' - не найден!');
+        
+        if(file_exists($classPath . DIRECTORY_SEPARATOR . 'PhpMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php'))
         {
-            $classPath . DIRECTORY_SEPARATOR . 'PhpMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php';
+            require_once $classPath . DIRECTORY_SEPARATOR . 'PhpMailer' . DIRECTORY_SEPARATOR . 'class.phpmailer.php';
+        }
+        else throw new Exception('Файл ' . $class_name . '.php,  класса '.$class_name.' - не найден!');
+
+        if(file_exists($classPath . DIRECTORY_SEPARATOR . 'xajax' . DIRECTORY_SEPARATOR . 'xajax_core' . DIRECTORY_SEPARATOR . 'xajax.inc.php'))
+        {
+            require_once $classPath . DIRECTORY_SEPARATOR . 'xajax' . DIRECTORY_SEPARATOR . 'xajax_core' . DIRECTORY_SEPARATOR . 'xajax.inc.php';
         }
         else throw new Exception('Файл ' . $class_name . '.php,  класса '.$class_name.' - не найден!');
     }

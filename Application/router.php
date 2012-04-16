@@ -35,6 +35,7 @@
      private function getController()
      {
          $router = !empty($_GET['route']) ? $_GET['route'] : null;
+         $action = !empty($_GET['method']) ? $_GET['method'] : null;
 
          if(!$router)
          {
@@ -45,16 +46,20 @@
              $parts = explode('/', $router);
              $this->controller = $parts[0];
 
-             if(isset($parts[1]))
-                 $this->action = $parts[1];
+             //if(isset($parts[1]))
+                 //$this->action = $parts[1];
+             if(isset($action))
+                 $this->action = $action;
          }
 
          if(!isset($this->controller))
              $this->controller = 'news';
 
-         if(!isset($this->action))
-             $this->action = 'index';
+         //if(!isset($this->action))
+           //  $this->action = 'index';
 
+         if(!isset($action))
+            $this->action = 'index';
          $this->class = 'C_' . ucwords($this->controller) ;
      }
  }

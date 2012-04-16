@@ -1,0 +1,18 @@
+<?php
+class M_Admin extends M_SQL{
+
+    private static $instance;
+    private $msql;
+
+    public function __construct(){
+        $this->msql = M_SQL::Instance();
+    }
+
+    public static function Instance(){
+        if(self::$instance == null)
+            self::$instance = new M_Admin();
+
+        return self::$instance;
+    }
+
+}

@@ -12,7 +12,7 @@ class C_Php extends C_Page{
 		
 		$this->title .= 'Статьи | PHP';
 		
-		$page = !empty($_GET['page']) ? htmlspecialchars(trim((int)$_GET['page'])) : 1;
+		$page = $this->getRequest('page', 'int+') ? $this->getRequest('page', 'int+') : 1;
 
 		$this->pages_menu = $this->mArticlesPhp->CreatePagesMenu($this->num, $page);		
 		

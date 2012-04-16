@@ -11,7 +11,7 @@ class C_EditArticle extends C_Page {
 		
 		if($this->IsGet())
 		{
-			$this->id_article = !empty($_GET['id']) ? (int)$_GET['id'] : null;
+			$this->id_article = $this->getRequest();
 			
 			if(!$this->id_article)
 			{

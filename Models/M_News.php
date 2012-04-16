@@ -120,14 +120,14 @@
 			}
 		 }
 		 
-		 $left = ($page == 1) ? '<span>назад</span>' : '<a title="перейти на страницу назад" href="/news/' . ($page - 1) . '/">назад</a>';
-		 $right = ($page == $cnt) ? '<span>вперед</span>' : '<a title="перейти на страницу вперед" href="/news/' . ($page + 1) . '/">вперед</a>';
+		 $left = ($page == 1) ? '<span>назад</span>' : '<a title="перейти на страницу назад" href="/news/page-' . ($page - 1) . '/">назад</a>';
+		 $right = ($page == $cnt) ? '<span>вперед</span>' : '<a title="перейти на страницу вперед" href="/news/page-' . ($page + 1) . '/">вперед</a>';
 		 
 		 if($count != 1)
 			$menu .= '<p>' . $left . ' ' . $right . '</p>';
 		 
          if($page > 5)
-            $menu .= '<a href="/news/1/">&#8592;</a> ';
+            $menu .= '<a href="/news/page-1/">&#8592;</a> ';
 
       // Формируем меню       
         while($i <= $cnt)
@@ -135,14 +135,14 @@
             if($i == $page)
                 $menu .= '<span>'. $i .'</span> ';
             else
-                $menu .= '<a href="/news/'. $i .'/">'. $i .'</a> ';
+                $menu .= '<a href="/news/page-'. $i .'/">'. $i .'</a> ';
                    
              $i++;           
         }             
 	 
 		if($page < ($count - 4))
 	       // Стрелочка на вправо 
-	                $menu .= ' <a title="в конец" href="/news/'. $cnt .'/">&#8594;</a>';
+	                $menu .= ' <a title="в конец" href="/news/page-'. $cnt .'/">&#8594;</a>';
 	                                   
 	        return $menu;  	 
 	 }

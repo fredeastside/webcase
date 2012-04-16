@@ -9,6 +9,7 @@
         protected $needLogin; //
         protected $user; //
         protected $smarty;
+        protected $xajax;
 		
 		private $lastNews;
 
@@ -17,6 +18,7 @@
             $this->smarty = new SmartyHeir();
             $this->needLogin = false;
             $this->user = null;
+            $this->xajax = new xajax();
         }
 
 	   /**
@@ -54,10 +56,12 @@
 		*/
         protected function OnOutput()
         {
+            $this->xajax->configure('javascript URI', '/Application/xajax/');
             $this->smarty->assign(array('title' => $this->title,
                                         'content' => $this->content,
                                         'user' => $this->user,
-                                        'lastNews' => $this->lastNews));
+                                        'lastNews' => $this->lastNews,
+                                        'xajax' => $this->xajax->getJavascript('/Application/xajax/')));
             
             $this->smarty->display('main.tpl');
 
@@ -137,5 +141,36 @@
 			 //}
 			 return $json_str;
 		}
+
+        public function getRequest($arg = 'arg', $type = 'string'){
+            if($arg === 'arg'){
+                $getArg = !empty($_REQUEST['arg']) ? $_REQUEST['arg'] : NULL;
+            }
+            else{
+                $getArg = !empty($_REQUEST[$arg]) ? $_REQUEST[$arg] : NULL;
+            }
+
+            if(!$getArg)
+                return false;
+
+            return $this->filterData($getArg, $type);
+        }
+
+        private function filterData($data, $type = 'string'){
+            switch($type){
+                case 'string' : $data = trim(filter_var($data, FILTER_SANITIZE_STRING));
+                    break;
+                case 'int' : $data = (int)$data;
+                    break;
+                case 'int+' : $data = abs((int)$data);
+                    break;
+                case 'float' : $data = filter_var($data, FILTER_VALIDATE_FLOAT);
+                    break;
+                case 'email' : $data = filter_var($data, FILTER_VALIDATE_EMAIL);
+                    break;
+            }
+
+            return $data;
+        }
 	}
 ?>

@@ -14,7 +14,7 @@ class C_Recover extends C_Page {
 		
 		$this->title .= 'Восстановление забытого пароля.';	
 		
-		$code = !empty($_GET['code']) ? htmlspecialchars(trim($_GET['code'])) : null;
+		$code = $this->getRequest();
 		
          if($this->IsPost() && $this->user == null && $code == null)
          {

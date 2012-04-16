@@ -12,7 +12,7 @@ class C_Article extends C_Page{
 		$mArticle = M_Articles::Instance();
 		$mComments = M_Comments::Instance();
 		
-		$this->id_article = !empty($_GET['id']) ? (int)$_GET['id'] : null;
+		$this->id_article = $this->getRequest();
 		$this->comments = $mComments->SelectAllComments( $this->id_article );
 		
 		if($this->IsGet())

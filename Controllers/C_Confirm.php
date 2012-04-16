@@ -15,7 +15,7 @@ class C_Confirm extends C_Page {
 		
 		if($this->IsGet())
 		{
-			$code = !empty($_GET['code']) ? htmlspecialchars(trim($_GET['code'])) : null;
+			$code = $this->getRequest();
 			
 			if($code)
 			{

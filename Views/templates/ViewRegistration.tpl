@@ -3,7 +3,7 @@
     <form method="post" id="regform">
     <div class="registration">
     {if $errors}
-        <h2 align="center" class="redstar"><?php echo $errors; ?></h2>
+        <h2 align="center" class="redstar">{$errors}</h2>
     {else}
         <h2 align="center">Регистрация нового пользователя.</h2>
     {/if}
@@ -43,6 +43,6 @@
     <h2 align="center">Регистрация нового пользователя прошла успешно!</h2>
     <p>Но это еще не всё!</p>
     <p>На указанный e-mail была выслана ссылка с подтверждающих кодом. Вам надо перейти по этой ссылке для завершения процесса регистрации.</p>
-    <p><a href="/injustice.html">Не пришло письмо подтверждения регистрации?</a></p>
+    <p><a href="/injustice/">Не пришло письмо подтверждения регистрации?</a></p>
     {/if}
 {/if}
