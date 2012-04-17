@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-02-08 22:34:54
+<?php /* Smarty version Smarty-3.1.7, created on 2012-02-21 21:48:01
          compiled from "Z:\home\webcase\www\Views\templates\ViewAllNews.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:118644f30290bd3cfc4-37647871%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9f60b9348257ed725bcb4027535efb00ab0bd3ca' => 
     array (
       0 => 'Z:\\home\\webcase\\www\\Views\\templates\\ViewAllNews.tpl',
-      1 => 1328729579,
+      1 => 1329850078,
       2 => 'file',
     ),
   ),
@@ -34,7 +34,7 @@ $_smarty_tpl->tpl_vars['new']->_loop = true;
 <div style="margin-bottom: 15px;">
 <h3>
 	<a href="/new/<?php echo $_smarty_tpl->tpl_vars['new']->value['id_new'];?>
-.html"><?php echo $_smarty_tpl->tpl_vars['new']->value['title_new'];?>
+/"><?php echo $_smarty_tpl->tpl_vars['new']->value['title_new'];?>
 </a>
 </h3>
 <p><?php echo $_smarty_tpl->tpl_vars['new']->value['content_new'];?>
@@ -43,7 +43,7 @@ $_smarty_tpl->tpl_vars['new']->_loop = true;
 <?php } ?>
 <?php if ($_smarty_tpl->tpl_vars['add']->value){?>
 <form method="post">
-    <p align="center"><a href="/addnew.html"><input type="button" class="adm_button" value="Добавить" /></a></p>
+    <p align="center"><a href="/addnew/"><input type="button" class="adm_button" value="Добавить" /></a></p>
 </form>
 <?php }?>
 <div class="paginator">

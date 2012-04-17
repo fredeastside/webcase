@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-02-09 14:33:45
+<?php /* Smarty version Smarty-3.1.7, created on 2012-02-21 22:32:50
          compiled from "Z:\home\webcase\www\Views\templates\ViewLogin.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:108044f33aeedde8503-01142727%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd7c5185770ba372fbf296fb4f60a83ea985de366' => 
     array (
       0 => 'Z:\\home\\webcase\\www\\Views\\templates\\ViewLogin.tpl',
-      1 => 1328787221,
+      1 => 1329852765,
       2 => 'file',
     ),
   ),
@@ -52,4 +52,4 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</table>
 </div>
 </form>
-<p align="center"><a href="/registration.html">Регистрация</a> | <a href="/recover.html">Забыли пароль?</a> | <a href="/injustice.html">Не пришло письмо подтверждения регистрации?</a></p><?php }} ?>
+<p align="center"><a href="/registration/">Регистрация</a> | <a href="/recover/">Забыли пароль?</a> | <a href="/injustice/">Не пришло письмо подтверждения регистрации?</a></p><?php }} ?>
